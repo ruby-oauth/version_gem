@@ -35,8 +35,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter Boling"]
   spec.email = ["peter.boling@gmail.com", "oauth-ruby@googlegroups.com"]
 
-  spec.summary = "Enhance your VERSION! Sugar for Version modules."
-  spec.description = "Versions are good. Versions are cool. Versions will win."
+  spec.summary = "🔖 Enhance your VERSION! Sugar for Version modules."
+  spec.description = "🔖 Versions are good. Versions are cool. Versions will win."
   spec.homepage = "https://gitlab.com/oauth-xx/version_gem"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.2"
