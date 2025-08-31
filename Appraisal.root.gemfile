@@ -10,5 +10,3 @@ source "https://rubygems.org"
 # We do not load the standard Gemfile, as it is tailored for local development & GitLab CI.
 
 gemspec
-
-gem "appraisal", github: "pboling/appraisal", branch: "galtzo"
