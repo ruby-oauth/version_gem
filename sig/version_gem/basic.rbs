@@ -1,5 +1,5 @@
 module VersionGem
   module Basic
-    def self.extended: -> void
+    def self.extended: () -> void
   end
 end

@@ -18,10 +18,12 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 ### Added
+- More RBS types
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
+- RBS types are more accurate
 ### Security
 
 ## [1.1.8] 2025-05-06
