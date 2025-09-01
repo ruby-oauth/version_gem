@@ -19,6 +19,7 @@ Please file a bug if you notice a violation of semantic versioning.
 ## [Unreleased]
 ### Added
 - More RBS types
+- docs site: https://version-gem.galtzo.com
 ### Changed
 ### Deprecated
 ### Removed
