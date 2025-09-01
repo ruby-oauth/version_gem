@@ -18,6 +18,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 ### Added
+- re-templated gem using kettle-dev
+  - new binstubs for changelog, readme, commit message, & release management
+  - new CI workflows
+  - enhanced project documentation
 - More RBS types
 - docs site: https://version-gem.galtzo.com
 ### Changed
