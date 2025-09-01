@@ -1,68 +1,81 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 gem_version =
-  if RUBY_VERSION >= "3.1"
-    # Loading version into an anonymous module allows version.rb to get code coverage from SimpleCov!
+  if RUBY_VERSION >= "3.1" # rubocop:disable Gemspec/RubyVersionGlobalsUsage
+    # Loading Version into an anonymous module allows version.rb to get code coverage from SimpleCov!
     # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
-    Module.new.tap { |mod| Kernel.load("lib/version_gem/version.rb", mod) }::VersionGem::Version::VERSION
+    # See: https://github.com/panorama-ed/memo_wise/pull/397
+    Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/version_gem/version.rb", mod) }::VersionGem::Version::VERSION
   else
-    # TODO: Remove this hack once support for Ruby 3.0 and below is removed
-    Kernel.load("lib/version_gem/version.rb")
-    g_ver = VersionGem::Version::VERSION
-    VersionGem::Version.send(:remove_const, :VERSION)
-    g_ver
+    require_relative "lib/version_gem/version"
+    VersionGem::Version::VERSION
   end
 
 Gem::Specification.new do |spec|
-  # Linux distros may package ruby gems differently,
-  #   and securely certify them independently via alternate package management systems.
-  # Ref: https://gitlab.com/oauth-xx/version_gem/-/issues/3
-  # Hence, only enable signing if `SKIP_GEM_SIGNING` is not set in ENV.
-  # See CONTRIBUTING.md
-  user_cert = "certs/#{ENV.fetch("GEM_CERT_USER", ENV["USER"])}.pem"
-  cert_file_path = File.join(__dir__, user_cert)
-  cert_chain = cert_file_path.split(",")
-  cert_chain.select! { |fp| File.exist?(fp) }
-  if cert_file_path && cert_chain.any?
-    spec.cert_chain = cert_chain
-    if $PROGRAM_NAME.end_with?("gem") && ARGV[0] == "build" && !ENV.include?("SKIP_GEM_SIGNING")
-      spec.signing_key = File.join(Gem.user_home, ".ssh", "gem-private_key.pem")
-    end
-  end
-
   spec.name = "version_gem"
   spec.version = gem_version
   spec.authors = ["Peter Boling"]
-  spec.email = ["peter.boling@gmail.com", "oauth-ruby@googlegroups.com"]
+  spec.email = ["floss@galtzo.com", "oauth-ruby@googlegroups.com"]
 
   spec.summary = "🔖 Enhance your VERSION! Sugar for Version modules."
   spec.description = "🔖 Versions are good. Versions are cool. Versions will win."
-  spec.homepage = "https://gitlab.com/oauth-xx/version_gem"
-  spec.license = "MIT"
+  spec.homepage = "https://github.com/ruby-oauth/version_gem"
+  spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 2.2"
 
-  spec.metadata["homepage_uri"] = "https://railsbling.com/tags/#{spec.name}/"
-  spec.metadata["source_code_uri"] = "#{spec.homepage}/-/tree/v#{spec.version}"
-  spec.metadata["changelog_uri"] = "#{spec.homepage}/-/blob/v#{spec.version}/CHANGELOG.md"
-  spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/-/issues"
+  # Linux distros often package gems and securely certify them independent
+  #   of the official RubyGem certification process. Allowed via ENV["SKIP_GEM_SIGNING"]
+  # Ref: https://gitlab.com/ruby-oauth/version_gem/-/issues/3
+  # Hence, only enable signing if `SKIP_GEM_SIGNING` is not set in ENV.
+  # See CONTRIBUTING.md
+  unless ENV.include?("SKIP_GEM_SIGNING")
+    user_cert = "certs/#{ENV.fetch("GEM_CERT_USER", ENV["USER"])}.pem"
+    cert_file_path = File.join(__dir__, user_cert)
+    cert_chain = cert_file_path.split(",")
+    cert_chain.select! { |fp| File.exist?(fp) }
+    if cert_file_path && cert_chain.any?
+      spec.cert_chain = cert_chain
+      if $PROGRAM_NAME.end_with?("gem") && ARGV[0] == "build"
+        spec.signing_key = File.join(Gem.user_home, ".ssh", "gem-private_key.pem")
+      end
+    end
+  end
+
+  spec.metadata["homepage_uri"] = "https://#{spec.name.tr("_", "-")}.galtzo.com/"
+  spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
+  spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
   spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/#{spec.name}/#{spec.version}"
-  spec.metadata["wiki_uri"] = "#{spec.homepage}/-/wiki"
+  spec.metadata["funding_uri"] = "https://github.com/sponsors/pboling"
+  spec.metadata["wiki_uri"] = "#{spec.homepage}/wiki"
   spec.metadata["mailing_list_uri"] = "https://groups.google.com/g/oauth-ruby"
-  spec.metadata["funding_uri"] = "https://liberapay.com/pboling"
+  spec.metadata["news_uri"] = "https://www.railsbling.com/tags/#{spec.name}"
+  spec.metadata["discord_uri"] = "https://discord.gg/3qme4XHNKN"
   spec.metadata["rubygems_mfa_required"] = "true"
 
+  # Specify which files are part of the released package.
   spec.files = Dir[
-    # Files (alphabetical)
-    "lib/**/*",
+    # Executables and tasks
+    "exe/*",
+    "lib/**/*.rb",
+    "lib/**/*.rake",
+    # Signatures
+    "sig/**/*.rbs",
   ]
+
   # Automatically included with gem package, no need to list again in files.
   spec.extra_rdoc_files = Dir[
     # Files (alphabetical)
     "CHANGELOG.md",
+    "CITATION.cff",
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
+    "FUNDING.md",
     "LICENSE.txt",
     "README.md",
+    "REEK",
+    "RUBOCOP.md",
     "SECURITY.md",
   ]
   spec.rdoc_options += [
@@ -70,11 +83,34 @@ Gem::Specification.new do |spec|
     "#{spec.name} - #{spec.summary}",
     "--main",
     "README.md",
+    "--exclude",
+    "^sig/",
     "--line-numbers",
     "--inline-source",
     "--quiet",
   ]
   spec.require_paths = ["lib"]
+  spec.bindir = "bin"
+  # files listed are relative paths from bindir above.
+  spec.executables = []
 
-  spec.add_development_dependency("kettle-dev", "~> 1.0", ">= 1.0.25")    # ruby >= 2.3
+  # Utilities
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.8")              # ruby >= 2.2.0
+
+  # NOTE: It is preferable to list development dependencies in the gemspec due to increased
+  #       visibility and discoverability on RubyGems.org.
+  #       However, development dependencies in gemspec will install on
+  #       all versions of Ruby that will run in CI.
+  #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 2.3.x.
+  #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.3.x.
+  #       This is because in CI easy installation of Ruby, via setup-ruby, is for >= 2.3.
+  #       Thus, dev dependencies in gemspec must have
+  #
+  #       required_ruby_version ">= 2.3" (or lower)
+  #
+  #       Development dependencies that require strictly newer Ruby versions should be in a "gemfile",
+  #       and preferably a modular one (see gemfiles/modular/*.gemfile).
+
+  # Dev, Test, & Release Tasks
+  spec.add_development_dependency("kettle-dev", "~> 1.0.17")            # ruby >= 2.3.0
 end

@@ -1,9 +1,13 @@
 name: Style
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
       - 'main'
+      - '*-stable'
     tags:
       - '!*' # Do not execute on tags
   pull_request:
@@ -11,9 +15,6 @@ on:
       - '*'
   # Allow manually triggering the workflow.
   workflow_dispatch:
-
-permissions:
-  contents: read
 
 # Cancels all previous workflow runs for the same branch that have not yet completed.
 concurrency:
@@ -23,8 +24,8 @@ concurrency:
 
 jobs:
   rubocop:
-    name: Style on ${{ matrix.ruby }}@current
     if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
+    name: Style on ${{ matrix.ruby }}@current
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
@@ -55,7 +56,7 @@ jobs:
 
       # Raw `bundle` will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. Appraisal.root)
       # We need to do this first to get appraisal installed.
-      # NOTE: This does not use the main Gemfile at all.
+      # NOTE: This does not use the primary Gemfile at all.
       - name: Install Root Appraisal
         run: bundle
       - name: Appraisal for ${{ matrix.appraisal }}

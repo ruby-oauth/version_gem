@@ -1,5 +1,8 @@
 name: JRuby
 
+permissions:
+  contents: read
+
 env:
   K_SOUP_COV_DO: false
 
@@ -7,6 +10,7 @@ on:
   push:
     branches:
       - 'main'
+      - '*-stable'
     tags:
       - '!*' # Do not execute on tags
   pull_request:
@@ -14,9 +18,6 @@ on:
       - '*'
   # Allow manually triggering the workflow.
   workflow_dispatch:
-
-permissions:
-  contents: read
 
 # Cancels all previous workflow runs for the same branch that have not yet completed.
 concurrency:
@@ -26,8 +27,8 @@ concurrency:
 
 jobs:
   test:
-    name: Specs ${{ matrix.ruby }} ${{ matrix.appraisal }}${{ matrix.name_extra || '' }}
     if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
+    name: Specs ${{ matrix.ruby }} ${{ matrix.appraisal }}${{ matrix.name_extra || '' }}
     runs-on: ubuntu-22.04
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
@@ -35,35 +36,10 @@ jobs:
     strategy:
       matrix:
         include:
-          # TODO: truffleruby does not support upgrading rubygems; VALIDATE ASSUMPTION that same applies to JRuby
-          # jruby-9.1 (targets Ruby 2.3 compatibility)
-          - ruby: "jruby-9.1"
-            appraisal: "ruby-2-3"
-            exec_cmd: "rake spec"
-            gemfile: "Appraisal.root"
-            rubygems: default
-            bundler: default
-
-          # jruby-9.2 (targets Ruby 2.5 compatibility)
-          - ruby: "jruby-9.2"
-            appraisal: "ruby-2-5"
-            exec_cmd: "rake spec"
-            gemfile: "Appraisal.root"
-            rubygems: default
-            bundler: default
-
-          # jruby-9.3 (targets Ruby 2.6 compatibility)
-          - ruby: "jruby-9.3"
-            appraisal: "ruby-2-6"
-            exec_cmd: "rake spec"
-            gemfile: "Appraisal.root"
-            rubygems: default
-            bundler: default
-
           # jruby-9.4 (targets Ruby 3.1 compatibility)
           - ruby: "jruby-9.4"
             appraisal: "ruby-3-1"
-            exec_cmd: "rake spec"
+            exec_cmd: "rake test"
             gemfile: "Appraisal.root"
             rubygems: default
             bundler: default
@@ -82,7 +58,7 @@ jobs:
 
       # Raw `bundle` will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. Appraisal.root)
       # We need to do this first to get appraisal installed.
-      # NOTE: This does not use the main Gemfile at all.
+      # NOTE: This does not use the primary Gemfile at all.
       - name: Install Root Appraisal
         run: bundle
       - name: Appraisal for ${{ matrix.appraisal }}

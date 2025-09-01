@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: VersionGem
+title: version_gem
 message: >-
   If you use this work and you want to cite it,
   then you can use the metadata from this file.
@@ -12,9 +12,9 @@ authors:
     orcid: 'https://orcid.org/0009-0008-8519-441X'
 identifiers:
   - type: url
-    value: 'https://github.com/oauth-xx/version_gem/'
-    description: VersionGem
-repository-code: 'https://github.com/oauth-xx/version_gem/'
+    value: 'https://github.com/ruby-oauth/version_gem'
+    description: version_gem
+repository-code: 'https://github.com/ruby-oauth/version_gem'
 abstract: >-
-  VersionGem
+  version_gem
 license: See license file
