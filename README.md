@@ -38,7 +38,7 @@ This library was extracted from the gem _[oauth2](https://gitlab.com/oauth-xx/oa
 This gem has no runtime dependencies.
 
 
-## 🧐 Alternatives
+### 🧐 Alternatives
 
 This gem has a very niche purpose, which is:
 
@@ -240,7 +240,7 @@ end
 
 Your `version.rb` file now abides the Ruby convention of directory / path matching the namespace / class!
 
-## Epoch Usage (Epoch Semantic Versioning, as of version 1.1.7)
+### Epoch Usage (Epoch Semantic Versioning, as of version 1.1.7)
 
 In the standard `bundle gem my_lib` code you get the following in `lib/my_lib/version.rb`:
 
