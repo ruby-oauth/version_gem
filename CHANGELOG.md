@@ -18,11 +18,21 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 ### Added
+- re-templated gem using kettle-dev v1.1.2
+  - new binstubs for changelog, readme, commit message, & release management
+  - new CI workflows
+  - enhanced project documentation
+- More RBS types
+- docs site: https://version-gem.galtzo.com
 ### Changed
-### Fixed
+### Deprecated
 ### Removed
+### Fixed
+- RBS types are more accurate
+### Security
 
-## [1.1.8] 2025-05-06 ([tag][1.1.8t])
+## [1.1.8] 2025-05-06
+- TAG: [1.1.8][1.1.8t]
 - COVERAGE: 100.00% -- 118/118 lines in 8 files
 - BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
 - 84.62% documented
@@ -34,7 +44,8 @@ Please file a bug if you notice a violation of semantic versioning.
 - Addressed entire REEK list (@pboling)
 - GitLab CI, as an addition to existing GHA (@pboling)
 
-## [1.1.7] 2025-04-15 ([tag][1.1.7t])
+## [1.1.7] 2025-04-15
+- TAG: [1.1.7][1.1.7t]
 - Line Coverage: 100.0% (117 / 117)
 - Branch Coverage: 100.0% (4 / 4)
 - 76.92% documented
@@ -47,7 +58,8 @@ Please file a bug if you notice a violation of semantic versioning.
 - Ruby 2.2 removed from CI, though technically still supported
   - can't run directly in GHA anymore
 
-## [1.1.6] 2025-02-24 ([tag][1.1.6t])
+## [1.1.6] 2025-02-24
+- TAG: [1.1.6][1.1.6t]
 - Line Coverage: 100.0% (77 / 77)
 - Branch Coverage: 100.0% (2 / 2)
 - 77.78% documented
@@ -62,7 +74,8 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Changed
 - Code of Conduct updated - Contributor Covenant v2.0 => v2.1 (@pboling)
 
-## [1.1.5] 2025-02-22 ([tag][1.1.5t])
+## [1.1.5] 2025-02-22
+- TAG: [1.1.5][1.1.5t]
 - Line Coverage: 100.0% (77 / 77)
 - Branch Coverage: 100.0% (2 / 2)
 - 77.78% documented
@@ -71,19 +84,21 @@ Please file a bug if you notice a violation of semantic versioning.
 - More documentation, and yard task for documentation (@pboling)
 - Documentation of Ruby version and SemVer support (@pboling)
 ### Fixed
-- [#3](https://gitlab.com/oauth-xx/version_gem/-/issues/3) - Allow packaging without signing (@pboling)
+- [#3](https://gitlab.com/ruby-oauth/version_gem/-/issues/3) - Allow packaging without signing (@pboling)
   - to support secure linux distros which have alternate means of signing packages within their package managers
 - Code coverage tracking (@pboling)
 - Documentation of usage in gemspec via `Kernel.load` (@pboling)
 - Improved gemspec config (@pboling)
 
-## [1.1.4] 2024-03-21 ([tag][1.1.4t])
+## [1.1.4] 2024-03-21
+- TAG: [1.1.4][1.1.4t]
 ### Added
 - Ruby 3.3 to CI (@pboling)
 ### Fixed
 - Remove the executable bit from non-executable files (@Fryguy)
 
-## [1.1.3] 2023-06-05 ([tag][1.1.3t])
+## [1.1.3] 2023-06-05
+- TAG: [1.1.3][1.1.3t]
 ### Added
 - More test coverage (now 100% 🎉) (@pboling)
 - Improved documentation (now 77% 🎉) (@pboling)
@@ -103,14 +118,16 @@ Please file a bug if you notice a violation of semantic versioning.
 - Formally drop Ruby 2.2 support
   - Ruby 2.2 was already de facto minimum version supported, which is why this wasn't a 2.0 release.
 
-## [1.1.2] - 2023-03-17 ([tag][1.1.2t])
+## [1.1.2] - 2023-03-17
+- TAG: [1.1.2][1.1.2t]
 ### Added
 - `VersionGem::Ruby` to help library CI integration against many different versions of Ruby (@pboling)
   - Experimental, optional, require (not loaded by default, which is why this can be in a patch)
 - Spec coverage is now 100%, lines and branches, including the fabled `version.rb` (@pboling)
 - Full RBS Signatures (@pboling)
 
-## [1.1.1] - 2022-09-19 ([tag][1.1.1t])
+## [1.1.1] - 2022-09-19
+- TAG: [1.1.1][1.1.1t]
 ### Added
 - Alternatives section to README.md (@pboling)
 - Signing cert for gem releases (@pboling)
@@ -121,49 +138,53 @@ Please file a bug if you notice a violation of semantic versioning.
 - Version methods are now memoized (||=) on initial call for performance (@pboling)
 - Gem releases are now cryptographically signed (@pboling)
 
-## [1.1.0] - 2022-06-24 ([tag][1.1.0t])
+## [1.1.0] - 2022-06-24
+- TAG: [1.1.0][1.1.0t]
 ### Added
 - RSpec Matchers and Shared Example (@pboling)
 ### Fixed
 - `to_a` uses same type casting as major, minor, patch, and pre (@pboling)
 
-## [1.0.2] - 2022-06-23 ([tag][1.0.2t])
+## [1.0.2] - 2022-06-23
+- TAG: [1.0.2][1.0.2t]
 ### Added
 - Delay loading of library code until after code coverage tool is loaded (@pboling)
 
-## [1.0.1] - 2022-06-23 ([tag][1.0.1t])
+## [1.0.1] - 2022-06-23
+- TAG: [1.0.1][1.0.1t]
 ### Added
 - CI Build improvements (@pboling)
 - Code coverage reporting (@pboling)
 - Documentation improvements (@pboling)
 - Badges! (@pboling)
 
-## [1.0.0] - 2022-06-21 ([tag][1.0.0t])
+## [1.0.0] - 2022-06-21
+- TAG: [1.0.0][1.0.0t]
 ### Added
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.8...main
-[1.1.8]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.7...v1.1.8
-[1.1.8t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.8
-[1.1.7]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.6...v1.1.7
-[1.1.7t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.7
-[1.1.6]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.5...v1.1.6
-[1.1.6t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.6
-[1.1.5]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.4...v1.1.5
-[1.1.5t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.5
-[1.1.4]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.3...v1.1.4
-[1.1.4t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.4
-[1.1.3]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.2...v1.1.3
-[1.1.3t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.3
-[1.1.2]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.1...v1.1.2
-[1.1.2t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.2
-[1.1.1]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.0...v1.1.1
-[1.1.1t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.1
-[1.1.0]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.0.2...v1.1.0
-[1.1.0t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.0
-[1.0.2]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.0.1...v1.0.2
-[1.0.2t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.0.2
-[1.0.1]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.0.0...v1.0.1
-[1.0.1t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.0.1
-[1.0.0]: https://gitlab.com/oauth-xx/version_gem/-/compare/a3055964517c159bf214712940982034b75264be...v1.0.0
-[1.0.0t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.0.0
+[Unreleased]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.8...main
+[1.1.8]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.7...v1.1.8
+[1.1.8t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.8
+[1.1.7]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.6...v1.1.7
+[1.1.7t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.7
+[1.1.6]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.5...v1.1.6
+[1.1.6t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.6
+[1.1.5]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.4...v1.1.5
+[1.1.5t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.5
+[1.1.4]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.3...v1.1.4
+[1.1.4t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.4
+[1.1.3]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.2...v1.1.3
+[1.1.3t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.3
+[1.1.2]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.1...v1.1.2
+[1.1.2t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.2
+[1.1.1]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.0...v1.1.1
+[1.1.1t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.1
+[1.1.0]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.2...v1.1.0
+[1.1.0t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.0
+[1.0.2]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.1...v1.0.2
+[1.0.2t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.2
+[1.0.1]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.0...v1.0.1
+[1.0.1t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.1
+[1.0.0]: https://gitlab.com/ruby-oauth/version_gem/-/compare/a3055964517c159bf214712940982034b75264be...v1.0.0
+[1.0.0t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.0
