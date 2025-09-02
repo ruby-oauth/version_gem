@@ -94,9 +94,6 @@ Gem::Specification.new do |spec|
   # files listed are relative paths from bindir above.
   spec.executables = []
 
-  # Utilities
-  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.8")              # ruby >= 2.2.0
-
   # NOTE: It is preferable to list development dependencies in the gemspec due to increased
   #       visibility and discoverability on RubyGems.org.
   #       However, development dependencies in gemspec will install on
