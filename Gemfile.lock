@@ -313,7 +313,7 @@ DEPENDENCIES
   rdoc (~> 6.11)
   reek (~> 6.5)
   require_bench (~> 1.0, >= 1.0.4)
-  rspec-pending_for
+  rspec-pending_for (~> 0.0, >= 0.0.17)
   rubocop-lts (~> 8.0)
   rubocop-on-rbs (~> 1.8)
   rubocop-packaging (~> 0.6, >= 0.6.0)
