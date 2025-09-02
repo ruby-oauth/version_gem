@@ -5,7 +5,6 @@ This project should be a safe, welcoming space for collaboration, so contributor
 the [code of conduct][🤝conduct].
 
 To submit a patch, please fork the project, create a patch with tests, and send a pull request.
-Post a message to the [google group][⛳mail-list] if you want to.
 
 Remember to [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog] if you make changes.
 
@@ -147,7 +146,9 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 
 #### Automated process
 
-Run `bundle exec kettle-release`.
+1. Update version.rb to contian the correct version-to-be-released.
+2. Run `bundle exec kettle-changelog`.
+3. Run `bundle exec kettle-release`.
 
 #### Manual process
 
@@ -176,7 +177,6 @@ Run `bundle exec kettle-release`.
 13. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to [rubygems.org][💎rubygems]
 
-[⛳mail-list]: http://groups.google.com/group/oauth-ruby
 [📜src-gl]: https://gitlab.com/ruby-oauth/version_gem/
 [📜src-cb]: https://codeberg.org/ruby-oauth/version_gem
 [📜src-gh]: https://github.com/ruby-oauth/version_gem

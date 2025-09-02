@@ -84,7 +84,7 @@ Please file a bug if you notice a violation of semantic versioning.
 - More documentation, and yard task for documentation (@pboling)
 - Documentation of Ruby version and SemVer support (@pboling)
 ### Fixed
-- [#3](https://gitlab.com/oauth-xx/version_gem/-/issues/3) - Allow packaging without signing (@pboling)
+- [#3](https://gitlab.com/ruby-oauth/version_gem/-/issues/3) - Allow packaging without signing (@pboling)
   - to support secure linux distros which have alternate means of signing packages within their package managers
 - Code coverage tracking (@pboling)
 - Documentation of usage in gemspec via `Kernel.load` (@pboling)
@@ -163,28 +163,28 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Added
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.8...main
-[1.1.8]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.7...v1.1.8
-[1.1.8t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.8
-[1.1.7]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.6...v1.1.7
-[1.1.7t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.7
-[1.1.6]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.5...v1.1.6
-[1.1.6t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.6
-[1.1.5]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.4...v1.1.5
-[1.1.5t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.5
-[1.1.4]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.3...v1.1.4
-[1.1.4t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.4
-[1.1.3]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.2...v1.1.3
-[1.1.3t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.3
-[1.1.2]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.1...v1.1.2
-[1.1.2t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.2
-[1.1.1]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.1.0...v1.1.1
-[1.1.1t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.1
-[1.1.0]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.0.2...v1.1.0
-[1.1.0t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.1.0
-[1.0.2]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.0.1...v1.0.2
-[1.0.2t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.0.2
-[1.0.1]: https://gitlab.com/oauth-xx/version_gem/-/compare/v1.0.0...v1.0.1
-[1.0.1t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.0.1
-[1.0.0]: https://gitlab.com/oauth-xx/version_gem/-/compare/a3055964517c159bf214712940982034b75264be...v1.0.0
-[1.0.0t]: https://gitlab.com/oauth-xx/version_gem/-/tags/v1.0.0
+[Unreleased]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.8...main
+[1.1.8]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.7...v1.1.8
+[1.1.8t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.8
+[1.1.7]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.6...v1.1.7
+[1.1.7t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.7
+[1.1.6]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.5...v1.1.6
+[1.1.6t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.6
+[1.1.5]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.4...v1.1.5
+[1.1.5t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.5
+[1.1.4]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.3...v1.1.4
+[1.1.4t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.4
+[1.1.3]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.2...v1.1.3
+[1.1.3t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.3
+[1.1.2]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.1...v1.1.2
+[1.1.2t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.2
+[1.1.1]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.0...v1.1.1
+[1.1.1t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.1
+[1.1.0]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.2...v1.1.0
+[1.1.0t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.0
+[1.0.2]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.1...v1.0.2
+[1.0.2t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.2
+[1.0.1]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.0...v1.0.1
+[1.0.1t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.1
+[1.0.0]: https://gitlab.com/ruby-oauth/version_gem/-/compare/a3055964517c159bf214712940982034b75264be...v1.0.0
+[1.0.0t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.0
