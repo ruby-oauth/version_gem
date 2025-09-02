@@ -4,7 +4,7 @@
 [🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
 [🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
 [🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️version_gem-i]: https://logos.galtzo.com/assets/images/ruby-oauth/version_gem/avatar-192px.svg
+[🖼️version_gem-i]: https://logos.galtzo.com/assets/images/oauth/oauth2/avatar-192px.svg
 [🖼️version_gem]: https://github.com/ruby-oauth/version_gem
 
 # 🔖 VersionGem
