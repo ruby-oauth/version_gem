@@ -562,7 +562,7 @@ the [Pessimistic Version Constraint][📌pvc] with two digits of precision.
 For example:
 
 ```ruby
-spec.add_dependency("version_gem", "~> 1.0")
+spec.add_dependency("version_gem", "~> 1.1")
 ```
 
 <details>
@@ -591,7 +591,7 @@ See [LICENSE.txt][📄license] for the official [Copyright Notice][📄copyright
 
 <ul>
     <li>
-        Copyright (c) 2023, 2025 Peter H. Boling, of
+        Copyright (c) 2022-2025 Peter H. Boling, of
         <a href="https://discord.gg/3qme4XHNKN">
             Galtzo.com
             <picture>

@@ -13,7 +13,7 @@ GIT
 PATH
   remote: .
   specs:
-    version_gem (1.1.8)
+    version_gem (1.1.9)
 
 GEM
   remote: https://rubygems.org/

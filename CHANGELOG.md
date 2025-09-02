@@ -18,18 +18,26 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [1.1.9] - 2025-09-02
+- TAG: [v1.1.9][1.1.9t]
+- COVERAGE: 100.00% -- 118/118 lines in 8 files
+- BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
+- 84.62% documented
+### Added
 - re-templated gem using kettle-dev v1.1.2
   - new binstubs for changelog, readme, commit message, & release management
   - new CI workflows
   - enhanced project documentation
 - More RBS types
 - docs site: https://version-gem.galtzo.com
-### Changed
-### Deprecated
-### Removed
 ### Fixed
 - RBS types are more accurate
-### Security
 
 ## [1.1.8] 2025-05-06
 - TAG: [1.1.8][1.1.8t]
@@ -163,28 +171,30 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Added
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.8...main
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.9...HEAD
+[1.1.9]: https://github.com/ruby-oauth/version_gem/compare/v1.1.8...v1.1.9
+[1.1.9t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.9
 [1.1.8]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.7...v1.1.8
-[1.1.8t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.8
+[1.1.8t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.8
 [1.1.7]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.6...v1.1.7
-[1.1.7t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.7
+[1.1.7t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.7
 [1.1.6]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.5...v1.1.6
-[1.1.6t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.6
+[1.1.6t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.6
 [1.1.5]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.4...v1.1.5
-[1.1.5t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.5
+[1.1.5t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.5
 [1.1.4]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.3...v1.1.4
-[1.1.4t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.4
+[1.1.4t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.4
 [1.1.3]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.2...v1.1.3
-[1.1.3t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.3
+[1.1.3t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.3
 [1.1.2]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.1...v1.1.2
-[1.1.2t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.2
+[1.1.2t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.2
 [1.1.1]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.0...v1.1.1
-[1.1.1t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.1
+[1.1.1t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.1
 [1.1.0]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.2...v1.1.0
-[1.1.0t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.1.0
+[1.1.0t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.0
 [1.0.2]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.1...v1.0.2
-[1.0.2t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.2
+[1.0.2t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.0.2
 [1.0.1]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.0.0...v1.0.1
-[1.0.1t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.1
-[1.0.0]: https://gitlab.com/ruby-oauth/version_gem/-/compare/a3055964517c159bf214712940982034b75264be...v1.0.0
-[1.0.0t]: https://gitlab.com/ruby-oauth/version_gem/-/tags/v1.0.0
+[1.0.1t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.0.1
+[1.0.0]: https://github.com/ruby-oauth/version_gem/compare/a3055964517c159bf214712940982034b75264be...v1.0.0
+[1.0.0t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.0.0
