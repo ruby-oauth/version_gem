@@ -59,31 +59,25 @@
 
       <div id="content"><div id='filecontents'><p>module VersionGem<br>
   module Api<br>
+    # Internal memoized version string segments<br>
     @_to_a: Array[String]</p>
 
-<pre class="code ruby"><code class="ruby">@major: Integer
-
+<pre class="code ruby"><code class="ruby"># Memoized components
+@major: Integer
 @minor: Integer
-
 @patch: Integer
-
 @pre: String?
+@to_a: Array[Integer | String | nil]
+@to_h: Hash[Symbol, (Integer | String | nil)]
 
-@to_a: Array
-
-@to_h: Hash
-
+# Public API
+def to_s: () -&gt; String
 def major: () -&gt; Integer
-
 def minor: () -&gt; Integer
-
 def patch: () -&gt; Integer
-
 def pre: () -&gt; String?
-
-def to_a: () -&gt; Array
-
-def to_h: () -&gt; Hash
+def to_a: () -&gt; Array[Integer | String | nil]
+def to_h: () -&gt; Hash[Symbol, (Integer | String | nil)]
 
 private
 
@@ -92,7 +86,7 @@ def _to_a: () -&gt; Array[String]   end end
 </div></div>
 
       <div id="footer">
-  Generated on Mon Sep  1 02:32:01 2025 by
+  Generated on Tue Sep  2 05:49:20 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.5).
 </div>

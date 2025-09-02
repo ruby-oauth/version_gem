@@ -59,16 +59,18 @@
 
       <div id="content"><div id='filecontents'><p>module VersionGem<br>
   module Ruby<br>
-    RUBY_VER: Gem::Version</p>
+    RUBY_VER: ::Gem::Version</p>
 
-<pre class="code ruby"><code class="ruby">def actual_minor_version?: () -&gt; bool
+<pre class="code ruby"><code class="ruby"># Check if the current Ruby version is &gt;= given version for the engine
+def self.gte_minimum_version?: (String, ?String) -&gt; bool
 
-def gte_minimum_version?: () -&gt; bool   end end
+# Check if the current Ruby MAJOR.MINOR equals the given values for the engine
+def self.actual_minor_version?: ((Integer | String), (Integer | String), ?String) -&gt; bool   end end
 </code></pre>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Sep  1 02:32:01 2025 by
+  Generated on Tue Sep  2 05:49:20 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.5).
 </div>

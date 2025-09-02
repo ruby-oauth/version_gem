@@ -18,7 +18,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ## [Unreleased]
 ### Added
-- re-templated gem using kettle-dev
+- re-templated gem using kettle-dev v1.1.2
   - new binstubs for changelog, readme, commit message, & release management
   - new CI workflows
   - enhanced project documentation
