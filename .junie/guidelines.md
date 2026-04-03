@@ -47,7 +47,7 @@ This document captures project-specific knowledge to streamline setup, testing, 
     - silent_stream: STDOUT is silenced by default for examples to keep logs clean.
       - To explicitly test console output, tag the example or group with :check_output.
     - Global state hygiene: Around each example, FlossFunding.namespaces and FlossFunding.silenced are snapshotted and restored to prevent cross-test pollution.
-    - DEBUG toggle: Set DEBUG=true to require 'debug' and avoid silencing output during your run.
+    - DEBUG toggles: Set DEBUG=true to load the 'debug' gem. Set KETTLE_DEV_DEBUG=true to disable output silencing during your run.
     - ENV seeding: The suite sets ENV["FLOSS_FUNDING_FLOSS_FUNDING"] = "Free-as-in-beer" so that the library’s own namespace is considered activated (avoids noisy warnings).
     - Coverage: kettle-soup-cover integrates SimpleCov; .simplecov is invoked from spec_helper when enabled by Kettle::Soup::Cover::DO_COV, which is controlled by K_SOUP_COV_DO being set to true / false.
     - RSpec.describe usage:
@@ -78,7 +78,7 @@ This document captures project-specific knowledge to streamline setup, testing, 
           expect(true).to be true
         end
       end
-    - Alternatively, run with DEBUG=true to disable silencing for the entire run.
+    - Alternatively, run with KETTLE_DEV_DEBUG=true to disable silencing for the entire run.
   - During a spec run, the presence of output about missing activation keys is often expected, since it is literally what this library is for. It only indicates a failure if the spec expected all activation keys to be present, and not all specs do.
 - Adding new tests (guidelines)
   - Organize specs by class/module. Do not create per-task umbrella spec files; add examples to the existing spec for the class/module under test, or create a new spec file for that class/module if one does not exist. Only create a standalone scenario spec when it intentionally spans multiple classes for an integration/benchmark scenario (e.g., bench_integration_spec), and name it accordingly.
@@ -128,7 +128,7 @@ Notes
 - ALWAYS Run bundle exec rake rubocop_gradual:autocorrect as the final step before completing a task, to lint and autocorrect any remaining issues. Then if there are new lint failures, attempt to correct them manually.
 - NEVER run vanilla rubocop, as it won't handle the linting config properly. Always run rubocop_gradual:autocorrect or rubocop_gradual.
 - Running only a subset of specs is supported but in order to bypass the hard failure due to coverage thresholds, you need to run with K_SOUP_COV_MIN_HARD=false.
-- When adding code that writes to STDOUT, remember most specs silence output unless tagged with :check_output or DEBUG=true.
+- When adding code that writes to STDOUT, remember most specs silence output unless tagged with :check_output or KETTLE_DEV_DEBUG=true.
 - Completion criteria after changes: Only consider your change “done” when the relevant examples pass, as verified by .rspec_status. Do not rely on STDOUT impressions; consult .rspec_status (and example IDs) to confirm green results for the affected files/examples. If you ran a subset, re-run the full suite before finalizing to restore coverage thresholds.
 - Coverage reports: NEVER review the HTML report. Use JSON (preferred), XML, LCOV, or RCOV. For this project, always run tests with K_SOUP_COV_FORMATTERS set to "json".
 - Do NOT modify .envrc in tasks; when running tests locally or in scripts, manually prefix each run, e.g.: K_SOUP_COV_FORMATTERS="json" bin/rspec
