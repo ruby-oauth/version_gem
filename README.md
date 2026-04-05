@@ -593,19 +593,8 @@ See [CHANGELOG.md][📌changelog] for a list of releases.
 
 ## 📄 License
 
-The gem is available under the following licenses: [AGPL-3.0-only](AGPL-3.0-only.md), [PolyForm-Small-Business-1.0.0](PolyForm-Small-Business-1.0.0.md), [Big-Time-Public-License](Big-Time-Public-License.md).
-See [LICENSE.md][📄license] for details.
-
-If none of the available licenses suit your use case, please [contact us](mailto:floss@glatzo.com) to discuss a custom commercial license.
-
-### License use-case guide
-
-| Use case | License |
-|---|---|
-| Copy-left open source | [AGPL-3.0-only](AGPL-3.0-only.md) |
-| Non-commercial (research, education, personal use) | [PolyForm-Small-Business-1.0.0](PolyForm-Small-Business-1.0.0.md) or [Big-Time-Public-License](Big-Time-Public-License.md) |
-| Small business commercial | [PolyForm-Small-Business-1.0.0](PolyForm-Small-Business-1.0.0.md) or [Big-Time-Public-License](Big-Time-Public-License.md) |
-| Larger business commercial | [Big-Time-Public-License](Big-Time-Public-License.md) or [contact us](mailto:floss@glatzo.com) for a custom license |
+The gem is available as open source under the terms of
+the [MIT](MIT.md) [![License: MIT][📄license-img]][📄license-ref].
 
 ### © Copyright
 
@@ -834,6 +823,8 @@ Thanks for RTFM. ☺️
 [🔐security-img]: https://img.shields.io/badge/security-policy-259D6C.svg?style=flat
 [📄copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year
 [📄license]: LICENSE.md
+[📄license-ref]: https://opensource.org/licenses/MIT
+[📄license-img]: https://img.shields.io/badge/License-MIT-259D6C.svg
 [📄license-compat]: https://dev.to/galtzo/how-to-check-license-compatibility-41h0
 [📄license-compat-img]: https://img.shields.io/badge/Apache_Compatible:_Category_A-%E2%9C%93-259D6C.svg?style=flat&logo=Apache
 [📄ilo-declaration]: https://www.ilo.org/declaration/lang--en/index.htm

@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.summary = "🍲 Enhance your VERSION! Sugar for Version modules."
   spec.description = "🍲 Versions are good. Versions are cool. Versions will win."
   spec.homepage = "https://github.com/ruby-oauth/version_gem"
-  spec.licenses = ["AGPL-3.0-only", "PolyForm-Small-Business-1.0.0", "LicenseRef-Big-Time-Public-License"]
+  spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 2.2"
 
   # Linux distros often package gems and securely certify them independent
