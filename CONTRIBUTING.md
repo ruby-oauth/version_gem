@@ -71,6 +71,16 @@ after running `bin/setup`. These include:
 - MAX_ROWS: Limit console output rows for simplecov-console (e.g., 1)
   Tip: When running a single spec file locally, you may want `K_SOUP_COV_MIN_HARD=false` to avoid failing thresholds for a partial run.
 
+- K_SOUP_COV_DO: Enable coverage collection (default: true in `mise.toml`)
+- K_SOUP_COV_FORMATTERS: Comma-separated list of formatters (html, xml, rcov, lcov, json, tty)
+- K_SOUP_COV_MIN_LINE: Minimum line coverage threshold (integer, e.g., 100)
+- K_SOUP_COV_MIN_BRANCH: Minimum branch coverage threshold (integer, e.g., 100)
+- K_SOUP_COV_MIN_HARD: Fail the run if thresholds are not met (true/false)
+- K_SOUP_COV_MULTI_FORMATTERS: Enable multiple formatters at once (true/false)
+- K_SOUP_COV_OPEN_BIN: Path to browser opener for HTML (empty disables auto-open)
+- MAX_ROWS: Limit console output rows for simplecov-console (e.g., 1)
+  Tip: When running a single spec file locally, you may want `K_SOUP_COV_MIN_HARD=false` to avoid failing thresholds for a partial run.
+
 GitHub API and CI helpers
 - GITHUB_TOKEN or GH_TOKEN: Token used by `ci:act` and release workflow checks to query GitHub Actions status at higher rate limits
 
@@ -87,6 +97,15 @@ Git hooks and commit message helpers (exe/kettle-commit-msg)
 - GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
 - GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
 - GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
+
+- gem_checksums
+- kettle-changelog
+- kettle-commit-msg
+- kettle-dev-setup
+- kettle-dvcs
+- kettle-pre-release
+- kettle-readme-backers
+- kettle-release
 
 - gem_checksums
 - kettle-changelog
@@ -138,10 +157,10 @@ bundle exec rake test
 
 ### Spec organization (required)
 
-1. Update version.rb to contain the correct version-to-be-released.
-2. Run `bundle exec kettle-changelog`.
-3. Run `bundle exec kettle-release`.
-4. Stay awake and monitor the release process for any errors, and answer any prompts.
+- GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., `jira`) or `false` to disable
+- GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
+- GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
+- GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
 
 - One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/version_gem/my_class.rb` -> `spec/version_gem/my_class_spec.rb`.
 - Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
@@ -168,6 +187,11 @@ Never add `# rubocop:disable ...` / `# rubocop:enable ...` comments to code or s
 
 - One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/version_gem/my_class.rb` -> `spec/version_gem/my_class_spec.rb`.
 - Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
+
+- Prefer configuration-based exclusions when a rule should not apply to certain paths or files (e.g., via `.rubocop.yml`).
+- When a violation is temporary, and you plan to fix it later, record it in `.rubocop_gradual.lock` using the gradual workflow:
+  - `bundle exec rake rubocop_gradual:autocorrect` (preferred)
+  - `bundle exec rake rubocop_gradual:force_update` (only when you cannot fix the violations immediately)
 
 - Prefer configuration-based exclusions when a rule should not apply to certain paths or files (e.g., via `.rubocop.yml`).
 - When a violation is temporary, and you plan to fix it later, record it in `.rubocop_gradual.lock` using the gradual workflow:
@@ -210,6 +234,11 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 1. Update version.rb to contian the correct version-to-be-released.
 2. Run `bundle exec kettle-changelog`.
 3. Run `bundle exec kettle-release`.
+
+1. Update version.rb to contain the correct version-to-be-released.
+2. Run `bundle exec kettle-changelog`.
+3. Run `bundle exec kettle-release`.
+4. Stay awake and monitor the release process for any errors, and answer any prompts.
 
 #### Manual process
 
