@@ -33,3 +33,5 @@ eval_gemfile "gemfiles/modular/documentation.gemfile"
 
 # Optional
 eval_gemfile "gemfiles/modular/optional.gemfile"
+
+eval_gemfile "gemfiles/modular/templating.gemfile"
