@@ -9,10 +9,6 @@ git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 gemspec
 
 platform :mri do
-  gem "gem_bench", "~> 2.0", ">= 2.0.5"
-
-  # Dev Console - Binding.pry - Irb replacement
-  gem "pry", "~> 0.14"                     # ruby >= 2.0
 end
 
 # Code Coverage (env-switched: KETTLE_RB_DEV=true for local paths)
