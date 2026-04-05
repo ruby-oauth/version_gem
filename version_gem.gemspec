@@ -1,6 +1,12 @@
 # coding: utf-8
 # frozen_string_literal: true
 
+# kettle-jem:freeze
+# To retain chunks of comments & code during version_gem templating:
+# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+# version_gem will then preserve content between those markers across template runs.
+# kettle-jem:unfreeze
+
 gem_version =
   if RUBY_VERSION >= "3.1" # rubocop:disable Gemspec/RubyVersionGlobalsUsage
     # Loading Version into an anonymous module allows version.rb to get code coverage from SimpleCov!
@@ -8,7 +14,12 @@ gem_version =
     # See: https://github.com/panorama-ed/memo_wise/pull/397
     Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/version_gem/version.rb", mod) }::VersionGem::Version::VERSION
   else
-    require_relative "lib/version_gem/version"
+    # NOTE: Use __FILE__ or __dir__ until removal of Ruby 1.x support
+    # __dir__ introduced in Ruby 1.9.1
+    # lib = File.expand_path("../lib", __FILE__)
+    lib = File.expand_path("lib", __dir__)
+    $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+    require "version_gem/version"
     VersionGem::Version::VERSION
   end
 
@@ -18,10 +29,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter Boling"]
   spec.email = ["floss@galtzo.com", "oauth-ruby@googlegroups.com"]
 
-  spec.summary = "🔖 Enhance your VERSION! Sugar for Version modules."
-  spec.description = "🔖 Versions are good. Versions are cool. Versions will win."
+  spec.summary = "🍲 Enhance your VERSION! Sugar for Version modules."
+  spec.description = "🍲 Versions are good. Versions are cool. Versions will win."
   spec.homepage = "https://github.com/ruby-oauth/version_gem"
-  spec.licenses = ["MIT"]
+  spec.licenses = ["AGPL-3.0-only", "PolyForm-Small-Business-1.0.0", "LicenseRef-Big-Time-Public-License"]
   spec.required_ruby_version = ">= 2.2"
 
   # Linux distros often package gems and securely certify them independent
@@ -42,7 +53,7 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.metadata["homepage_uri"] = "https://#{spec.name.tr("_", "-")}.galtzo.com/"
+  spec.metadata["homepage_uri"] = "https://version-gem.galtzo.com/"
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
@@ -91,16 +102,17 @@ Gem::Specification.new do |spec|
   ]
   spec.require_paths = ["lib"]
   spec.bindir = "bin"
-  # files listed are relative paths from bindir above.
+  # Listed files are the relative paths from bindir above.
   spec.executables = []
 
+  # Utilities
+
   # NOTE: It is preferable to list development dependencies in the gemspec due to increased
-  #       visibility and discoverability on RubyGems.org.
+  #       visibility and discoverability.
   #       However, development dependencies in gemspec will install on
   #       all versions of Ruby that will run in CI.
-  #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 2.3.x.
-  #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.3.x.
-  #       This is because in CI easy installation of Ruby, via setup-ruby, is for >= 2.3.
+  #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 2.2.
+  #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.3.
   #       Thus, dev dependencies in gemspec must have
   #
   #       required_ruby_version ">= 2.3" (or lower)
@@ -135,25 +147,16 @@ Gem::Specification.new do |spec|
   # spec.add_dependency("git", ">= 1.19.1")                               # ruby >= 2.3
 
   # Development tasks
-  # The cake is a lie. erb v2.2, the oldest release on RubyGems.org, was never compatible with Ruby 2.3.
+  # The cake is a lie. erb v2.2, the oldest release, was never compatible with Ruby 2.3.
   # This means we have no choice but to use the erb that shipped with Ruby 2.3
   # /opt/hostedtoolcache/Ruby/2.3.8/x64/lib/ruby/gems/2.3.0/gems/erb-2.2.2/lib/erb.rb:670:in `prepare_trim_mode': undefined method `match?' for "-":String (NoMethodError)
   # spec.add_development_dependency("erb", ">= 2.2")                                  # ruby >= 2.3.0, not SemVer, old rubies get dropped in a patch.
   spec.add_development_dependency("gitmoji-regex", "~> 1.0", ">= 1.0.3")            # ruby >= 2.3.0
 
   # HTTP recording for deterministic specs
-  # It seems that somehow just having a newer version of appraisal installed breaks
-  #   Ruby 2.3 and 2.4 even if their bundle specifies an older version,
-  #   and as a result it can only be a dependency in the appraisals.
-  # | An error occurred while loading spec_helper.
-  # | Failure/Error: require "vcr"
-  # |
-  # | NoMethodError:
-  # |   undefined method `delete_prefix' for "CONTENT_LENGTH":String
-  # | # ./spec/config/vcr.rb:3:in `require'
-  # | # ./spec/config/vcr.rb:3:in `<top (required)>'
-  # | # ./spec/spec_helper.rb:8:in `require_relative'
-  # | # ./spec/spec_helper.rb:8:in `<top (required)>'
-  # spec.add_development_dependency("vcr", ">= 4")                      # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
-  # spec.add_development_dependency("webmock", ">= 3")               # Last version to support ruby >= 2.3
+  # In Ruby 3.5 (HEAD) the CGI library has been pared down, so we also need to depend on gem "cgi" for ruby@head
+  # This is done in the "head" appraisal.
+  # See: https://github.com/vcr/vcr/issues/1057
+  # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
+  # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
 end

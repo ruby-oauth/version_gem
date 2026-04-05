@@ -22,6 +22,10 @@ Follow these instructions:
 6. Make sure to add tests for it. This is important, so it doesn't break in a future release.
 7. Create new Pull Request.
 
+```shell
+bin/rake -T
+```
+
 ## Environment Variables for Local Development
 
 Below are the primary environment variables recognized by stone_checksums (and its integrated tools). Unless otherwise noted, set boolean values to the string "true" to enable.
@@ -32,7 +36,22 @@ General/runtime
 - CI: When set to true, adjusts default rake tasks toward CI behavior
 
 Coverage (kettle-soup-cover / SimpleCov)
-- K_SOUP_COV_DO: Enable coverage collection (default: true in .envrc)
+
+## Executables vs Rake tasks
+
+Executables shipped by dependencies, such as kettle-dev, and stone_checksums, are available
+after running `bin/setup`. These include:
+
+- gem_checksums
+- kettle-changelog
+- kettle-commit-msg
+- kettle-dev-setup
+- kettle-dvcs
+- kettle-pre-release
+- kettle-readme-backers
+- kettle-release
+
+- K_SOUP_COV_DO: Enable coverage collection (default: true in `mise.toml`)
 - K_SOUP_COV_FORMATTERS: Comma-separated list of formatters (html, xml, rcov, lcov, json, tty)
 - K_SOUP_COV_MIN_LINE: Minimum line coverage threshold (integer, e.g., 100)
 - K_SOUP_COV_MIN_BRANCH: Minimum branch coverage threshold (integer, e.g., 100)
@@ -46,9 +65,12 @@ GitHub API and CI helpers
 - GITHUB_TOKEN or GH_TOKEN: Token used by `ci:act` and release workflow checks to query GitHub Actions status at higher rate limits
 
 Releasing and signing
+
 - SKIP_GEM_SIGNING: If set, skip gem signing during build/release
 - GEM_CERT_USER: Username for selecting your public cert in `certs/<USER>.pem` (defaults to $USER)
-- SOURCE_DATE_EPOCH: Reproducible build timestamp. `kettle-release` will set this automatically for the session.
+- SOURCE_DATE_EPOCH: Reproducible build timestamp.
+  - `kettle-release` will set this automatically for the session.
+  - Not needed on bundler >= 2.7.0, as reproducible builds have become the default.
 
 Git hooks and commit message helpers (exe/kettle-commit-msg)
 - GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., `jira`) or `false` to disable
@@ -56,7 +78,9 @@ Git hooks and commit message helpers (exe/kettle-commit-msg)
 - GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
 - GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
 
-For a quick starting point, this repository’s `.envrc` shows sane defaults, and `.env.local` can override them locally.
+There are many Rake tasks available as well. You can see them by running:
+
+For a quick starting point, this repository’s `mise.toml` defines the shared defaults, and `.env.local` can override them locally. Copy `.env.local.example` to `.env.local`, use `KEY=value` lines, and either activate `mise` in your shell or run commands through `mise exec -C /path/to/project -- ...`.
 
 ## Appraisals
 
@@ -65,6 +89,12 @@ They are created and updated with the commands:
 
 ```console
 bin/rake appraisal:update
+```
+
+If you need to reset all gemfiles/*.gemfile.lock files:
+
+```console
+bin/rake appraisal:reset
 ```
 
 When adding an appraisal to CI, check the [runner tool cache][🏃‍♂️runner-tool-cache] to see which runner to use.
@@ -89,10 +119,10 @@ bundle exec rake test
 
 ### Spec organization (required)
 
-- One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/version_gem/release_cli.rb` -> `spec/version_gem/release_cli_spec.rb`.
-- Never add a second spec file for the same class/module. Examples of disallowed names: `*_more_spec.rb`, `*_extra_spec.rb`, `*_status_spec.rb`, or any other suffix that still targets the same class. If you find yourself wanting a second file, merge those examples into the canonical spec file for that class/module.
-- Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
-- Migration note: If a duplicate spec file exists, move all examples into the canonical file and delete the duplicate. Do not leave stubs or empty files behind.
+1. Update version.rb to contain the correct version-to-be-released.
+2. Run `bundle exec kettle-changelog`.
+3. Run `bundle exec kettle-release`.
+4. Stay awake and monitor the release process for any errors, and answer any prompts.
 
 ## Lint It
 
@@ -114,8 +144,11 @@ For more detailed information about using RuboCop in this project, please see th
 
 Never add `# rubocop:disable ...` / `# rubocop:enable ...` comments to code or specs (except when following the few existing `rubocop:disable` patterns for a rule already being disabled elsewhere in the code). Instead:
 
+- One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/version_gem/my_class.rb` -> `spec/version_gem/my_class_spec.rb`.
+- Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
+
 - Prefer configuration-based exclusions when a rule should not apply to certain paths or files (e.g., via `.rubocop.yml`).
-- When a violation is temporary and you plan to fix it later, record it in `.rubocop_gradual.lock` using the gradual workflow:
+- When a violation is temporary, and you plan to fix it later, record it in `.rubocop_gradual.lock` using the gradual workflow:
   - `bundle exec rake rubocop_gradual:autocorrect` (preferred)
   - `bundle exec rake rubocop_gradual:force_update` (only when you cannot fix the violations immediately)
 
@@ -138,7 +171,7 @@ Also see GitLab Contributors: [https://gitlab.com/ruby-oauth/version_gem/-/graph
 **IMPORTANT**: To sign a build,
 a public key for signing gems will need to be picked up by the line in the
 `gemspec` defining the `spec.cert_chain` (check the relevant ENV variables there).
-All releases to RubyGems.org are signed releases.
+All releases are signed releases.
 See: [RubyGems Security Guide][🔒️rubygems-security-guide]
 
 NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in the environment.
@@ -176,7 +209,7 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 12. Sanity check the SHA256, comparing with the output from the `bin/gem_checksums` command:
     - `sha256sum pkg/<gem name>-<version>.gem`
 13. Run `bundle exec rake release` which will create a git tag for the version,
-    push git commits and tags, and push the `.gem` file to [rubygems.org][💎rubygems]
+    push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
 [📜src-gl]: https://gitlab.com/ruby-oauth/version_gem/
 [📜src-cb]: https://codeberg.org/ruby-oauth/version_gem
@@ -188,6 +221,7 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 [🚎contributors-gl]: https://gitlab.com/ruby-oauth/version_gem/-/graphs/main
 [🖐contributors-img]: https://contrib.rocks/image?repo=ruby-oauth/version_gem
 [💎rubygems]: https://rubygems.org
+[💎gem-coop]: https://gem.coop
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
 [🔒️rubygems-checksums-pr]: https://github.com/rubygems/rubygems/pull/6022
 [🔒️rubygems-guides-pr]: https://github.com/rubygems/guides/pull/325

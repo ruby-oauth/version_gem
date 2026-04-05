@@ -198,26 +198,3 @@ patterns:
 files:
    AGENTS.md:
      strategy: accept_template
-
-# To override specific files, add entries like:
-#
-# files:
-#   README.md:
-#     strategy: accept_template
-#
-#   SECURITY.md:
-#     strategy: keep_destination
-#
-#   certs:
-#     pboling.pem:
-#       strategy: raw_copy
-#
-#   .git-hooks:
-#     commit-msg:
-#       strategy: merge
-#       file_type: ruby
-#
-#   Rakefile:
-#     strategy: merge
-#     preference: destination
-#     add_template_only_nodes: false

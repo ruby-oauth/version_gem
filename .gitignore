@@ -47,3 +47,7 @@ Appraisal.*.gemfile.lock
 
 # Sentinels
 .floss_funding.*.lock
+/tmp/*
+!/tmp/.gitignore
+/vendor/bundle/
+# Local environment overrides (KEY=value, loaded by mise via dotenvy)
