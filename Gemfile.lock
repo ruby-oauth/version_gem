@@ -1,23 +1,13 @@
-GIT
-  remote: https://github.com/pboling/yard-junk
-  revision: 54ccebabbfa9a9cd44d0b991687ebbfd22c32b55
-  branch: next
-  specs:
-    yard-junk (0.0.10)
-      backports (>= 3.18)
-      benchmark
-      ostruct
-      rainbow
-      yard
-
 PATH
   remote: .
   specs:
     version_gem (1.1.9)
 
 GEM
-  remote: https://rubygems.org/
+  remote: https://gem.coop/
   specs:
+    addressable (2.9.0)
+      public_suffix (>= 2.0.2, < 8.0)
     ansi (1.6.0)
     appraisal2 (3.0.6)
       bundler (>= 1.17.3)
@@ -33,7 +23,7 @@ GEM
       tree_haver (~> 6.0, >= 6.0.0)
       version_gem (~> 1.1, >= 1.1.9)
     benchmark (0.5.0)
-    bigdecimal (4.1.1)
+    bigdecimal (3.3.1)
     bundler-audit (0.9.3)
       bundler (>= 1.2.0)
       thor (~> 1.0)
@@ -81,7 +71,7 @@ GEM
       dry-inflector (~> 1.0)
       dry-logic (~> 1.4)
       zeitwerk (~> 2.6)
-    erb (6.0.2)
+    erb (5.1.3)
     gem_bench (2.0.5)
       bundler (>= 1.14)
       version_gem (~> 1.1, >= 1.1.4)
@@ -156,7 +146,9 @@ GEM
       markly (~> 0.15, >= 0.15.2)
       tree_haver (~> 6.0, >= 6.0.0)
       version_gem (~> 1.1, >= 1.1.9)
+    matrix (0.4.3)
     method_source (1.1.0)
+    mutex_m (0.3.0)
     nokogiri (1.19.2-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.2-x86_64-darwin)
@@ -170,8 +162,13 @@ GEM
       ast (~> 2.4.1)
       racc
     parslet (2.0.0)
+    pdf-core (0.10.0)
     pp (0.6.3)
       prettyprint
+    prawn (2.5.0)
+      matrix (~> 0.4)
+      pdf-core (~> 0.10.0)
+      ttfunk (~> 1.8)
     prettyprint (0.2.0)
     prism (1.9.0)
     prism-merge (3.0.0)
@@ -191,6 +188,7 @@ GEM
       psych (~> 5.0)
       tree_haver (~> 6.0, >= 6.0.0)
       version_gem (~> 1.1, >= 1.1.9)
+    public_suffix (7.0.5)
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.3.1)
@@ -368,6 +366,8 @@ GEM
     tree_haver (6.0.0)
       version_gem (~> 1.1, >= 1.1.9)
     tsort (0.2.0)
+    ttfunk (1.8.0)
+      bigdecimal (~> 3.1)
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
@@ -375,9 +375,26 @@ GEM
       diff-lcs (>= 1.6, < 3)
       parser (>= 3.3.0)
       prism (>= 1.5.1)
+    yaml-converter (0.1.0)
+      kramdown (>= 2.4, < 3)
+      kramdown-parser-gfm (~> 1.1)
+      prawn (>= 2.5, < 3)
+      version_gem (~> 1.1, >= 1.1.9)
     yard (0.9.38)
-    yard-relative_markdown_links (0.5.0)
+    yard-fence (0.8.2)
+      rdoc (~> 6.11)
+      version_gem (~> 1.1, >= 1.1.9)
+      yard (~> 0.9, >= 0.9.37)
+    yard-junk (0.1.0)
+      benchmark
+      ostruct
+      rainbow
+      yard
+    yard-relative_markdown_links (0.6.0)
       nokogiri (>= 1.14.3, < 2)
+    yard-yaml (0.1.0)
+      version_gem (~> 1.1, >= 1.1.9)
+      yaml-converter (~> 0.1)
     zeitwerk (2.7.5)
     zlib (3.2.3)
 
@@ -388,12 +405,15 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  addressable (>= 2.8, < 3)
   appraisal2 (~> 3.0, >= 3.0.6)
-  benchmark (~> 0.4, >= 0.4.1)
+  benchmark (~> 0.5, >= 0.5.0)
   bundler-audit (~> 0.9.3)
-  debug (>= 1.0.0)
+  debug (>= 1.1)
+  erb (~> 5.0)
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 1.0, >= 1.0.3)
+  irb (~> 1.17)
   kettle-dev (~> 2.0)
   kettle-jem
   kettle-soup-cover (~> 1.0, >= 1.0.10)
@@ -401,6 +421,7 @@ DEPENDENCIES
   kramdown (~> 2.5, >= 2.5.1)
   kramdown-parser-gfm (~> 1.1)
   markly (~> 0.15, >= 0.15.2)
+  mutex_m (~> 0.2)
   parslet
   prism (~> 1.6)
   pry (~> 0.14)
@@ -419,12 +440,16 @@ DEPENDENCIES
   ruby_tree_sitter (~> 2.1)
   standard (>= 1.50)
   stone_checksums (~> 1.0, >= 1.0.3)
+  stringio (>= 3.0)
   toml
   unparser (~> 0.8, >= 0.8.1)
   version_gem!
+  yaml-converter (~> 0.1)
   yard (~> 0.9, >= 0.9.37)
-  yard-junk (~> 0.0, >= 0.0.10)!
-  yard-relative_markdown_links (~> 0.5.0)
+  yard-fence (~> 0.8, >= 0.8.2)
+  yard-junk (~> 0.1, >= 0.1.0)
+  yard-relative_markdown_links (~> 0.6)
+  yard-yaml (~> 0.1)
 
 BUNDLED WITH
    2.7.2
