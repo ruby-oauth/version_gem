@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+# To retain during version_gem templating:
+#     kettle-jem:freeze
+#     # ... your code
+#     kettle-jem:unfreeze
+#
+
+# Test against HEAD of runtime dependencies so we can proactively file bugs
+
+# Ruby >= 2.2
+
+eval_gemfile("x_std_libs/vHEAD.gemfile")
