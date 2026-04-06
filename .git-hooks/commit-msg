@@ -20,7 +20,7 @@ begin
   else
     denied = <<~EOM
       Oh snap, think again...
-      
+
        ______    _______      ___  _______  _______  _______  _______  ______   __
       |    _ |  |       |    |   ||       ||       ||       ||       ||      | |  |
       |   | ||  |    ___|    |   ||    ___||       ||_     _||    ___||  _    ||  |
@@ -47,7 +47,7 @@ rescue LoadError => e
     gitmoji-regex gem not found: #{e.class}: #{e.message}.
       Skipping gitmoji check and allowing commit to proceed.
       Recommendation: add 'gitmoji-regex' to your development dependencies to enable this check.
-    
+      
   EOM
   warn(failure)
   exit(0)

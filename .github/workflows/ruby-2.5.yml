@@ -1,4 +1,4 @@
-name: Style
+name: Ruby 2.5
 
 permissions:
   contents: read
@@ -23,24 +23,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  rubocop:
+  test:
     if: "!contains(github.event.commits[0].message, '[ci skip]') && !contains(github.event.commits[0].message, '[skip ci]')"
-    name: Style on ${{ matrix.ruby }}@current
-    runs-on: ubuntu-latest
+    name: Specs ${{ matrix.ruby }}@${{ matrix.appraisal }}
+    runs-on: ubuntu-22.04
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     env: # $BUNDLE_GEMFILE must be set at job level, so it is set for all steps
       BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}.gemfile
     strategy:
-      fail-fast: false
       matrix:
         include:
-          # Style
-          - ruby: "ruby"
-            appraisal: "style"
-            exec_cmd: "rake rubocop_gradual:check"
+          # Ruby 2.5
+          - ruby: "ruby-2.5"
+            appraisal: "ruby-2-5"
+            exec_cmd: "rake test"
             gemfile: "Appraisal.root"
-            rubygems: latest
-            bundler: latest
+            rubygems: "3.3.27"
+            bundler: "2.3.27"
 
     steps:
       - name: Checkout
@@ -53,26 +52,16 @@ jobs:
           rubygems: ${{ matrix.rubygems }}
           bundler: ${{ matrix.bundler }}
           bundler-cache: true
+
       - name: "[Attempt 1] Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal }}"
         id: bundleAppraisalAttempt1
         run: bundle exec appraisal ${{ matrix.appraisal }} install
-        # Continue to the next step on failure
         continue-on-error: true
-      # Effectively an automatic retry of the previous step.
+
       - name: "[Attempt 2] Appraisal for ${{ matrix.ruby }}@${{ matrix.appraisal }}"
         id: bundleAppraisalAttempt2
-        # If bundleAppraisalAttempt1 failed, try again here; Otherwise skip.
         if: ${{ steps.bundleAppraisalAttempt1.outcome == 'failure' }}
         run: bundle exec appraisal ${{ matrix.appraisal }} install
 
-      # Raw `bundle` will use the BUNDLE_GEMFILE set to matrix.gemfile (i.e. Appraisal.root)
-      # We need to do this first to get appraisal installed.
-      # NOTE: This does not use the primary Gemfile at all.
-      - name: Install Root Appraisal
-        run: bundle
-      - name: Appraisal for ${{ matrix.appraisal }}
-        run: bundle exec appraisal ${{ matrix.appraisal }} bundle
-      - name: Run ${{ matrix.appraisal }} checks via ${{ matrix.exec_cmd }}
+      - name: Tests for ${{ matrix.ruby }} via ${{ matrix.exec_cmd }}
         run: bundle exec appraisal ${{ matrix.appraisal }} bundle exec ${{ matrix.exec_cmd }}
-      - name: Validate RBS Types
-        run: bundle exec appraisal ${{ matrix.appraisal }} bin/rbs validate
