@@ -2,6 +2,7 @@
 # Local overrides belong in .env.local (loaded via dotenvy through mise).
 
 [env]
+KJ_PROJECT_EMOJI = "🔖"
 TREE_SITTER_BASH_PATH = "/home/pboling/.local/lib/tree-sitter/libtree-sitter-bash.so"
 TREE_SITTER_CSS_PATH = "/home/pboling/.local/lib/tree-sitter/libtree-sitter-css.so"
 TREE_SITTER_JAVASCRIPT_PATH = "/home/pboling/.local/lib/tree-sitter/libtree-sitter-javascript.so"

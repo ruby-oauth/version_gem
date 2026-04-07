@@ -45,4 +45,3 @@ eval_gemfile "gemfiles/modular/templating.gemfile"
 
 # Debugging
 eval_gemfile "gemfiles/modular/debug.gemfile"
-
