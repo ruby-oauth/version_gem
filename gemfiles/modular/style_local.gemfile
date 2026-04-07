@@ -19,6 +19,6 @@ platform :mri do
     vendored_gems_env: "VENDORED_GEMS",
     vendor_gem_dir_env: "VENDOR_GEM_DIR",
     debug_env: "RUBOCOP_LTS_DEBUG",
-    root: ["src", "rubocop-lts"]
+    root: ["src", "rubocop-lts"],
   )
 end
