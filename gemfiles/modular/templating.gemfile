@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+remote = ENV.fetch("KETTLE_RB_DEV", "false").casecmp("false").zero?
+
+# Cross-platform parsers
 gem "toml"
 gem "parslet"
 gem "prism", "~> 1.6"
@@ -17,6 +20,10 @@ platform :mri do
     "~> 2.1",
     require: false # DO NOT LOAD, because conflicts with FFI
 
+  if remote
+    # AST parsing for advanced templating.
+    # Kettle-rb's Merge Recipes (released)
+  end
   # AST parsing for advanced templating.
   # Set KETTLE_RB_DEV=true (or path) for local development with path-based dependencies.
   # When false (default / CI), gemspec runtime dependencies are used (no extras needed here).
@@ -27,3 +34,8 @@ platform :mri do
     eval_gemfile "templating_local.gemfile"
   end
 end
+
+# Set KETTLE_RB_DEV=true (or path) for local development with path-based dependencies.
+# When false (default / CI), released gems are used and explicit parser pins are needed.
+# Local path overrides — merge gems bring their own parser dependencies
+eval_gemfile "templating_local.gemfile" unless remote

@@ -14,13 +14,15 @@ Take a look at the `reek` list which is the file called `REEK` and find somethin
 
 Follow these instructions:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b my-new-feature`)
-3. Make some fixes.
-4. Commit changes (`git commit -am 'Added some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Make sure to add tests for it. This is important, so it doesn't break in a future release.
-7. Create new Pull Request.
+1. Join the Discord: [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite]
+2. Fork the repository
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Make some fixes.
+5. Commit your changes (`git commit -am 'Added some feature'`)
+6. Push to the branch (`git push origin my-new-feature`)
+7. Make sure to add tests for it. This is important, so it doesn't break in a future release.
+8. Create new Pull Request.
+9. Announce it in the channel for this org in the [Discord][✉️discord-invite]!
 
 ```shell
 bin/rake -T
@@ -41,15 +43,6 @@ Coverage (kettle-soup-cover / SimpleCov)
 
 Executables shipped by dependencies, such as kettle-dev, and stone_checksums, are available
 after running `bin/setup`. These include:
-
-- gem_checksums
-- kettle-changelog
-- kettle-commit-msg
-- kettle-dev-setup
-- kettle-dvcs
-- kettle-pre-release
-- kettle-readme-backers
-- kettle-release
 
 - K_SOUP_COV_DO: Enable coverage collection (default: true in `mise.toml`)
 - K_SOUP_COV_FORMATTERS: Comma-separated list of formatters (html, xml, rcov, lcov, json, tty)
@@ -77,6 +70,15 @@ Git hooks and commit message helpers (exe/kettle-commit-msg)
 - GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
 - GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
 - GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
+
+- gem_checksums
+- kettle-changelog
+- kettle-commit-msg
+- kettle-dev-setup
+- kettle-dvcs
+- kettle-pre-release
+- kettle-readme-backers
+- kettle-release
 
 There are many Rake tasks available as well. You can see them by running:
 
@@ -232,3 +234,4 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 [📌major-versions-not-sacred]: https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html
 [🚎appraisal2]: https://github.com/appraisal-rb/appraisal2
 [🏃‍♂️runner-tool-cache]: https://github.com/ruby/ruby-builder/releases/tag/toolcache
+[✉️discord-invite]: https://discord.gg/3qme4XHNKN
