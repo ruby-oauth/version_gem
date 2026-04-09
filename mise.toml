@@ -32,3 +32,6 @@ TREE_SITTER_YAML_PATH = "/home/pboling/.local/lib/tree-sitter/libtree-sitter-yam
 _.file = { path = ".env.local", redact = true }
 _.path = ["exe", "bin"]
 _.source = ".config/mise/env.sh"
+
+[tools]
+ruby = "4.0.2"
