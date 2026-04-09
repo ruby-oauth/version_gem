@@ -101,6 +101,8 @@ GEM
       prism-merge (~> 3.0)
       psych-merge (~> 2.0)
       rbs-merge (~> 3.0)
+      service_actor (~> 3.9)
+      service_actor-promptable (~> 1.0)
       token-resolver (~> 1.0, >= 1.0.2)
       toml-merge (~> 3.0)
       toml-rb (~> 4.1)
@@ -296,6 +298,11 @@ GEM
       sorbet-runtime
       zeitwerk
     ruby_version (1.0.3)
+    service_actor (3.9.4)
+      zeitwerk (>= 1.0)
+    service_actor-promptable (1.0.2)
+      service_actor
+      version_gem (~> 1.1)
     silent_stream (1.0.12)
       logger (~> 1.2)
       version_gem (>= 1.1.8, < 3)
@@ -315,7 +322,7 @@ GEM
     simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.4)
-    sorbet-runtime (0.6.13096)
+    sorbet-runtime (0.6.13108)
     standard (1.54.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -374,7 +381,7 @@ GEM
       kramdown-parser-gfm (~> 1.1)
       prawn (>= 2.5, < 3)
       version_gem (~> 1.1, >= 1.1.9)
-    yard (0.9.38)
+    yard (0.9.39)
     yard-fence (0.8.2)
       rdoc (~> 6.11)
       version_gem (~> 1.1, >= 1.1.9)
