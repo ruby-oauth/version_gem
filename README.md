@@ -308,14 +308,7 @@ You will get the following version segments:
 }
 ```
 
-Now add the following near the top of the file the manages requiring external libraries.
-Using the same example of `bundle gem my_lib`, this would be `lib/my_lib.rb`.
-
-```ruby
-require "version_gem"
-```
-
-Then, add the following wherever you want in the same file (recommend the bottom).
+Following the same setup as [Basic Usage](#-basic-usage) above (add `require "version_gem"` at the top of your main lib file), then add the following wherever you want in the same file (recommend the bottom):
 
 ```ruby
 MyLib::Version.class_eval do

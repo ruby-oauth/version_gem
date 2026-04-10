@@ -80,15 +80,6 @@ Git hooks and commit message helpers (exe/kettle-commit-msg)
 - kettle-readme-backers
 - kettle-release
 
-- gem_checksums
-- kettle-changelog
-- kettle-commit-msg
-- kettle-dev-setup
-- kettle-dvcs
-- kettle-pre-release
-- kettle-readme-backers
-- kettle-release
-
 There are many Rake tasks available as well. You can see them by running:
 
 For a quick starting point, this repository’s `mise.toml` defines the shared defaults, and `.env.local` can override them locally. Copy `.env.local.example` to `.env.local`, use `KEY=value` lines, and either activate `mise` in your shell or run commands through `mise exec -C /path/to/project -- ...`.
@@ -144,11 +135,6 @@ K_SOUP_COV_MIN_HARD=false bundle exec kettle-test spec/path/to/spec.rb
 
 ### Spec organization (required)
 
-- GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., `jira`) or `false` to disable
-- GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
-- GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
-- GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
-
 - One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/version_gem/my_class.rb` -> `spec/version_gem/my_class_spec.rb`.
 - Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
 
@@ -171,14 +157,6 @@ For more detailed information about using RuboCop in this project, please see th
 ### Important: Do not add inline RuboCop disables
 
 Never add `# rubocop:disable ...` / `# rubocop:enable ...` comments to code or specs (except when following the few existing `rubocop:disable` patterns for a rule already being disabled elsewhere in the code). Instead:
-
-- GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., `jira`) or `false` to disable
-- GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
-- GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
-- GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
-
-- One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/version_gem/my_class.rb` -> `spec/version_gem/my_class_spec.rb`.
-- Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
 
 - Prefer configuration-based exclusions when a rule should not apply to certain paths or files (e.g., via `.rubocop.yml`).
 - When a violation is temporary, and you plan to fix it later, record it in `.rubocop_gradual.lock` using the gradual workflow:
