@@ -5,9 +5,9 @@
 
 require "nomono/bundler" unless defined?(Nomono)
 
-local_gems = %w[kettle-dev kettle-test kettle-soup-cover]
+local_gems = %w[kettle-dev kettle-test kettle-soup-cover turbo_tests2]
 
-# export VENDORED_GEMS=kettle-dev,kettle-test,kettle-soup-cover
+# export VENDORED_GEMS=kettle-dev,kettle-test,kettle-soup-cover,turbo_tests2
 platform :mri do
   eval_nomono_gems(
     gems: local_gems,
