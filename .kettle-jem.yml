@@ -202,8 +202,8 @@ patterns:
 # Per-file configuration (nested directory structure)
 # Only files that need overrides belong here. Everything else defaults to merge.
 files:
-   AGENTS.md:
-     strategy: accept_template
+  AGENTS.md:
+    strategy: accept_template
   gemfiles:
     modular:
       templating.gemfile:
