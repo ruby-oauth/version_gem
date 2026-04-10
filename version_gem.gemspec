@@ -26,7 +26,7 @@ gem_version =
 Gem::Specification.new do |spec|
   spec.name = "version_gem"
   spec.version = gem_version
-  spec.authors = ["Peter Boling"]
+  spec.authors = ["Peter H. Boling", "Aboling0"]
   spec.email = ["floss@galtzo.com", "oauth-ruby@googlegroups.com"]
 
   spec.summary = "🔖 Enhance your VERSION! Sugar for Version modules."

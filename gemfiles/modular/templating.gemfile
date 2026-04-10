@@ -12,7 +12,7 @@ platform :mri do
   # MRI only Parsers:
   # kettle-jem currently uses markly instead of commonmarker, but these can easily be swapped.
   # gem "commonmarker"
-  gem "markly", "~> 0.15", ">= 0.15.2"
+  gem "markly", "~> 0.15", ">= 0.15.3"
   gem "rbs", ">= 3.10"   # ruby >= 3.1.0
 
   # MRI Backend
@@ -23,15 +23,7 @@ platform :mri do
   if remote
     # AST parsing for advanced templating.
     # Kettle-rb's Merge Recipes (released)
-  end
-  # AST parsing for advanced templating.
-  # Set KETTLE_RB_DEV=true (or path) for local development with path-based dependencies.
-  # When false (default / CI), gemspec runtime dependencies are used (no extras needed here).
-  if ENV.fetch("KETTLE_RB_DEV", "false").casecmp("false").zero?
-    # AST parsing for advanced templating (remote/released)
-    gem "kettle-jem"      # Kettle-rb's Merge Recipes
-  else
-    eval_gemfile "templating_local.gemfile"
+    gem "kettle-jem", "~> 1.0"
   end
 end
 
