@@ -416,12 +416,12 @@ DEPENDENCIES
   gitmoji-regex (~> 1.0, >= 1.0.3)
   irb (~> 1.17)
   kettle-dev (~> 2.0)
-  kettle-jem
+  kettle-jem (~> 1.0)
   kettle-soup-cover (~> 1.0, >= 1.0.10)
   kettle-test (~> 1.0, >= 1.0.10)
   kramdown (~> 2.5, >= 2.5.1)
   kramdown-parser-gfm (~> 1.1)
-  markly (~> 0.15, >= 0.15.2)
+  markly (~> 0.15, >= 0.15.3)
   mutex_m (~> 0.2)
   parslet
   prism (~> 1.6)
