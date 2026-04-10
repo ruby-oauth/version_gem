@@ -44,15 +44,6 @@ Coverage (kettle-soup-cover / SimpleCov)
 Executables shipped by dependencies, such as kettle-dev, and stone_checksums, are available
 after running `bin/setup`. These include:
 
-- gem_checksums
-- kettle-changelog
-- kettle-commit-msg
-- kettle-dev-setup
-- kettle-dvcs
-- kettle-pre-release
-- kettle-readme-backers
-- kettle-release
-
 - K_SOUP_COV_DO: Enable coverage collection (default: true in `mise.toml`)
 - K_SOUP_COV_FORMATTERS: Comma-separated list of formatters (html, xml, rcov, lcov, json, tty)
 - K_SOUP_COV_MIN_LINE: Minimum line coverage threshold (integer, e.g., 100)
@@ -79,6 +70,15 @@ Git hooks and commit message helpers (exe/kettle-commit-msg)
 - GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
 - GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
 - GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
+
+- gem_checksums
+- kettle-changelog
+- kettle-commit-msg
+- kettle-dev-setup
+- kettle-dvcs
+- kettle-pre-release
+- kettle-readme-backers
+- kettle-release
 
 - gem_checksums
 - kettle-changelog
@@ -172,10 +172,13 @@ For more detailed information about using RuboCop in this project, please see th
 
 Never add `# rubocop:disable ...` / `# rubocop:enable ...` comments to code or specs (except when following the few existing `rubocop:disable` patterns for a rule already being disabled elsewhere in the code). Instead:
 
-1. Update version.rb to contain the correct version-to-be-released.
-2. Run `bundle exec kettle-changelog`.
-3. Run `bundle exec kettle-release`.
-4. Stay awake and monitor the release process for any errors, and answer any prompts.
+- GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., `jira`) or `false` to disable
+- GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
+- GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
+- GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
+
+- One spec file per class/module. For each class or module under `lib/`, keep all of its unit tests in a single spec file under `spec/` that mirrors the path and file name exactly: `lib/version_gem/my_class.rb` -> `spec/version_gem/my_class_spec.rb`.
+- Exception: Integration specs that intentionally span multiple classes. Place these under `spec/integration/` (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.
 
 - Prefer configuration-based exclusions when a rule should not apply to certain paths or files (e.g., via `.rubocop.yml`).
 - When a violation is temporary, and you plan to fix it later, record it in `.rubocop_gradual.lock` using the gradual workflow:
@@ -210,9 +213,10 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 
 #### Automated process
 
-1. Update version.rb to contian the correct version-to-be-released.
+1. Update version.rb to contain the correct version-to-be-released.
 2. Run `bundle exec kettle-changelog`.
 3. Run `bundle exec kettle-release`.
+4. Stay awake and monitor the release process for any errors, and answer any prompts.
 
 #### Manual process
 

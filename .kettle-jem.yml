@@ -234,29 +234,6 @@ files:
 #     preference: destination
 #     add_template_only_nodes: false
 
-# To override specific files, add entries like:
-#
-# files:
-#   README.md:
-#     strategy: accept_template
-#
-#   SECURITY.md:
-#     strategy: keep_destination
-#
-#   certs:
-#     pboling.pem:
-#       strategy: raw_copy
-#
-#   .git-hooks:
-#     commit-msg:
-#       strategy: merge
-#       file_type: ruby
-#
-#   Rakefile:
-#     strategy: merge
-#     preference: destination
-#     add_template_only_nodes: false
-
 kettle-jem:
   version: "1.0.0"
   checksums:
@@ -267,7 +244,7 @@ kettle-jem:
     ".gemrc.example": "77b1c36ae6f91bedf08b99e662a971b02f7e66e0d65267805d068d30ff118aba"
     ".gitignore.example": "645d3b62b54c3754620b4106a7cb462e6247b0045c8a03759a2cb419f1d787e0"
     ".gitlab-ci.yml.example": "ef64afa9855ebb59bbc87446fa9533238d3ce180966ceb19649a7f165715b92b"
-    ".kettle-jem.yml.example": "a5a43512f9fbed2ea79fbb35e59acbff39a133670b8c4e3fdd677f4f46a8a893"
+    ".kettle-jem.yml.example": "04b0813587a11ce2e5e425c0f98e8728b5ad74028b38c491e3c8007ddd20782a"
     ".licenserc.yaml.example": "8003ce187b5ee35020ee78f8d135ee8ffa48dea82518876e58cd774cdc144c8d"
     ".opencollective.yml.example": "9ad9b83fe54f0bddac7fb614575585d98f78df0e181ee70a7acd0168d26e3142"
     ".rspec.example": "40d3f3ff435b0f9e5863772a95df8725b939c2dc11aead2bca68dcd6d85a9788"
