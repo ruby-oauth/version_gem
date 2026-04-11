@@ -51,3 +51,5 @@ Appraisal.*.gemfile.lock
 !/tmp/.gitignore
 /vendor/bundle/
 # Local environment overrides (KEY=value, loaded by mise via dotenvy)
+# Ignored because we currently use mise.toml
+.tool-versions

@@ -44,6 +44,15 @@ Coverage (kettle-soup-cover / SimpleCov)
 Executables shipped by dependencies, such as kettle-dev, and stone_checksums, are available
 after running `bin/setup`. These include:
 
+- gem_checksums
+- kettle-changelog
+- kettle-commit-msg
+- kettle-dev-setup
+- kettle-dvcs
+- kettle-pre-release
+- kettle-readme-backers
+- kettle-release
+
 - K_SOUP_COV_DO: Enable coverage collection (default: true in `mise.toml`)
 - K_SOUP_COV_FORMATTERS: Comma-separated list of formatters (html, xml, rcov, lcov, json, tty)
 - K_SOUP_COV_MIN_LINE: Minimum line coverage threshold (integer, e.g., 100)
@@ -215,26 +224,27 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 1. Run `bin/setup && bin/rake` as a "test, coverage, & linting" sanity check
 2. Update the version number in `version.rb`, and ensure `CHANGELOG.md` reflects changes
 3. Run `bin/setup && bin/rake` again as a secondary check, and to update `Gemfile.lock`
-4. Run `git commit -am "🔖 Prepare release v<VERSION>"` to commit the changes
-5. Run `git push` to trigger the final CI pipeline before release, and merge PRs
+4. Run `bin/rake yard` to regenerate the docs site using the canonical docs task
+5. Run `git commit -am "🔖 Prepare release v<VERSION>"` to commit the changes
+6. Run `git push` to trigger the final CI pipeline before release, and merge PRs
     - NOTE: Remember to [check the build][🧪build].
-6. Run `export GIT_TRUNK_BRANCH_NAME="$(git remote show origin | grep 'HEAD branch' | cut -d ' ' -f5)" && echo $GIT_TRUNK_BRANCH_NAME`
-7. Run `git checkout $GIT_TRUNK_BRANCH_NAME`
-8. Run `git pull origin $GIT_TRUNK_BRANCH_NAME` to ensure latest trunk code
-9. Optional for older Bundler (< 2.7.0): Set `SOURCE_DATE_EPOCH` so `rake build` and `rake release` use the same timestamp and generate the same checksums
+7. Run `export GIT_TRUNK_BRANCH_NAME="$(git remote show origin | grep 'HEAD branch' | cut -d ' ' -f5)" && echo $GIT_TRUNK_BRANCH_NAME`
+8. Run `git checkout $GIT_TRUNK_BRANCH_NAME`
+9. Run `git pull origin $GIT_TRUNK_BRANCH_NAME` to ensure latest trunk code
+10. Optional for older Bundler (< 2.7.0): Set `SOURCE_DATE_EPOCH` so `rake build` and `rake release` use the same timestamp and generate the same checksums
     - If your Bundler is >= 2.7.0, you can skip this; builds are reproducible by default.
     - Run `export SOURCE_DATE_EPOCH=$EPOCHSECONDS && echo $SOURCE_DATE_EPOCH`
     - If the echo above has no output, then it didn't work.
     - Note: `zsh/datetime` module is needed, if running `zsh`.
     - In older versions of `bash` you can use `date +%s` instead, i.e. `export SOURCE_DATE_EPOCH=$(date +%s) && echo $SOURCE_DATE_EPOCH`
-10. Run `bundle exec rake build`
-11. Run `bin/gem_checksums` (more context [1][🔒️rubygems-checksums-pr], [2][🔒️rubygems-guides-pr])
+11. Run `bundle exec rake build`
+12. Run `bin/gem_checksums` (more context [1][🔒️rubygems-checksums-pr], [2][🔒️rubygems-guides-pr])
     to create SHA-256 and SHA-512 checksums. This functionality is provided by the `stone_checksums`
     [gem][💎stone_checksums].
     - The script automatically commits but does not push the checksums
-12. Sanity check the SHA256, comparing with the output from the `bin/gem_checksums` command:
+13. Sanity check the SHA256, comparing with the output from the `bin/gem_checksums` command:
     - `sha256sum pkg/<gem name>-<version>.gem`
-13. Run `bundle exec rake release` which will create a git tag for the version,
+14. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
 [📜src-gl]: https://gitlab.com/ruby-oauth/version_gem/

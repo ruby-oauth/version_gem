@@ -5,7 +5,7 @@
 This project is a **RubyGem** managed with the [kettle-rb](https://github.com/kettle-rb) toolchain.
 
 **Minimum Supported Ruby**: See the gemspec `required_ruby_version` constraint.
-**Local Development Ruby**: See `.tool-versions` for the version used in local development (typically the latest stable Ruby).
+**Local Development Ruby**: See `mise.toml` for the version used in local development (typically the latest stable Ruby).
 
 ### Modular Gemfile Architecture
 
