@@ -66,37 +66,11 @@ Releasing and signing
   - Not needed on bundler >= 2.7.0, as reproducible builds have become the default.
 
 Git hooks and commit message helpers (exe/kettle-commit-msg)
+
 - GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., `jira`) or `false` to disable
 - GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)
 - GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
 - GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
-
-- gem_checksums
-- kettle-changelog
-- kettle-commit-msg
-- kettle-dev-setup
-- kettle-dvcs
-- kettle-pre-release
-- kettle-readme-backers
-- kettle-release
-
-- gem_checksums
-- kettle-changelog
-- kettle-commit-msg
-- kettle-dev-setup
-- kettle-dvcs
-- kettle-pre-release
-- kettle-readme-backers
-- kettle-release
-
-- gem_checksums
-- kettle-changelog
-- kettle-commit-msg
-- kettle-dev-setup
-- kettle-dvcs
-- kettle-pre-release
-- kettle-readme-backers
-- kettle-release
 
 - gem_checksums
 - kettle-changelog
