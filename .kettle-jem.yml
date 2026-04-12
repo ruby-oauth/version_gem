@@ -147,6 +147,35 @@ machine_users:
 # Divergence is currently measured as the percent of produced files that would
 # change or be added during templating (100 - unchanged-file score).
 min_divergence_threshold:
+# Optional kettle-jem plugins.
+# Each entry is a gem name. During bootstrap, kettle-jem ensures each plugin is
+# added as a development dependency so it is available after bin/setup.
+# During bundled templating, kettle-jem requires the plugin and calls
+# `register_kettle_jem_plugin(registrar)` on its top-level handle.
+#
+# Phase callback names currently available:
+#   - config_sync
+#   - dev_container
+#   - github_workflows
+#   - quality_config
+#   - modular_gemfiles
+#   - spec_helper
+#   - environment_templates
+#   - remaining_files
+#   - git_hooks
+#   - license_files
+#   - duplicate_check
+#
+# Phase guarantees:
+#   - All plugin callbacks run during the bundled templating phase, after
+#     bin/setup and bundle install have completed.
+#   - kettle-jem, kettle-dev, and any plugin gems listed here are loadable.
+#   - kettle-jem's parser / merger runtime is available to callbacks.
+#   - `remaining_files` runs after the destination Rakefile, gemspec, README,
+#     and most template-managed files already exist on disk.
+#   - `duplicate_check` runs last, after all template writes are complete.
+plugins:
+  - kettle-drift
 
 # Default merge options
 defaults:
@@ -238,22 +267,74 @@ kettle-jem:
   version: "1.0.0"
   checksums:
     ".aiignore.example": "48a5dfdd93afd1a15fdce39cc28ca9920263f00018b0968ab031fa744521e5ce"
+    ".config/mise/env.sh": "aeea5a2ab489ba6e5467ae8de6e386ec8c8fe4ff31a044e69d0cd6a092dd6654"
+    ".devcontainer/apt-install/devcontainer-feature.json.example": "273a07f9d3926e1b6287c37709a469ee05d724cfedae62ad3b0cd8c09befc9ec"
+    ".devcontainer/apt-install/install.sh.example": "b61e020b60ca172bb7b658e63c9cd4342e49bda0531a6b19b36475e515ad20b0"
+    ".devcontainer/devcontainer.json.example": "4a80d471379b9720cc65cc89543cbbc0a7be87b188a818160296577c4e87606f"
+    ".devcontainer/scripts/setup-tree-sitter.sh.example": "c34f48d7bac8561fb780c4c7a81cec5004c3ac0edc11f229799ec9a4e3eccd54"
     ".env.local.example": "14106f301299d62f61045e4869dbd91fb6c2a96803eb5b57e56bf3bd6ea30f3c"
     ".envrc.example": "b7232f4bae0fb399cc9c9cdc4a5eb694bd69623aeeadcbab18c9990e443040a1"
     ".envrc.no-osc.example": "b7232f4bae0fb399cc9c9cdc4a5eb694bd69623aeeadcbab18c9990e443040a1"
     ".gemrc.example": "77b1c36ae6f91bedf08b99e662a971b02f7e66e0d65267805d068d30ff118aba"
+    ".git-hooks/commit-msg.example": "d8c42b512b0a6ba0879670cb6855d938c846ec1b5dfb654ff003e797d39a7a78"
+    ".git-hooks/commit-subjects-goalie.txt.example": "bb1179c8911af8afeb1f9a604b3de789d4a4b33d9d4a7743b3145998c15b0a94"
+    ".git-hooks/footer-template.erb.txt.example": "70ed3616ee04a4062126f53892cc255e7aa2b66741fe22d6b372f7df99676718"
+    ".git-hooks/prepare-commit-msg.example": "a7c2788ba23a27fc8723c3574f5453b857fd0a7826a538978d6e10fdf2c5ca55"
+    ".github/.codecov.yml.example": "d6ef3208a90eca74f79d8ff4e5ae21a915562b075cb17978b1eaadc231dd4e85"
+    ".github/COPILOT_INSTRUCTIONS.md.example": "f5c5791df013e89e170fd436379b14e251d0ff4cb6b330a6d961e80c9071f2d3"
+    ".github/FUNDING.yml.example": "3ee318b360682312dcec19b9f3b6edb814a1e99896ca1fc5b9e790cb6982b0e4"
+    ".github/FUNDING.yml.no-osc.example": "0284dc0e9b37db88a1a3526a625665e7c2166a984ec152090758bf27bf02b7dd"
+    ".github/dependabot.yml.example": "db84d1c13f64100d2f48212c022f0d985e9061ca76c36d82e7057fd845ecd528"
+    ".github/workflows/auto-assign.yml.example": "bafe3a06f48a03b06107ebf21f5f711713fa3e55608bb0f0ecddb5f85e472308"
+    ".github/workflows/codeql-analysis.yml.example": "d724c2392cd37c180ea10ecc8dbfc7669e916164c1f4d35293fdc353439a76a3"
+    ".github/workflows/coverage.yml.example": "e4e5f52219ac3a21f299ba5bd2ef8d239dd7f8875f3d59be31ca63c3393bedf3"
+    ".github/workflows/current.yml.example": "03ede3732e7b94414fe5f4f21cc4535d4d7f0c9fff79ccdc27c6e3d192d3c173"
+    ".github/workflows/dep-heads.yml.example": "4c762757dc93a0b690c7b17064b75445b7aff9427d14ef7f2554250081e61835"
+    ".github/workflows/dependency-review.yml.example": "c748e9e97c77a95856e908979690b5db744d4cd1283b333d8a50c397af915f55"
+    ".github/workflows/discord-notifier.yml.example": "f9cc83a87058bd420426444510a1dd1520fd7cc15af50832ad52c25c5766be94"
+    ".github/workflows/framework-ci.yml.example": "25543579896b6437830f31d2ead045df4bc3a0560af57accaf7a70373fceb1ac"
+    ".github/workflows/heads.yml.example": "32726dabdbca2f73dbe61687638c69938771acb15d035fb94ed9129a5ba82aa5"
+    ".github/workflows/jruby-9.1.yml.example": "b50f1d0c48483e75802168ae9ea11bf6856597782504429c90a5599c72610a49"
+    ".github/workflows/jruby-9.2.yml.example": "d63bcb5125e9d247f5f83419fabb9ccdb0cdffbb67f725986d77c219a2e65b13"
+    ".github/workflows/jruby-9.3.yml.example": "843ba555ec6af8685fd1d4e13dbd381eaf57dcc03af599e4f22c167e44fdb457"
+    ".github/workflows/jruby-9.4.yml.example": "7d7577e6122a8c1b07f6696f520e800b957762a65e465e86a92224357f58c171"
+    ".github/workflows/jruby.yml.example": "e5d483ad3649c01afcafd500f0894f89acf56a6ce17a413b7587fb0955ff70d0"
+    ".github/workflows/license-eye.yml.example": "1a7ebd85fd9bb60efc87802eca6f259484455d62b2d24c9683f07ccf52092db0"
+    ".github/workflows/locked_deps.yml.example": "5334322e98d42c4d847b645861cd09f7d548f95e4801274373d5117c56e4d9ce"
+    ".github/workflows/opencollective.yml.example": "50a210fc200c0d300a4109d0a842b0d678870677a740654eb932525ec1cc56f7"
+    ".github/workflows/ruby-2.3.yml.example": "678109d7486778e55d2ff58ce2b599f6d69ef00ff07b0cac9fce8262f34a65ee"
+    ".github/workflows/ruby-2.4.yml.example": "fe6c2d0faac65fb86ec456382d8ad6115b55ea2303aefd4a9bb794818dceba0b"
+    ".github/workflows/ruby-2.5.yml.example": "81f1168190eb31b1b95b146fca7f94cb2abd816983555a4810282228eac28c48"
+    ".github/workflows/ruby-2.6.yml.example": "4cdad36a77c3f86821aebe007f78e663aa10e6c1148820c65b88333d1340ba45"
+    ".github/workflows/ruby-2.7.yml.example": "dfed215ef6e3f39a00999f88ebd061a2e6c04aac9a20f4b86af3dcad0e879b75"
+    ".github/workflows/ruby-3.0.yml.example": "691b8c680726d3440a62281d11ae4d3051a8a6e049c5c701645f292e8b642834"
+    ".github/workflows/ruby-3.1.yml.example": "b0833210552df469f73a07d38d290ba3790c1cf6f6be44bf37354289fb2e1803"
+    ".github/workflows/ruby-3.2.yml.example": "f17aaa3baa4a81061ec91326286d23982216072d3e5da861afde560385b006e4"
+    ".github/workflows/ruby-3.3.yml.example": "ea1164f9dfa4cf7680559c2215a6c28da93d7ae459b91b186227df054483d329"
+    ".github/workflows/ruby-3.4.yml.example": "de4c3e79e01226b803da2558d4ca4a5910a8cf5536ee23d779e0477aef0da39f"
+    ".github/workflows/style.yml.example": "b988c5070adde63da484375684cf2df55d99b578376681a4c99f7082fc80257c"
+    ".github/workflows/templating.yml.example": "9460613a77c6a2dc7e01351c6a1ae88c7ee25be0c42afb234b4d80a9f4f6941f"
+    ".github/workflows/truffle.yml.example": "f112a6f577caee30a64a30a3fce05031c49b774a1f05a1a390ce174734e95e05"
+    ".github/workflows/truffleruby-22.3.yml.example": "06798068ca5059ff4a1bfd54e85ee841b303dcf94fe7dcd6a5465d16ac9db59f"
+    ".github/workflows/truffleruby-23.0.yml.example": "4f7312629858869796c4f45df928dd1a7a1ef6486ee2e2729816f2d8c3b29511"
+    ".github/workflows/truffleruby-23.1.yml.example": "6d864fddc9f0304bf4706c38e98732e2e9ed53fb6f1fc48d3c486fc22178cd09"
+    ".github/workflows/truffleruby-24.2.yml.example": "110c24871e3617b2d0ff017e6899c219c319042b69fcbf9feb6db03ce847d574"
+    ".github/workflows/truffleruby-25.0.yml.example": "b87360e2e0df5643bd5b6f390791fb0786c8097195e118dc09bcdc7227c439e2"
+    ".github/workflows/unlocked_deps.yml.example": "a3b74a53995aa86e6957cd841ef24f74066acbd6436f37fd3d207d745f6c14f3"
     ".gitignore.example": "14864a0c88be3f8c122ab3032efeb782ba5e035013231038acf746a400437a3e"
     ".gitlab-ci.yml.example": "ef64afa9855ebb59bbc87446fa9533238d3ce180966ceb19649a7f165715b92b"
-    ".kettle-jem.yml.example": "5ea74507273d12f10b5f35f5d41f858a29167b85e417a8720a36e34076d3578c"
+    ".idea/.gitignore.example": "b44a5aa16bf9fe5635558af347454b05a76d600084308a9f43d4d0b54789ecab"
+    ".kettle-jem.yml.example": "b364572eaa086d659e66038db296bc0df39160c070cfee4348096bc9d7581b2c"
     ".licenserc.yaml.example": "eee56b6604d4db0aff911f55b6f9aab73839d2b3f0850c2139fdc5bf40839037"
     ".opencollective.yml.example": "9ad9b83fe54f0bddac7fb614575585d98f78df0e181ee70a7acd0168d26e3142"
+    ".qlty/qlty.toml.example": "cf3d750d2328f6c057b08b7ce3d7ec00a4056c7f0eedda59af321d6caca03553"
     ".rspec.example": "40d3f3ff435b0f9e5863772a95df8725b939c2dc11aead2bca68dcd6d85a9788"
     ".rubocop.example": "591e4b45430e85b0dd460cc11c70650912fa2734988420b934109d06a749344f"
     ".rubocop.yml.example": "916ddbe9b8e4852a28ab9e694b22ad5c1844a1a44a651d065ccc79ad40a5565e"
     ".rubocop_rspec.yml.example": "288ad75e7eb14d87d80fafe6f7272217be5c57547536ee56c780a7d10ac7ec74"
     ".simplecov.example": "1a1d00174566b1764e4a1efbbcff64dd77b3f1b868bbcc18d8ab22b6ca463f56"
     ".yardignore.example": "821f453c609df7d46145d675424b39dfbe6dfdca8edac5f367b85fff48502455"
-    ".yardopts.example": "8e33c4218df459fa56c0b4e2fe28966cf7db18eef9f5f4cd889ee189c747c4ef"
+    ".yardopts.example": "ef06afd640f6584ca7e548391170d80fbb3d79f201e4866795c0e876c82c1bb5"
     "AGENTS.md.example": "64f2aecbb59b669a447cb1941704f7ae2602336df699a3c8c9816d34bae8b3c1"
     "AGPL-3.0-only.md.example": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee"
     "Appraisal.root.gemfile.example": "d4c7b5938ccd6a996cd179aecd394b170bcaf3fa4a6a66e9715a26b8d10a260d"
@@ -284,7 +365,7 @@ kettle-jem:
     "gemfiles/modular/coverage.gemfile.example": "cd5a04439c316c608735ffa62e0f8461579ea8612e3b0284f2f87ec3b669cdbb"
     "gemfiles/modular/coverage_local.gemfile.example": "72e2be90e2426c138b20d7adf1ee573ac5c681f9602b4a10c98c5f388e946449"
     "gemfiles/modular/debug.gemfile.example": "0a508bfb02e51b75394b43f4f09d98174dac36ead41cba09c1f730671a1f5905"
-    "gemfiles/modular/documentation.gemfile.example": "4dc4f5665c8ab96a844b9e1e8adb31b165412c8d10300f62b9acb3a770eae64d"
+    "gemfiles/modular/documentation.gemfile.example": "a099ffa9cface40d6a4507b0e7586946e81018c835f0d140fb59faf944007287"
     "gemfiles/modular/erb/r2.3/default.gemfile.example": "9da0d08fb6a299b965c37fe85efcaebd9eb0a82b2ea35fdc157c41bd75431396"
     "gemfiles/modular/erb/r2.6/v2.2.gemfile.example": "01787cbdf7136c0d75cc7b734c6bb3d2ef6c70d6c1c50e7d0ad2112c0f8ef8e7"
     "gemfiles/modular/erb/r2/v3.0.gemfile.example": "3793e7dc9ef23a7ccd893d48cbba092fd27594c63e65cca011cc658218425670"
@@ -315,7 +396,7 @@ kettle-jem:
     "gemfiles/modular/style.gemfile.example": "7121e53e4a8f799804c6c4cea3bac7c7f7e89bf263b83e19fc5d4a554fa9f432"
     "gemfiles/modular/style_local.gemfile.example": "c0e0e5a8ed2a2349034e4ec60cdcbda265fbc1e092d3fcc1ae646b6e900237e1"
     "gemfiles/modular/templating.gemfile.example": "f65421e4dead9f61e9d66155222b4c815ec30888aa9c48622d8861970c374620"
-    "gemfiles/modular/templating_local.gemfile.example": "5fe0b6ed38137e869562f0a31c89225b786d49c3fbc0236c38ea20325dcb2036"
+    "gemfiles/modular/templating_local.gemfile.example": "1387796a8cebb58b6641bec238333a5dfcdf37d9e0f4aea8defb633347f2a6e5"
     "gemfiles/modular/x_std_libs.gemfile.example": "5cb837a90084deca54b9ecb7efe626d63db43476f649cb69cc89a8377198625a"
     "gemfiles/modular/x_std_libs/r2.3/libs.gemfile.example": "379ac2a3698615789e39dc18a961b9c793b2cc594856bb3163524a99fd4ac86f"
     "gemfiles/modular/x_std_libs/r2.4/libs.gemfile.example": "ccad8f592943481317c082ce8d340316b9e90a52463c8c1eea5c5109b23e8c3d"

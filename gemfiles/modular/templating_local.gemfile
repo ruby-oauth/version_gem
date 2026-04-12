@@ -9,6 +9,7 @@ local_gems = %w[
   tree_haver
   ast-merge
   bash-merge
+  kettle-drift
   dotenv-merge
   json-merge
   markdown-merge
@@ -18,9 +19,10 @@ local_gems = %w[
   toml-merge
   markly-merge
   kettle-jem
+  jsonc-merge
 ]
 
-# export VENDORED_GEMS=bash-merge,dotenv-merge,json-merge,jsonc-merge,markdown-merge,prism-merge,psych-merge,rbs-merge,toml-merge,markly-merge,kettle-jem
+# export VENDORED_GEMS=tree_haver,ast-merge,bash-merge,kettle-drift,dotenv-merge,json-merge,markdown-merge,prism-merge,psych-merge,rbs-merge,toml-merge,markly-merge,kettle-jem,jsonc-merge
 platform :mri do
   eval_nomono_gems(
     gems: local_gems,

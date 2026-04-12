@@ -10,6 +10,7 @@
 gem "kramdown", "~> 2.5", ">= 2.5.1", require: false # Ruby >= 2.5
 gem "kramdown-parser-gfm", "~> 1.1", require: false # Ruby >= 2.3
 gem "yard", "~> 0.9", ">= 0.9.37", require: false
+gem "yard-timekeeper", "~> 0.1", require: false
 gem "yaml-converter", "~> 0.1", require: false # Ruby >= 3.2
 gem "yard-yaml", "~> 0.1", require: false # Ruby >= 3.2
 gem "yard-fence", "~> 0.8", ">= 0.8.2", require: false # Ruby >= 3.2

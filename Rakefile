@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+### DUPLICATE DRIFT TASKS
+begin
+  require "kettle/drift"
+  Kettle::Drift.install_tasks
+rescue LoadError
+  desc("(stub) kettle:drift:validate is unavailable")
+  task("kettle:drift:validate") do
+    warn("NOTE: kettle-drift isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+  end
+  task("kettle:drift" => "kettle:drift:validate")
+end
 # kettle-jem:freeze
 # To retain chunks of comments & code during version_gem templating:
 # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
