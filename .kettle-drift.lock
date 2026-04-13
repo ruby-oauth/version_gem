@@ -1,0 +1,30 @@
+{
+  "# Continue to the next step on failure\ncontinue-on-error: true": [
+    {
+      "file": ".github/workflows/truffle.yml",
+      "lines": [
+        71,
+        85
+      ]
+    }
+  ],
+  "// Use 'forwardPorts' to make a list of ports inside the container available locally.\n// \"forwardPorts\": [],": [
+    {
+      "file": ".devcontainer/devcontainer.json",
+      "lines": [
+        11,
+        22
+      ]
+    }
+  ],
+  "appraisal: \"current\"\nexec_cmd: \"rake test\"": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        42,
+        52,
+        60
+      ]
+    }
+  ]
+}
