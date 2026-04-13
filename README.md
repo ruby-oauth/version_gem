@@ -502,7 +502,7 @@ See [SECURITY.md][🔐security].
 ## 🤝 Contributing
 
 If you need some ideas of where to help, you could work on adding more code coverage,
-or if it is already 💯 (see [below](#code-coverage)) check [reek](REEK), [issues][🤝gh-issues], or [PRs][🤝gh-pulls],
+or if it is already 💯 (see [below](#code-coverage)) check [issues][🤝gh-issues] or [PRs][🤝gh-pulls],
 or use the gem and think about how it could be better.
 
 We [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog] so if you make changes, remember to update it.

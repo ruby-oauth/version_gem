@@ -233,6 +233,9 @@ patterns:
 files:
   AGENTS.md:
     strategy: accept_template
+  .github:
+    copilot_instructions.md:
+      strategy: accept_template
   gemfiles:
     modular:
       templating.gemfile:
@@ -279,11 +282,11 @@ kettle-jem:
     ".git-hooks/commit-msg.example": "d8c42b512b0a6ba0879670cb6855d938c846ec1b5dfb654ff003e797d39a7a78"
     ".git-hooks/commit-subjects-goalie.txt.example": "bb1179c8911af8afeb1f9a604b3de789d4a4b33d9d4a7743b3145998c15b0a94"
     ".git-hooks/footer-template.erb.txt.example": "70ed3616ee04a4062126f53892cc255e7aa2b66741fe22d6b372f7df99676718"
-    ".git-hooks/prepare-commit-msg.example": "a7c2788ba23a27fc8723c3574f5453b857fd0a7826a538978d6e10fdf2c5ca55"
+    ".git-hooks/prepare-commit-msg.example": "35266ead46a6385d20eeff7ec64afedef33a2db18d1238b8662a1bc758f05335"
     ".github/.codecov.yml.example": "d6ef3208a90eca74f79d8ff4e5ae21a915562b075cb17978b1eaadc231dd4e85"
-    ".github/COPILOT_INSTRUCTIONS.md.example": "f5c5791df013e89e170fd436379b14e251d0ff4cb6b330a6d961e80c9071f2d3"
     ".github/FUNDING.yml.example": "3ee318b360682312dcec19b9f3b6edb814a1e99896ca1fc5b9e790cb6982b0e4"
     ".github/FUNDING.yml.no-osc.example": "0284dc0e9b37db88a1a3526a625665e7c2166a984ec152090758bf27bf02b7dd"
+    ".github/copilot_instructions.md.example": "f5c5791df013e89e170fd436379b14e251d0ff4cb6b330a6d961e80c9071f2d3"
     ".github/dependabot.yml.example": "db84d1c13f64100d2f48212c022f0d985e9061ca76c36d82e7057fd845ecd528"
     ".github/workflows/auto-assign.yml.example": "bafe3a06f48a03b06107ebf21f5f711713fa3e55608bb0f0ecddb5f85e472308"
     ".github/workflows/codeql-analysis.yml.example": "d724c2392cd37c180ea10ecc8dbfc7669e916164c1f4d35293fdc353439a76a3"
@@ -324,7 +327,7 @@ kettle-jem:
     ".gitignore.example": "14864a0c88be3f8c122ab3032efeb782ba5e035013231038acf746a400437a3e"
     ".gitlab-ci.yml.example": "ef64afa9855ebb59bbc87446fa9533238d3ce180966ceb19649a7f165715b92b"
     ".idea/.gitignore.example": "b44a5aa16bf9fe5635558af347454b05a76d600084308a9f43d4d0b54789ecab"
-    ".kettle-jem.yml.example": "b364572eaa086d659e66038db296bc0df39160c070cfee4348096bc9d7581b2c"
+    ".kettle-jem.yml.example": "990a5150fec9d2320852d5966db82d58724f816a35e8429e0c0dd0fa995f1229"
     ".licenserc.yaml.example": "eee56b6604d4db0aff911f55b6f9aab73839d2b3f0850c2139fdc5bf40839037"
     ".opencollective.yml.example": "9ad9b83fe54f0bddac7fb614575585d98f78df0e181ee70a7acd0168d26e3142"
     ".qlty/qlty.toml.example": "cf3d750d2328f6c057b08b7ce3d7ec00a4056c7f0eedda59af321d6caca03553"
@@ -343,7 +346,7 @@ kettle-jem:
     "CHANGELOG.md.example": "ac79c412af2b097c4e107740e6196989b2e407286d8bdf83cc6cd83dbecf5f57"
     "CITATION.cff.example": "88c60b525b11016b03c074bc951657ba3e02abe950e687e8933fb75abff9d597"
     "CODE_OF_CONDUCT.md.example": "f1ad532f1860f73ef774c6b27a26d41f4bc1cb8813034f5957487766ebb0986b"
-    "CONTRIBUTING.md.example": "d89a944f047457aa0f6e012a8849bcde1cdcb18cda88a333c5b32e60d2bd5c97"
+    "CONTRIBUTING.md.example": "157ef07bdadc89cc2ac3a4ddf9ff81a873172bde84b8395a102313a963ffbbc0"
     "FUNDING.md.example": "df90c5d413ec535d28b04c0b90e3a950c87bfad8689aaa95b90cdb85d6760d5f"
     "FUNDING.md.no-osc.example": "b61479b70f4b0fe7aee523b82792b8083898eed75c0ca5eca6a6d987c1b71614"
     "Gemfile.example": "7b804eb0d969784e196bc26cab607408cfa85c47c4fcf9d5a21891f026a72c2a"
@@ -351,21 +354,21 @@ kettle-jem:
     "MIT.md.example": "365fce2a82f9d258ada9a527accfd5754b406ee9cdd8f8ed86bbec64b8c42ab2"
     "PolyForm-Noncommercial-1.0.0.md.example": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8"
     "PolyForm-Small-Business-1.0.0.md.example": "2f81e317d36f83a199c9fa10bcb250775fd90510303eaeb15aac2d8f0c1fc2d6"
-    "README.md.example": "f5688c36c2d8ef0e6f1d0ba3358466b6dc5963a8b26a7243e07d52c5001f7adb"
-    "README.md.no-osc.example": "704e302a48b2e221458ba8f18c35d55c331cc3b339dfd9211d3eb682af08966d"
-    "REEK.example": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "README.md.example": "2db8d22593a85d3032df93664132e117825c5f74f195ef776e94767573b7f8de"
+    "README.md.no-osc.example": "c85f9f096eb6252b58de6627e62e5b89f6e2a01906d3424ce42dc064f88b8f34"
+    "REEK": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     "RUBOCOP.md.example": "67cfedd1d0e3b8a597641124ed5c4e736b8b42bd490fea33d1153264ee25757e"
     "Rakefile.example": "9f23d7946b1ddbd30aa1f5fd1609c4296e1b0e520a53bf65132455dab5cf4dee"
     "SECURITY.md.example": "d8cf4b656c2835735c4950b7cd0d9859b6840a3e675c769b58127f6094ee81ff"
     "bin/setup.example": "0ac35089c95a91d8973fe7a318bf9fd98b9f8e00db92c5d9ca6cd858abb8d41b"
     "certs/pboling.pem.example": "18956f60643666cc181e2743b3b3691bec08c5326f514f60af54d0cdb9ebc554"
-    "gem.gemspec.example": "7341fc77849ae21922503b686110fd9513121ed62c57f94a2b13b827da056ce6"
+    "gem.gemspec.example": "4de6ba248ba87ef082d5ee99198e113b95c557472171943d4b80d4322a6cb496"
     "gemfiles/modular/benchmark/r4/v0.5.gemfile.example": "5bc3190090ae456df1a8cce28dd47a7fb293495f6d845ec7e53a7a8b50f14ae1"
     "gemfiles/modular/benchmark/vHEAD.gemfile.example": "ca6cd52c55c3082759c6ddc97638970f12d953aec1822470823d316086aa6e25"
     "gemfiles/modular/coverage.gemfile.example": "cd5a04439c316c608735ffa62e0f8461579ea8612e3b0284f2f87ec3b669cdbb"
     "gemfiles/modular/coverage_local.gemfile.example": "72e2be90e2426c138b20d7adf1ee573ac5c681f9602b4a10c98c5f388e946449"
     "gemfiles/modular/debug.gemfile.example": "0a508bfb02e51b75394b43f4f09d98174dac36ead41cba09c1f730671a1f5905"
-    "gemfiles/modular/documentation.gemfile.example": "5499e76c53d840547b07c6845dbacc1b500fd6d6dc511c0b8592db0a295714f1"
+    "gemfiles/modular/documentation.gemfile.example": "8bbddd02d033dc4e3430d9c6fde66b198e3c5e6d026b117704019c01d5b28552"
     "gemfiles/modular/erb/r2.3/default.gemfile.example": "9da0d08fb6a299b965c37fe85efcaebd9eb0a82b2ea35fdc157c41bd75431396"
     "gemfiles/modular/erb/r2.6/v2.2.gemfile.example": "01787cbdf7136c0d75cc7b734c6bb3d2ef6c70d6c1c50e7d0ad2112c0f8ef8e7"
     "gemfiles/modular/erb/r2/v3.0.gemfile.example": "3793e7dc9ef23a7ccd893d48cbba092fd27594c63e65cca011cc658218425670"

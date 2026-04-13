@@ -103,7 +103,7 @@ When adding an appraisal to CI, check the [runner tool cache][🏃‍♂️runne
 
 ## The Reek List
 
-Take a look at the `reek` list which is the file called `REEK` and find something to improve.
+Take a look at the open issues and pull requests, or use the gem and find something to improve.
 
 To refresh the `reek` list:
 

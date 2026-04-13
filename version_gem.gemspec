@@ -82,7 +82,6 @@ Gem::Specification.new do |spec|
     "LICENSE.txt",
     "IRP.md",
     "README.md",
-    "REEK",
     "RUBOCOP.md",
     "SECURITY.md",
   ]
