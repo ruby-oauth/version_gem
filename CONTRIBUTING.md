@@ -10,7 +10,11 @@ Remember to [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog] if
 
 ## Help out!
 
-Take a look at the `reek` list which is the file called `REEK` and find something to improve.
+## Developer Certificate of Origin
+
+In order to protect users of this project, we require all contributors to comply with the
+[Developer Certificate of Origin](https://developercertificate.org/).
+This ensures that all contributions are properly licensed and attributed.
 
 Follow these instructions:
 
