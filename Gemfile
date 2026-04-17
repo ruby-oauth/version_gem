@@ -5,7 +5,6 @@
 # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
 # version_gem will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
-
 source "https://gem.coop"
 
 git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }

@@ -3,7 +3,6 @@
 # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
 # version_gem will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
-
 require "kettle/soup/cover/config"
 
 # Minimum coverage thresholds are set by kettle-soup-cover.

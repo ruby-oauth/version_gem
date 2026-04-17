@@ -5,9 +5,9 @@
 
 require "nomono/bundler" unless defined?(Nomono)
 
-local_gems = %w[yard-fence yard-timekeeper yard-yaml]
+local_gems = %w[yard-fence yard-timekeeper]
 
-# export VENDORED_GEMS=yard-fence,yard-timekeeper,yard-yaml
+# export VENDORED_GEMS=yard-fence,yard-timekeeper
 eval_nomono_gems(
   gems: local_gems,
   prefix: "KETTLE_RB",
