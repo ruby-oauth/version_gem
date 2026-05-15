@@ -34,4 +34,4 @@ _.path = ["exe", "bin"]
 _.source = ".config/mise/env.sh"
 
 [tools]
-ruby = "4.0.2"
+ruby = "4.0.4"
