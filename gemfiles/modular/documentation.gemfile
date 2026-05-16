@@ -13,7 +13,7 @@ gem "yard", "~> 0.9", ">= 0.9.37", require: false
 gem "yaml-converter", "~> 0.1", require: false # Ruby >= 3.2
 gem "yard-yaml", "~> 0.1", require: false # Ruby >= 3.2
 gem "yard-fence", "~> 0.8", ">= 0.8.2", require: false # Ruby >= 3.2
-gem "yard-junk", "~> 0.1", ">= 0.1.0", require: false # github: "pboling/yard-junk", branch: "next" # Ruby >= 3.1
+gem "yard-junk", "~> 0.1", ">= 0.1.0", require: false # Ruby >= 3.1
 gem "yard-relative_markdown_links", "~> 0.6", require: false
 
 # Std Lib extractions

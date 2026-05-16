@@ -23,7 +23,7 @@ platform :mri do
   if remote
     # AST parsing for advanced templating.
     # Kettle-rb's Merge Recipes (released)
-    gem "kettle-jem", "~> 1.0"
+    gem "kettle-jem", "~> 7.0"
   end
 end
 
