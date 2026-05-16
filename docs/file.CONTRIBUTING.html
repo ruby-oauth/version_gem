@@ -6,13 +6,13 @@
 <title>
   File: CONTRIBUTING
   
-    &mdash; Documentation by YARD 0.9.37
+    &mdash; Documentation by YARD 0.9.43
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" />
+  <link rel="stylesheet" href="css/common.css" type="text/css">
 
 <script type="text/javascript">
   pathId = "CONTRIBUTING";
@@ -27,6 +27,8 @@
 
   </head>
   <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
     <div class="nav_wrap">
       <iframe id="nav" src="file_list.html?1"></iframe>
       <div id="resizer"></div>
@@ -74,14 +76,20 @@ the <a href="https://gitlab.com/ruby-oauth/version_gem/-/blob/main/CODE_OF_CONDU
 <p>Follow these instructions:</p>
 
 <ol>
+  <li>Join the Discord: <a href="https://discord.gg/3qme4XHNKN">![Live Chat on Discord][✉️discord-invite-img]</a>
+</li>
   <li>Fork the repository</li>
-  <li>Create a feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
   <li>Make some fixes.</li>
-  <li>Commit changes (<code>git commit -am 'Added some feature'</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
   <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
   <li>Make sure to add tests for it. This is important, so it doesn’t break in a future release.</li>
   <li>Create new Pull Request.</li>
+  <li>Announce it in the channel for this org in the <a href="https://discord.gg/3qme4XHNKN">Discord</a>!</li>
 </ol>
+
+<pre class="code language-shell"><code class="language-shell">bin/rake -T
+</code></pre>
 
 <h2 id="environment-variables-for-local-development">Environment Variables for Local Development</h2>
 
@@ -95,8 +103,24 @@ the <a href="https://gitlab.com/ruby-oauth/version_gem/-/blob/main/CODE_OF_CONDU
 </ul>
 
 <p>Coverage (kettle-soup-cover / SimpleCov)</p>
+
+<h2 id="executables-vs-rake-tasks">Executables vs Rake tasks</h2>
+
+<p>Executables shipped by dependencies, such as kettle-dev, and stone_checksums, are available<br>
+after running <code>bin/setup</code>. These include:</p>
+
 <ul>
-  <li>K_SOUP_COV_DO: Enable coverage collection (default: true in .envrc)</li>
+  <li>gem_checksums</li>
+  <li>kettle-changelog</li>
+  <li>kettle-commit-msg</li>
+  <li>kettle-dev-setup</li>
+  <li>kettle-dvcs</li>
+  <li>kettle-pre-release</li>
+  <li>kettle-readme-backers</li>
+  <li>
+    <p>kettle-release</p>
+  </li>
+  <li>K_SOUP_COV_DO: Enable coverage collection (default: true in <code>mise.toml</code>)</li>
   <li>K_SOUP_COV_FORMATTERS: Comma-separated list of formatters (html, xml, rcov, lcov, json, tty)</li>
   <li>K_SOUP_COV_MIN_LINE: Minimum line coverage threshold (integer, e.g., 100)</li>
   <li>K_SOUP_COV_MIN_BRANCH: Minimum branch coverage threshold (integer, e.g., 100)</li>
@@ -113,10 +137,17 @@ Tip: When running a single spec file locally, you may want <code>K_SOUP_COV_MIN_
 </ul>
 
 <p>Releasing and signing</p>
+
 <ul>
   <li>SKIP_GEM_SIGNING: If set, skip gem signing during build/release</li>
   <li>GEM_CERT_USER: Username for selecting your public cert in <code>certs/&lt;USER&gt;.pem</code> (defaults to $USER)</li>
-  <li>SOURCE_DATE_EPOCH: Reproducible build timestamp. <code>kettle-release</code> will set this automatically for the session.</li>
+  <li>SOURCE_DATE_EPOCH: Reproducible build timestamp.
+    <ul>
+      <li>
+<code>kettle-release</code> will set this automatically for the session.</li>
+      <li>Not needed on bundler &gt;= 2.7.0, as reproducible builds have become the default.</li>
+    </ul>
+  </li>
 </ul>
 
 <p>Git hooks and commit message helpers (exe/kettle-commit-msg)</p>
@@ -124,10 +155,22 @@ Tip: When running a single spec file locally, you may want <code>K_SOUP_COV_MIN_
   <li>GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., <code>jira</code>) or <code>false</code> to disable</li>
   <li>GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)</li>
   <li>GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates</li>
-  <li>GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)</li>
+  <li>
+    <p>GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)</p>
+  </li>
+  <li>gem_checksums</li>
+  <li>kettle-changelog</li>
+  <li>kettle-commit-msg</li>
+  <li>kettle-dev-setup</li>
+  <li>kettle-dvcs</li>
+  <li>kettle-pre-release</li>
+  <li>kettle-readme-backers</li>
+  <li>kettle-release</li>
 </ul>
 
-<p>For a quick starting point, this repository’s <code>.envrc</code> shows sane defaults, and <code>.env.local</code> can override them locally.</p>
+<p>There are many Rake tasks available as well. You can see them by running:</p>
+
+<p>For a quick starting point, this repository’s <code>mise.toml</code> defines the shared defaults, and <code>.env.local</code> can override them locally. Copy <code>.env.local.example</code> to <code>.env.local</code>, use <code>KEY=value</code> lines, and either activate <code>mise</code> in your shell or run commands through <code>mise exec -C /path/to/project -- ...</code>.</p>
 
 <h2 id="appraisals">Appraisals</h2>
 
@@ -135,6 +178,11 @@ Tip: When running a single spec file locally, you may want <code>K_SOUP_COV_MIN_
 They are created and updated with the commands:</p>
 
 <pre class="code language-console"><code class="language-console">bin/rake appraisal:update
+</code></pre>
+
+<p>If you need to reset all gemfiles/*.gemfile.lock files:</p>
+
+<pre class="code language-console"><code class="language-console">bin/rake appraisal:reset
 </code></pre>
 
 <p>When adding an appraisal to CI, check the <a href="https://github.com/ruby/ruby-builder/releases/tag/toolcache">runner tool cache</a> to see which runner to use.</p>
@@ -155,13 +203,29 @@ They are created and updated with the commands:</p>
 <pre class="code language-console"><code class="language-console">bundle exec rake test
 </code></pre>
 
+<p>Run tests via <code>kettle-test</code> (provided by <code>kettle-test</code>). It runs RSpec, writes the full log to<br>
+<code>tmp/kettle-test/rspec-TIMESTAMP.log</code>, and prints a compact highlight block with timing, seed,<br>
+pass/fail count, failing example list, and SimpleCov coverage percentages.</p>
+
+<pre class="code language-console"><code class="language-console">bundle exec kettle-test
+</code></pre>
+
+<p>For targeted runs, disable the hard coverage threshold to avoid false failures:</p>
+
+<pre class="code language-console"><code class="language-console">K_SOUP_COV_MIN_HARD=false bundle exec kettle-test spec/path/to/spec.rb
+</code></pre>
+
 <h3 id="spec-organization-required">Spec organization (required)</h3>
 
 <ul>
-  <li>One spec file per class/module. For each class or module under <code>lib/</code>, keep all of its unit tests in a single spec file under <code>spec/</code> that mirrors the path and file name exactly: <code>lib/version_gem/release_cli.rb</code> -&gt; <code>spec/version_gem/release_cli_spec.rb</code>.</li>
-  <li>Never add a second spec file for the same class/module. Examples of disallowed names: <code>*_more_spec.rb</code>, <code>*_extra_spec.rb</code>, <code>*_status_spec.rb</code>, or any other suffix that still targets the same class. If you find yourself wanting a second file, merge those examples into the canonical spec file for that class/module.</li>
+  <li>GIT_HOOK_BRANCH_VALIDATE: Branch name validation mode (e.g., <code>jira</code>) or <code>false</code> to disable</li>
+  <li>GIT_HOOK_FOOTER_APPEND: Append a footer to commit messages when goalie allows (true/false)</li>
+  <li>GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates</li>
+  <li>
+    <p>GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)</p>
+  </li>
+  <li>One spec file per class/module. For each class or module under <code>lib/</code>, keep all of its unit tests in a single spec file under <code>spec/</code> that mirrors the path and file name exactly: <code>lib/version_gem/my_class.rb</code> -&gt; <code>spec/version_gem/my_class_spec.rb</code>.</li>
   <li>Exception: Integration specs that intentionally span multiple classes. Place these under <code>spec/integration/</code> (or a clearly named integration folder), and do not directly mirror a single class. Name them after the scenario, not a class.</li>
-  <li>Migration note: If a duplicate spec file exists, move all examples into the canonical file and delete the duplicate. Do not leave stubs or empty files behind.</li>
 </ul>
 
 <h2 id="lint-it">Lint It</h2>
@@ -182,9 +246,16 @@ They are created and updated with the commands:</p>
 
 <p>Never add <code># rubocop:disable ...</code> / <code># rubocop:enable ...</code> comments to code or specs (except when following the few existing <code>rubocop:disable</code> patterns for a rule already being disabled elsewhere in the code). Instead:</p>
 
+<ol>
+  <li>Update version.rb to contain the correct version-to-be-released.</li>
+  <li>Run <code>bundle exec kettle-changelog</code>.</li>
+  <li>Run <code>bundle exec kettle-release</code>.</li>
+  <li>Stay awake and monitor the release process for any errors, and answer any prompts.</li>
+</ol>
+
 <ul>
   <li>Prefer configuration-based exclusions when a rule should not apply to certain paths or files (e.g., via <code>.rubocop.yml</code>).</li>
-  <li>When a violation is temporary and you plan to fix it later, record it in <code>.rubocop_gradual.lock</code> using the gradual workflow:
+  <li>When a violation is temporary, and you plan to fix it later, record it in <code>.rubocop_gradual.lock</code> using the gradual workflow:
     <ul>
       <li>
 <code>bundle exec rake rubocop_gradual:autocorrect</code> (preferred)</li>
@@ -213,7 +284,7 @@ They are created and updated with the commands:</p>
 <p><strong>IMPORTANT</strong>: To sign a build,<br>
 a public key for signing gems will need to be picked up by the line in the<br>
 <code>gemspec</code> defining the <code>spec.cert_chain</code> (check the relevant ENV variables there).<br>
-All releases to RubyGems.org are signed releases.<br>
+All releases are signed releases.<br>
 See: <a href="https://guides.rubygems.org/security/#building-gems">RubyGems Security Guide</a></p>
 
 <p>NOTE: To build without signing the gem set <code>SKIP_GEM_SIGNING</code> to any value in the environment.</p>
@@ -272,16 +343,15 @@ to create SHA-256 and SHA-512 checksums. This functionality is provided by the <
     </ul>
   </li>
   <li>Run <code>bundle exec rake release</code> which will create a git tag for the version,<br>
-push git commits and tags, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>
-</li>
+push git commits and tags, and push the <code>.gem</code> file to the gem host configured in the gemspec.</li>
 </ol>
 
 </div></div>
 
       <div id="footer">
-  Generated on Tue Sep  2 14:51:11 2025 by
+  Generated on Sat May 16 14:58:34 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.4.5).
+  0.9.43 (ruby-4.0.4).
 </div>
 
     </div>
