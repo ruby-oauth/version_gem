@@ -7,7 +7,6 @@
 #
 
 # Documentation
-# Documentation
 gem "kramdown", "~> 2.5", ">= 2.5.1", require: false # Ruby >= 2.5
 gem "kramdown-parser-gfm", "~> 1.1", require: false # Ruby >= 2.3
 gem "yaml-converter", "~> 0.1", require: false # Ruby >= 3.2
