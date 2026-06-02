@@ -30,6 +30,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Fixed the Style workflow RBS validation command so CI uses the bundled `rbs`
   executable instead of the non-executable `bin/rbs` binstub.
+- Fixed the Coverage workflow so Codecov repository-registration/upload errors
+  do not fail CI after local coverage reports have already been generated and
+  verified.
 
 ### Security
 
