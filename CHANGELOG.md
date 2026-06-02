@@ -46,6 +46,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Removed
 
+- Removed the obsolete `.yard_gfm_support.rb` documentation hook; YARD setup now
+  uses the current template-managed plugin configuration.
 - Removed obsolete CI workflows for Ruby 2.3, JRuby 9.1, TruffleRuby 23.2,
   CodeQL, framework CI, and Discord notifications.
 - Removed legacy generated binstubs in favor of the current curated
