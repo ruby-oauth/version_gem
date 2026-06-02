@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.1.10] - 2026-06-02
+
+- TAG: [v1.1.10][1.1.10t]
+- COVERAGE: 100.00% -- 58/58 lines in 2 files
+- BRANCH COVERAGE: 0.00% -- 0/0 branches in 2 files
+- 85.19% documented
+
+### Added
+
 - StructuredMerge-managed template configuration under `.structuredmerge/`,
   including semantic Git diff driver settings and kettle-drift integration.
 - `rubocop-gradual` baseline tracking for style checks.
@@ -42,8 +61,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - Gem metadata and packaging inventory were refreshed by the template,
   including homepage, wiki, license-file, and packaged file handling.
 
-### Deprecated
-
 ### Removed
 
 - Removed the obsolete `.yard_gfm_support.rb` documentation hook; YARD setup now
@@ -56,8 +73,6 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 - logo at top of README.md
-
-### Security
 
 ## [1.1.9] - 2025-09-02
 
@@ -263,7 +278,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.9...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.10...HEAD
+[1.1.10]: https://github.com/ruby-oauth/version_gem/compare/v1.1.9...v1.1.10
+[1.1.10t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.10
 [1.1.9]: https://github.com/ruby-oauth/version_gem/compare/v1.1.8...v1.1.9
 [1.1.9t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.9
 [1.1.8]: https://gitlab.com/ruby-oauth/version_gem/-/compare/v1.1.7...v1.1.8

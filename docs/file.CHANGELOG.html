@@ -6,7 +6,7 @@
 <title>
   File: CHANGELOG
   
-    &mdash; Documentation by YARD 0.9.43
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/ruby-oauth/version_gem/compare/v1.1.9...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/ruby-oauth/version_gem/compare/v1.1.10...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -82,11 +82,64 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="fixed">Fixed</h3>
 
+<h3 id="security">Security</h3>
+
+<h2 id="1110---2026-06-02">
+<a href="https://github.com/ruby-oauth/version_gem/compare/v1.1.9...v1.1.10">1.1.10</a> - 2026-06-02</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.10">v1.1.10</a>
+</li>
+  <li>COVERAGE: 100.00% – 58/58 lines in 2 files</li>
+  <li>BRANCH COVERAGE: 0.00% – 0/0 branches in 2 files</li>
+  <li>85.19% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>StructuredMerge-managed template configuration under <code>.structuredmerge/</code>,<br>
+including semantic Git diff driver settings and kettle-drift integration.</li>
+  <li>
+<code>rubocop-gradual</code> baseline tracking for style checks.</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>Re-templated the project with the current kettle-jem / StructuredMerge<br>
+template.</li>
+  <li>Development and test dependency floors now use current template floors:<br>
+<code>kettle-dev</code> 2.0.7, <code>kettle-test</code> 2.0.3, <code>kettle-soup-cover</code> 2.0.0,<br>
+<code>turbo_tests2</code> 3.1.1, <code>rubocop-lts</code> 8.3.0, and<br>
+<code>rubocop-lts-rspec</code> 1.0.3.</li>
+  <li>Development and test tooling now targets Ruby 2.4 or newer while the<br>
+published runtime Ruby requirement remains Ruby 2.2 or newer.</li>
+  <li>RSpec setup now loads <code>kettle-test</code> helpers and kettle-soup-cover coverage<br>
+bootstrap from <code>spec/spec_helper.rb</code>.</li>
+  <li>Templating dependencies now load only when <code>K_JEM_TEMPLATING=true</code>, with<br>
+local StructuredMerge and Kettle workspace dependencies wired through<br>
+<code>SMORG_RB_DEV</code>, <code>KETTLE_RB_DEV</code>, and <code>nomono</code>.</li>
+  <li>Gem metadata and packaging inventory were refreshed by the template,<br>
+including homepage, wiki, license-file, and packaged file handling.</li>
+</ul>
+
+<h3 id="removed-1">Removed</h3>
+
+<ul>
+  <li>Removed the obsolete <code>.yard_gfm_support.rb</code> documentation hook; YARD setup now<br>
+uses the current template-managed plugin configuration.</li>
+  <li>Removed obsolete CI workflows for Ruby 2.3, JRuby 9.1, TruffleRuby 23.2,<br>
+CodeQL, framework CI, and Discord notifications.</li>
+  <li>Removed legacy generated binstubs in favor of the current curated<br>
+<code>kettle-check-eof</code>, <code>kettle-test</code>, and retained documentation binstubs.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
 <ul>
   <li>logo at top of README.md</li>
 </ul>
-
-<h3 id="security">Security</h3>
 
 <h2 id="119---2025-09-02">
 <a href="https://github.com/ruby-oauth/version_gem/compare/v1.1.8...v1.1.9">1.1.9</a> - 2025-09-02</h2>
@@ -99,7 +152,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>84.62% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>re-templated gem using kettle-dev v1.1.2
@@ -113,7 +166,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>docs site: https://version-gem.galtzo.com</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>RBS types are more accurate</li>
@@ -130,7 +183,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>84.62% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>CITATION.cff (@pboling)</li>
@@ -155,7 +208,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>76.92% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>Support for Epoch Semantic Versioning (@pboling)
@@ -168,7 +221,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>More documentation (@pboling)</li>
 </ul>
 
-<h3 id="removed-1">Removed</h3>
+<h3 id="removed-2">Removed</h3>
 
 <ul>
   <li>Ruby 2.2 removed from CI, though technically still supported
@@ -189,7 +242,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>77.78% documented</li>
 </ul>
 
-<h3 id="added-4">Added</h3>
+<h3 id="added-5">Added</h3>
 
 <ul>
   <li>Support for JRuby 9.1, 9.2, 9.3, 9.4, and head (@pboling)</li>
@@ -204,7 +257,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>Switch to stone_checksums for checksum generation (@pboling)</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>Code of Conduct updated - Contributor Covenant v2.0 =&gt; v2.1 (@pboling)</li>
@@ -221,7 +274,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>77.78% documented</li>
 </ul>
 
-<h3 id="added-5">Added</h3>
+<h3 id="added-6">Added</h3>
 
 <ul>
   <li>Document approach to get code coverage on your gem’s version.rb file (@pboling)</li>
@@ -229,7 +282,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>Documentation of Ruby version and SemVer support (@pboling)</li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>
@@ -251,13 +304,13 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-6">Added</h3>
+<h3 id="added-7">Added</h3>
 
 <ul>
   <li>Ruby 3.3 to CI (@pboling)</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>Remove the executable bit from non-executable files (@Fryguy)</li>
@@ -271,7 +324,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-7">Added</h3>
+<h3 id="added-8">Added</h3>
 
 <ul>
   <li>More test coverage (now 100% 🎉) (@pboling)</li>
@@ -291,13 +344,13 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>(dev) Rake task for rubocop_gradual (@pboling)</li>
 </ul>
 
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 
 <ul>
   <li>(dev) <code>yard</code> documentation task (@pboling)</li>
 </ul>
 
-<h3 id="removed-2">Removed</h3>
+<h3 id="removed-3">Removed</h3>
 
 <ul>
   <li>Formally drop Ruby 2.2 support
@@ -315,7 +368,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-8">Added</h3>
+<h3 id="added-9">Added</h3>
 
 <ul>
   <li>
@@ -336,7 +389,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-9">Added</h3>
+<h3 id="added-10">Added</h3>
 
 <ul>
   <li>Alternatives section to README.md (@pboling)</li>
@@ -345,7 +398,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>Checksums for released gems (@pboling)</li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>SECURITY.md policy (@pboling)</li>
@@ -371,13 +424,13 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-10">Added</h3>
+<h3 id="added-11">Added</h3>
 
 <ul>
   <li>RSpec Matchers and Shared Example (@pboling)</li>
 </ul>
 
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 
 <ul>
   <li>
@@ -392,7 +445,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-11">Added</h3>
+<h3 id="added-12">Added</h3>
 
 <ul>
   <li>Delay loading of library code until after code coverage tool is loaded (@pboling)</li>
@@ -406,7 +459,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-12">Added</h3>
+<h3 id="added-13">Added</h3>
 
 <ul>
   <li>CI Build improvements (@pboling)</li>
@@ -423,7 +476,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </li>
 </ul>
 
-<h3 id="added-13">Added</h3>
+<h3 id="added-14">Added</h3>
 
 <ul>
   <li>Initial release, with basic version parsing API (@pboling)</li>
@@ -432,9 +485,9 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat May 16 14:58:34 2026 by
+  Generated on Tue Jun  2 16:04:40 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.43 (ruby-4.0.4).
+  0.9.44 (ruby-4.0.4).
 </div>
 
     </div>
