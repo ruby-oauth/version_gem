@@ -74,7 +74,7 @@ GEM
     kettle-dev (2.0.7)
       kettle-test (~> 2.0, >= 2.0.2)
       version_gem (~> 1.1, >= 1.1.9)
-    kettle-soup-cover (2.0.0)
+    kettle-soup-cover (2.0.1)
       simplecov (~> 0.22, >= 0.22.0)
       simplecov-cobertura (~> 3.1, >= 3.1.0)
       simplecov-console (~> 0.9, >= 0.9.5)
@@ -374,7 +374,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.1)
   irb (~> 1.17)
   kettle-dev (~> 2.0, >= 2.0.7)
-  kettle-soup-cover (~> 2.0, >= 2.0.0)
+  kettle-soup-cover (~> 2.0, >= 2.0.1)
   kettle-test (~> 2.0, >= 2.0.3)
   kramdown (~> 2.5, >= 2.5.1)
   kramdown-parser-gfm (~> 1.1)
@@ -413,7 +413,6 @@ CHECKSUMS
   backports (3.25.3) sha256=94298d32dc3c40ca15633b54e282780b49e2db0c045f602ea1907e4f63a17235
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
   bigdecimal (3.3.1) sha256=eaa01e228be54c4f9f53bf3cc34fe3d5e845c31963e7fcc5bedb05a4e7d52218
-  bundler (4.0.11) sha256=5bcec0fb78302e48d02ee46f10ee6e6942be647ba5b44a6d1ddfda9a240ce785
   bundler-audit (0.9.3) sha256=81c8766c71e47d0d28a0f98c7eed028539f21a6ea3cd8f685eb6f42333c9b4e9
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
@@ -436,7 +435,7 @@ CHECKSUMS
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.19.7) sha256=fe432c8639f6efff69f9d73b518a3705d9581ab93156f981ea72806e1e5bcc3e
   kettle-dev (2.0.7) sha256=748b51e4f257fff4da15402a94d952178d43a2c07ddd9f88c2925ac35829b23a
-  kettle-soup-cover (2.0.0) sha256=77620541cb20000484fa86c87ec79b644c99d168b3b03eae70fd80fdabd62409
+  kettle-soup-cover (2.0.1) sha256=58417b5d4fc6a631c09cd78a5128b388d9a18c143b8553df2ee8dedbc8a314d7
   kettle-test (2.0.3) sha256=db616394605eaab0f6369b03476d854e66c5d4d9c7a798975837a43685c2a293
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
