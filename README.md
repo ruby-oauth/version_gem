@@ -795,7 +795,7 @@ Thanks for RTFM. ☺️
 | Package | version_gem |
 | Description | 🍲 Versions are good. Versions are cool. Versions will win. |
 | Homepage | https://github.com/ruby-oauth/version_gem |
-| Source | https://github.com/ruby-oauth/version_gem/tree/v1.1.9 |
+| Source | https://github.com/ruby-oauth/version_gem/tree/v1.1.10 |
 | License | `MIT` |
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/ruby-oauth, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/version_gem, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
