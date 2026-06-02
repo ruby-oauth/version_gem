@@ -1,0 +1,27 @@
+{
+  ".yard_gfm_support.rb:1155118867": [
+    [10, 5, 22, "Style/SuperArguments: Call `super` without arguments and parentheses when the signature is identical.", 1905555812],
+    [21, 33, 1, "Style/TrailingCommaInArguments: Avoid comma after the last parameter of a method call.", 177545]
+  ],
+  "README.md:3250467583": [
+    [218, 3, 17, "Lint/ConstantReassignment: Constant `VERSION` is already assigned in this namespace.", 381499187],
+    [227, 5, 17, "Lint/ConstantReassignment: Constant `VERSION` is already assigned in this namespace.", 381499187],
+    [269, 15, 1, "Style/TrailingCommaInHashLiteral: Avoid comma after the last item of a hash.", 177545]
+  ],
+  "lib/version_gem/api.rb:2364296893": [
+    [49, 17, 1, "Style/TrailingCommaInHashLiteral: Avoid comma after the last item of a hash.", 177545]
+  ],
+  "lib/version_gem/epoch.rb:2987834247": [
+    [48, 19, 1, "Style/TrailingCommaInHashLiteral: Avoid comma after the last item of a hash.", 177545]
+  ],
+  "lib/version_gem/ruby.rb:1641965160": [
+    [10, 7, 39, "Style/YodaCondition: Reverse the order of the operands `RUBY_VER >= ::Gem::Version.new(version)`.", 118909208],
+    [10, 50, 23, "Style/YodaCondition: Reverse the order of the operands `::RUBY_ENGINE == engine`.", 502584838],
+    [19, 9, 23, "Style/YodaCondition: Reverse the order of the operands `::RUBY_ENGINE == engine`.", 502584838]
+  ],
+  "spec/helpers/faux.rb:1318796496": [
+    [9, 7, 39, "Style/YodaCondition: Reverse the order of the operands `RUBY_VER >= ::Gem::Version.new(version)`.", 118909208],
+    [9, 50, 23, "Style/YodaCondition: Reverse the order of the operands `::RUBY_ENGINE == engine`.", 502584838],
+    [17, 9, 23, "Style/YodaCondition: Reverse the order of the operands `::RUBY_ENGINE == engine`.", 502584838]
+  ]
+}

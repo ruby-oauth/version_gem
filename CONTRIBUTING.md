@@ -50,6 +50,22 @@ There are many Rake tasks available as well. You can see them by running:
 bin/rake -T
 ```
 
+## Code quality checks
+
+Run the Reek task when you want a smell check that fails on current findings:
+
+```shell
+bin/rake reek
+```
+
+Refresh the checked-in `REEK` backlog through the rake task, not by redirecting
+the raw `reek` executable output. The rake task uses the project bundle and
+avoids stale generated binstubs shadowing the Reek gem executable:
+
+```shell
+bin/rake reek:update
+```
+
 ## Environment Variables for Local Development
 
 Below are the primary environment variables recognized by stone_checksums (and its integrated tools). Unless otherwise noted, set boolean values to the string "true" to enable.
@@ -86,11 +102,32 @@ Git hooks and commit message helpers (exe/kettle-commit-msg)
 - GIT_HOOK_FOOTER_SENTINEL: Required when footer append is enabled — a unique first-line sentinel to prevent duplicates
 - GIT_HOOK_FOOTER_APPEND_DEBUG: Extra debug output in the footer template (true/false)
 
+Git diff driver setup
+- Local setup writes repository `.gitattributes` entries and local Git `diff.smorg-*` command config so this checkout uses StructuredMerge semantic diffs.
+- Global setup registers `diff.smorg-*` commands once in the user Git config; use it when you work across several StructuredMerge-enabled repositories.
+- Include-file setup writes `.git/smorg/config` and includes it from local Git config, keeping command registrations out of the repository files.
+- Git hosting forges generally ignore external diff drivers, so pull request views may still show raw textual diffs even when local `git diff` uses semantic drivers.
+
+```console
+K_JEM_TEMPLATING=true bundle exec kettle-jem install
+```
+
+Troubleshooting Git diffs
+- Use `git diff --no-ext-diff` to compare against Git's built-in diff output.
+- Use `git diff --no-textconv` when a textconv projection obscures the raw file bytes you need to inspect.
+- If Git reports a missing `smorg-*` executable, rerun `bundle install` and the setup command above, then check `git config --local --get-regexp '^diff\.smorg-'`.
+- To remove managed local entries, run `K_JEM_TEMPLATING=true bundle exec kettle-jem install --undo`; remove global command registrations with `git config --global --unset-all diff.smorg-ruby.command`.
+
 For a quick starting point, this repository’s `mise.toml` defines the shared defaults, and `.env.local` can override them locally. Copy `.env.local.example` to `.env.local`, use `KEY=value` lines, and either activate `mise` in your shell or run commands through `mise exec -C /path/to/project -- ...`.
 
 ## Appraisals
 
 From time to time the [appraisal2][🚎appraisal2] gemfiles in `gemfiles/` will need to be updated.
+Generated appraisal and CI workflow floors are controlled by `ruby.test_minimum`
+in `.structuredmerge/kettle-jem.yml`; this project was templated with `ruby.test_minimum: 2.4`.
+That value describes the lowest Ruby version expected to run the test/development
+toolchain, and it may be higher than the gemspec runtime floor.
+
 They are created and updated with the commands:
 
 ```console
@@ -212,11 +249,11 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 14. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
-[📜src-gl]: https://gitlab.com/ruby-oauth/version_gem/
+[📜src-gl]: https://gitlab.com/ruby-oauth/version_gem
 [📜src-cb]: https://codeberg.org/ruby-oauth/version_gem
 [📜src-gh]: https://github.com/ruby-oauth/version_gem
 [🧪build]: https://github.com/ruby-oauth/version_gem/actions
-[🤝conduct]: https://gitlab.com/ruby-oauth/version_gem/-/blob/main/CODE_OF_CONDUCT.md
+[🤝conduct]: https://github.com/ruby-oauth/version_gem/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
 [🖐contributors]: https://github.com/ruby-oauth/version_gem/graphs/contributors
 [🚎contributors-gl]: https://gitlab.com/ruby-oauth/version_gem/-/graphs/main

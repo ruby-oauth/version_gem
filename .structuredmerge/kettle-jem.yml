@@ -84,7 +84,7 @@
 # Set this to a single emoji that represents your gem. Examples: 🪙 🔑 🛠️ 🔮
 # This key is REQUIRED. kettle-jem will abort if it is absent.
 # ENV override: KJ_PROJECT_EMOJI
-project_emoji: ""
+project_emoji: 🍲
 # Engines this project supports.
 # List the Ruby engines that your gem targets. kettle-jem uses this to decide
 # which CI workflows, README compatibility rows, and badge references to
@@ -96,14 +96,128 @@ engines:
   - ruby
   - jruby
   - truffleruby
+# Ruby version policy.
+ruby:
+  # Lowest MRI Ruby version for generated CI workflows, Appraisals, and
+  # test/development dependency assumptions. This is intentionally separate
+  # from the gemspec required_ruby_version, which describes the published
+  # runtime contract. Effective CI minimum is max(gemspec minimum, this value).
+  test_minimum: "2.4"
+# RubyGems packaging/runtime shape.
+rubygems:
+  # Published runtime Ruby floor used for generated gemspec metadata and README
+  # compatibility text. Omit this to derive the value from the gemspec.
+  min_ruby: "2.2.0"
+# Repository URL topology.
+# This is independent from templates.profile. A gem may use the full template
+# while still living as a sub-project inside a monorepo.
+#
+# Supported values:
+#   standalone          - project URLs point at this gem's own repository
+#   monorepo-subproject - project URLs point at a subdirectory in the repository root
+#
+# ENV override: KJ_REPOSITORY_TOPOLOGY
+repository:
+  topology: "standalone"
+# Framework matrix workflows.
+# When your gem tests against multiple versions of a framework (Rails,
+# ActiveRecord, ActiveSupport, etc.), this section configures how
+# kettle-jem generates the CI matrix strategy and gemfile references.
+#
+# preset: controls overall workflow strategy
+#   modern       — Ruby-only matrix (default when absent)
+#   framework    — Ruby × framework-version matrix
+#   legacy-compat — supported / unsupported / ancient workflow split
+#
+# framework_matrix (only used when preset: framework):
+#   dimension   — framework name used in the matrix key and display
+#                 (e.g. activerecord, rails, actionmailer)
+#   gem         — gem name to write into generated framework gemfiles.
+#                 Defaults to dimension when absent.
+#   versions    — ordered list of versions to test against. Entries may be
+#                 strings, or mappings with:
+#                   label       - display value used in CI
+#                   slug        - path-safe value used in gemfile_pattern
+#                   requirement - Bundler requirement written to the gemfile
+#   gemfile_pattern — pattern for gemfile paths; {version} is replaced
+#                     with each version slug (dots replaced by underscores
+#                     when the pattern contains an underscore placeholder).
+#                     Resolved relative to gemfiles/ unless it already contains
+#                     a directory.
+#                     Examples:
+#                       "ar-{version}.x"      → gemfiles/ar-7.0.x
+#                       "rails_{version}"      → gemfiles/rails_7_0.gemfile
+#   Use this when you need a simple 2D matrix: Ruby × one framework gem/version axis.
+#   For deeper or more complex matrices that are better modeled as Appraisals entries,
+#   prefer kettle-jem-appraisals instead.
+#
+workflows:
+  # Default command used by generated test workflows.
+  # ENV override: KJ_EXEC_CMD
+  exec_cmd: kettle-test
+  # Include VCR/WebMock recording modular gemfiles in generated Appraisals.
+  # Enable only for projects that actually require recording support.
+  recording: false
 
-# README top logo mode.
-# Controls whether the generated README header includes the GitHub org logo,
-# the project logo, or both after the shared Galtzo and ruby-lang logos.
-# Supported values: org, project, org_and_project
-# Default (when key is absent): org_and_project
+# README top logos.
+# Comma-separated list of optional logo entries for the generated README header.
+# top_logos render above the title; h2_synopsis_logos render inline with the Synopsis H2.
+# Supported values: related-org, ruby, org, project, optionally followed by |width.
+# Examples: org|12%, ruby|96px
+# Default widths: top 1 logo => 14%, top 2 logos => 12%, Synopsis 1 logo => 10%, Synopsis 2 logos => 8%.
+# Default (when keys are absent): top_logos: org,project; h2_synopsis_logos: related-org,ruby
+# Legacy top_logo_mode values map as:
+#   org => related-org,ruby,org
+#   project => related-org,ruby,project
+#   org_and_project => related-org,ruby,org,project
 readme:
-  top_logo_mode: org
+  top_logos: org
+  h2_synopsis_logos: related-org,ruby
+  # Optional package-family README block.
+  # Supported values: structuredmerge
+  # Leave unset for standalone kettle-rb gems and most projects.
+  # package_family: structuredmerge
+  # Sections to preserve from the destination README during template merging.
+  # These section headings (case-insensitive) will keep the destination body
+  # instead of being overwritten by the template. Default when absent:
+  #   - synopsis
+  #   - configuration
+  #   - basic usage
+  #
+  # Built-in aliases (destination → template):
+  #   summary → synopsis, usage → basic usage,
+  #   configuration options → configuration, setup → basic usage
+  #
+  # preserve_sections:
+  #   - synopsis
+  #   - configuration
+  #   - basic usage
+  #   - usage
+  #   - summary
+  #
+  # Glob patterns for additional sections to preserve (e.g. Note:* headings).
+  # Default when absent: ["note:*"]
+  #
+  # preserve_patterns:
+  #   - "note:*"
+  #   - "setup*"
+  #
+  # Custom section aliases (destination heading → canonical template heading).
+  # Merged with built-in aliases above.
+  #
+  # section_aliases:
+  #   howto: basic usage
+  #   options: configuration
+  # README badges managed by the template.
+  badges:
+    # FOSSA license/security status badge.
+    # false - omit the badge (default)
+    # true  - derive project id from the GitHub repository slug
+    # string or mapping project/project_id/slug - explicit FOSSA project id
+    #
+    # Example:
+    # fossa: git+github.com/pboling/example
+    fossa: false
 
 # SPDX license identifiers for this project.
 # List one or more licenses that apply to the gem. Users may use the software
@@ -126,6 +240,20 @@ readme:
 #     are all present, a use-case guide table is added to README and LICENSE.md.
 licenses:
   - MIT
+# Apache SkyWalking Eyes dependency license overrides.
+# Use these when license-eye cannot identify a dependency license from the
+# package metadata or gem contents. Entries render under
+# dependency.licenses in .licenserc.yaml.
+#
+# Supported fields:
+#   name    - dependency name exactly as reported by license-eye
+#   license - SPDX license identifier to assign
+#   version - optional dependency version for a narrower override
+license_eye:
+  dependency_licenses:
+    - name: simplecov-rcov
+      version: 0.3.7
+      license: MIT
 
 # Machine / automation accounts to exclude from generated copyright output.
 #
@@ -147,6 +275,37 @@ machine_users:
 # Divergence is currently measured as the percent of produced files that would
 # change or be added during templating (100 - unchanged-file score).
 min_divergence_threshold:
+# Hostname used for generated YARD documentation links.
+# Defaults to <gem-name>.<author-email-domain>.
+# ENV override: KJ_YARD_HOST
+yard_host: "version-gem.galtzo.com"
+# Full URL used for gemspec metadata["homepage_uri"].
+# Defaults to https://version-gem.galtzo.com.
+# ENV override: KJ_HOMEPAGE_URI
+homepage_uri: "https://version-gem.galtzo.com"
+# Template source inventory.
+# The packaged inventory is the canonical kettle-jem project template. It
+# includes the detailed GitHub Actions workflow set, modular gemfiles,
+# README badges, license files, config files, and support scripts.
+templates:
+  root: packaged
+  apply: true
+  # Template recipe profile.
+  # Supported values:
+  #   full            - full gem template
+  #   monorepo-subgem - smaller sub-project template
+  #   monorepo-root   - repository-root support template
+  #
+  # ENV override: KETTLE_JEM_TEMPLATE_PROFILE
+  profile: "full"
+# StructuredMerge Git diff driver setup.
+# Default: semantic-diff installs local .gitattributes entries for semantic
+# structured diffs. Use builtin-diff to retain Git's built-in language drivers,
+# global to register driver commands in user config, include-file to write
+# .git/smorg/config, check to verify setup, undo to remove managed entries, or
+# none to opt out.
+# ENV override: KETTLE_JEM_GIT_DRIVERS
+git_drivers: semantic-diff
 # Optional kettle-jem plugins.
 # Each entry is a gem name. During bootstrap, kettle-jem ensures each plugin is
 # added as a development dependency so it is available after bin/setup.
@@ -209,6 +368,7 @@ tokens:
     orcid: "0009-0008-8519-441X"                                # ORCID identifier only, not the full URL. Example: 0000-0001-2345-6789. ENV: KJ_AUTHOR_ORCID
 
   funding:
+    open_collective: "galtzo-floss" # Open Collective slug, true to enable with ENV/.opencollective.yml, false to disable. ENV: OPENCOLLECTIVE_HANDLE or FUNDING_ORG
     patreon: "galtzo"        # Patreon account slug only. Used as https://patreon.com/<value>. ENV: KJ_FUNDING_PATREON
     kofi: "pboling"           # Ko-fi handle/slug only. Used as https://ko-fi.com/<value>. ENV: KJ_FUNDING_KOFI
     paypal: "peterboling"         # PayPal.Me slug only. Used as https://www.paypal.com/paypalme/<value>. ENV: KJ_FUNDING_PAYPAL
@@ -232,6 +392,10 @@ patterns:
 # Only files that need overrides belong here. Everything else defaults to merge.
 files:
   AGENTS.md:
+    strategy: accept_template
+  Appraisal.root.gemfile:
+    strategy: accept_template
+  Rakefile:
     strategy: accept_template
   .github:
     copilot_instructions.md:
@@ -267,7 +431,7 @@ files:
 #     add_template_only_nodes: false
 
 kettle-jem:
-  version: "1.0.0"
+  version: "7.0.0"
   checksums:
     ".aiignore.example": "48a5dfdd93afd1a15fdce39cc28ca9920263f00018b0968ab031fa744521e5ce"
     ".config/mise/env.sh": "aeea5a2ab489ba6e5467ae8de6e386ec8c8fe4ff31a044e69d0cd6a092dd6654"

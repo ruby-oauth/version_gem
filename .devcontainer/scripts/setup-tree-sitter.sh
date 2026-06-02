@@ -25,7 +25,6 @@ BUILD_FROM_SOURCE=false
 TSDL_VERSION="v2.0.0"
 WORKSPACE_ROOT="/workspaces/${PWD##*/}"
 
-# Parse arguments properly using while loop
 while [[ $# -gt 0 ]]; do
   case $1 in
     --sudo)           SUDO="sudo"; shift ;;
@@ -122,10 +121,7 @@ install_tsdl() {
 
 # --- 1. System dependencies ---
 echo "Installing system dependencies..."
-
-echo "Installing tree-sitter system library and dependencies..."
 $SUDO apt-get update -y
-# libtree-sitter-dev is optional when building from source via --build
 if ! $SUDO apt-get install -y \
   build-essential \
   pkg-config \
@@ -152,7 +148,6 @@ if [ "$BUILD_FROM_SOURCE" = true ]; then
   echo "[tree-sitter] --build specified; building runtime from source."
 fi
 
-# Ensure tree-sitter is available; if not, attempt to build from source
 if ! have_tree_sitter; then
   if [ "$BUILD_FROM_SOURCE" = true ]; then
     if ! install_tree_sitter_from_source; then
@@ -177,64 +172,6 @@ fi
 # --- 4. Install tsdl and build grammars ---
 install_tsdl
 
-# Install all tree-sitter grammars for integration testing
-GRAMMARS=("toml" "json" "jsonc" "bash")
-
-TMPDIR=$(mktemp -d)
-trap "rm -rf $TMPDIR" EXIT
-
-for grammar in "${GRAMMARS[@]}"; do
-  echo "Building and installing tree-sitter-${grammar}..."
-  cd "$TMPDIR"
-
-  if ! wget -q "https://github.com/tree-sitter-grammars/tree-sitter-${grammar}/archive/refs/heads/master.zip" -O "${grammar}.zip"; then
-    echo "ERROR: Failed to download tree-sitter-${grammar}" >&2
-    exit 1
-  fi
-
-  if ! unzip -q "${grammar}.zip"; then
-    echo "ERROR: Failed to unzip tree-sitter-${grammar}" >&2
-    exit 1
-  fi
-
-  cd "tree-sitter-${grammar}-master"
-
-  # Compile parser.c
-  if ! gcc -fPIC -I./src -c src/parser.c -o parser.o; then
-    echo "ERROR: Failed to compile parser.c for ${grammar}" >&2
-    exit 1
-  fi
-
-  # Check if scanner exists (not all grammars have scanners)
-  if [ -f src/scanner.c ]; then
-    if ! gcc -fPIC -I./src -c src/scanner.c -o scanner.o; then
-      echo "ERROR: Failed to compile scanner.c for ${grammar}" >&2
-      exit 1
-    fi
-    OBJECTS="parser.o scanner.o"
-  else
-    OBJECTS="parser.o"
-  fi
-
-  # Link object files into shared library
-  if ! gcc -shared -o "libtree-sitter-${grammar}.so" $OBJECTS; then
-    echo "ERROR: Failed to link libtree-sitter-${grammar}.so" >&2
-    exit 1
-  fi
-
-  # Install to system
-  if ! $SUDO cp "libtree-sitter-${grammar}.so" /usr/local/lib/; then
-    echo "ERROR: Failed to copy libtree-sitter-${grammar}.so to /usr/local/lib/" >&2
-    exit 1
-  fi
-
-  echo "  ✓ Installed tree-sitter-${grammar}"
-done
-
-if ! $SUDO ldconfig; then
-  echo "WARNING: ldconfig failed, libraries may not be immediately available" >&2
-fi
-
 echo ""
 echo "Building tree-sitter grammars via tsdl..."
 # Use parsers.toml from the project root if it exists, otherwise build defaults.
@@ -248,12 +185,12 @@ else
 fi
 
 $SUDO ldconfig || echo "WARNING: ldconfig failed" >&2
-echo "tree-sitter setup complete!"
 
+echo ""
+echo "tree-sitter setup complete!"
 echo ""
 echo "Detected library paths:"
 
-# Detect and report tree-sitter runtime library location
 if [ -f /usr/lib/x86_64-linux-gnu/libtree-sitter.so.0 ]; then
   echo "  TREE_SITTER_RUNTIME_LIB=/usr/lib/x86_64-linux-gnu/libtree-sitter.so.0"
 elif [ -f /usr/lib/x86_64-linux-gnu/libtree-sitter.so ]; then
@@ -265,11 +202,9 @@ elif [ -f /usr/lib/libtree-sitter.so ]; then
 else
   echo "  WARNING: Could not find libtree-sitter runtime library!"
 fi
+
 echo ""
 echo "Grammar libraries:"
-for grammar in "${GRAMMARS[@]}"; do
-  echo "  TREE_SITTER_${grammar^^}_PATH=/usr/local/lib/libtree-sitter-${grammar}.so"
-done
 for lib in /usr/local/lib/libtree-sitter-*.so; do
   [ -f "$lib" ] && echo "  $lib"
 done
