@@ -20,11 +20,36 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- StructuredMerge-managed template configuration under `.structuredmerge/`,
+  including semantic Git diff driver settings and kettle-drift integration.
+- `rubocop-gradual` baseline tracking for style checks.
+
 ### Changed
+
+- Re-templated the project with the current kettle-jem / StructuredMerge
+  template.
+- Development and test dependency floors now use current template floors:
+  `kettle-dev` 2.0.7, `kettle-test` 2.0.3, `kettle-soup-cover` 2.0.0,
+  `turbo_tests2` 3.1.1, `rubocop-lts` 8.3.0, and
+  `rubocop-lts-rspec` 1.0.3.
+- Development and test tooling now targets Ruby 2.4 or newer while the
+  published runtime Ruby requirement remains Ruby 2.2 or newer.
+- RSpec setup now loads `kettle-test` helpers and kettle-soup-cover coverage
+  bootstrap from `spec/spec_helper.rb`.
+- Templating dependencies now load only when `K_JEM_TEMPLATING=true`, with
+  local StructuredMerge and Kettle workspace dependencies wired through
+  `SMORG_RB_DEV`, `KETTLE_RB_DEV`, and `nomono`.
+- Gem metadata and packaging inventory were refreshed by the template,
+  including homepage, wiki, license-file, and packaged file handling.
 
 ### Deprecated
 
 ### Removed
+
+- Removed obsolete CI workflows for Ruby 2.3, JRuby 9.1, TruffleRuby 23.2,
+  CodeQL, framework CI, and Discord notifications.
+- Removed legacy generated binstubs in favor of the current curated
+  `kettle-check-eof`, `kettle-test`, and retained documentation binstubs.
 
 ### Fixed
 
