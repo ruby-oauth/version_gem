@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Fixed the Style workflow RBS validation command so CI uses the bundled `rbs`
+  executable instead of the non-executable `bin/rbs` binstub.
+
 ### Security
 
 ## [1.1.10] - 2026-06-02
