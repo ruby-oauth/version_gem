@@ -419,7 +419,7 @@ end
 
 <p>The Epoch and Major versions are derived from the formula:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_{EPOCH'>{EPOCH</span> <span class='op'>*</span> <span class='int'>1000</span> <span class='op'>+</span> <span class='const'>MAJOR}</span><span class='period'>.</span><span class='const'>MINOR</span><span class='period'>.</span><span class='const'>PATCH</span>
+<pre class="code ruby"><code class="ruby">{EPOCH * 1000 + MAJOR}.MINOR.PATCH
 </code></pre>
 
 <p>This will start your library with the following version segments:</p>
@@ -447,13 +447,13 @@ PATCH: Increment when you make backwards-compatible bug fixes.
 
 <p>You will get the following version segments:</p>
 
-<pre class="code ruby"><code class="ruby">{
-  epoch: 27,
-  major: 16,
-  minor: 42,
-  patch: 86,
-  pre: &quot;pre-7&quot;
-}
+<pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
+  <span class='label'>epoch:</span> <span class='int'>27</span><span class='comma'>,</span>
+  <span class='label'>major:</span> <span class='int'>16</span><span class='comma'>,</span>
+  <span class='label'>minor:</span> <span class='int'>42</span><span class='comma'>,</span>
+  <span class='label'>patch:</span> <span class='int'>86</span><span class='comma'>,</span>
+  <span class='label'>pre:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pre-7</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span>
 </code></pre>
 
 <p>Following the same setup as <a href="#-basic-usage">Basic Usage</a> above (add <code>require "version_gem"</code> at the top of your main lib file), then add the following wherever you want in the same file (recommend the bottom):</p>
@@ -774,16 +774,16 @@ Please consider sponsoring me or the project.</p>
 | Package | version_gem |<br>
 | Description | 🍲 Versions are good. Versions are cool. Versions will win. |<br>
 | Homepage | https://github.com/ruby-oauth/version_gem |<br>
-| Source | https://github.com/ruby-oauth/version_gem/tree/v1.1.9 |<br>
+| Source | https://github.com/ruby-oauth/version_gem/tree/v1.1.10 |<br>
 | License | <code>MIT</code> |<br>
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/ruby-oauth, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/version_gem, https://www.buymeacoffee.com/pboling |<br>
 <!-- kettle-jem:metadata:end --></p>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Jun  2 16:04:40 2026 by
+  Generated on Tue Jun  2 16:57:01 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.44 (ruby-4.0.4).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>
