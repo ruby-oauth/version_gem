@@ -6,7 +6,7 @@ module VersionGem
     RUBY_VER = ::Gem::Version.new(RUBY_VERSION)
 
     def gte_minimum_version?(version, engine = "ruby")
-      RUBY_VER >= ::Gem::Version.new(version) && ::RUBY_ENGINE == engine
+      ::Gem::Version.new(version) <= RUBY_VER && engine == ::RUBY_ENGINE
     end
     module_function :gte_minimum_version?
 
@@ -14,7 +14,7 @@ module VersionGem
       segs = RUBY_VER.segments
       major.to_i == segs[0] &&
         minor.to_i == segs[1] &&
-        ::RUBY_ENGINE == engine
+        engine == ::RUBY_ENGINE
     end
     module_function :actual_minor_version?
   end

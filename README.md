@@ -211,10 +211,10 @@ Your `version.rb` file now abides the Ruby convention of directory / path matchi
 
 ### Epoch Usage (Epoch Semantic Versioning, as of version 1.1.7)
 
-In the standard `bundle gem my_lib` code you get the following in `lib/my_lib/version.rb`:
+In the standard `bundle gem my_epoch_lib` code you get the following in `lib/my_epoch_lib/version.rb`:
 
 ```ruby
-module MyLib
+module MyEpochLib
   VERSION = "0.1.0"
 end
 ```
@@ -222,7 +222,7 @@ end
 Change it to a nested `Version` namespace (the one implied by the path => namespace convention):
 
 ```ruby
-module MyLib
+module MyEpochLib
   module Version
     VERSION = "0.1.0"
   end
@@ -266,7 +266,7 @@ You will get the following version segments:
   major: 16,
   minor: 42,
   patch: 86,
-  pre: "pre-7",
+  pre: "pre-7"
 }
 ```
 

@@ -7,7 +7,7 @@ require "kramdown-parser-gfm"
 class KramdownGfmDocument < Kramdown::Document
   def initialize(source, options = {})
     options[:input] = "GFM" unless options.key?(:input)
-    super(source, options)
+    super
   end
 end
 
@@ -18,5 +18,5 @@ end
 # - https://github.com/lsegal/yard/blob/main/lib/yard/templates/helpers/markup_helper.rb
 YARD::Templates::Helpers::MarkupHelper::MARKUP_PROVIDERS[:markdown].insert(
   0,
-  {const: "KramdownGfmDocument"},
+  {const: "KramdownGfmDocument"}
 )
