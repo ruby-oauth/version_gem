@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 # kettle-jem:freeze
-# To retain chunks of comments & code during version_gem templating:
+# To retain chunks of comments & code during kettle-jem templating:
 # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
-# version_gem will then preserve content between those markers across template runs.
+# kettle-jem will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-# version_gem Rakefile v7.0.0 - 2026-06-02
+# version_gem Rakefile v7.0.0 - 2026-06-06
 # Ruby 2.3 (Safe Navigation) or higher required
 #
 # See LICENSE.md for license information.

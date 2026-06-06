@@ -20,7 +20,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Added the generated `appraisal2` binstub.
+
 ### Changed
+
+- Refreshed generated CI workflows, README support badges, gemspec development
+  dependency floors, and template metadata from the current kettle-jem
+  template.
 
 ### Deprecated
 
