@@ -6,13 +6,10 @@
 # kettle-jem will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-# HOW TO UPDATE APPRAISALS (Appraisal2 RuboCop hooks normalize generated gemfiles on modern Ruby):
+# HOW TO UPDATE APPRAISALS (Appraisal2 RuboCop plugin normalizes generated gemfiles on modern Ruby):
 #   bin/rake appraisal:update
 
-begin
-  require "appraisal2/rubocop"
-rescue LoadError
-end
+plugin "appraisal2-rubocop", require: "appraisal2/rubocop", optional: true
 
 # kettle-jem:freeze
 # To retain chunks of comments & code during version_gem templating:

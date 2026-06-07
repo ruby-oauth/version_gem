@@ -27,6 +27,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Refreshed generated CI workflows, README support badges, gemspec development
   dependency floors, and template metadata from the current kettle-jem
   template.
+- Updated generated Appraisal2 integration to use the `appraisal2-rubocop`
+  plugin DSL and raised the generated `appraisal2` / `appraisal2-rubocop`
+  dependency floors.
 
 ### Deprecated
 

@@ -104,11 +104,11 @@ Gem::Specification.new do |spec|
   # Listed files are the relative paths from bindir above.
   spec.executables = []
 
-# kettle-jem:freeze
-# To retain chunks of comments & code during version_gem templating:
-# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
-# version_gem will then preserve content between those markers across template runs.
-# kettle-jem:unfreeze
+  # kettle-jem:freeze
+  # To retain chunks of comments & code during version_gem templating:
+  # Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+  # version_gem will then preserve content between those markers across template runs.
+  # kettle-jem:unfreeze
 
   spec.require_paths = ["lib"]
 
@@ -140,7 +140,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("require_bench", "~> 1.0", ">= 1.0.4")            # ruby >= 2.2.0
 
   # Testing
-  spec.add_development_dependency("appraisal2", "~> 3.1", ">= 3.1.0")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
+  spec.add_development_dependency("appraisal2", "~> 3.1", ">= 3.1.1")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
   spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.3")             # ruby >= 2.4
   spec.add_development_dependency("turbo_tests2", "~> 3.1", ">= 3.1.1")            # ruby >= 2.4.0, default kettle-test runner
 
