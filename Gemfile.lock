@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    version_gem (1.1.10)
+    version_gem (1.1.11)
 
 GEM
   remote: https://gem.coop/
@@ -535,7 +535,7 @@ CHECKSUMS
   turbo_tests2 (3.1.1) sha256=5b4b03d626f3e5757ef3c450710c9a71f9886f3f421a719e14008ebc1d6b5aa3
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
   unicode-emoji (4.2.0) sha256=519e69150f75652e40bf736106cfbc8f0f73aa3fb6a65afe62fefa7f80b0f80f
-  version_gem (1.1.10)
+  version_gem (1.1.11)
   yaml-converter (0.2.0) sha256=0602148de1664ab701c7938a036987576c55e87fb6d4b3cb0fff19c4f7a91386
   yard (0.9.44) sha256=eb087e9b631ccd887b049f303d489963945452d5e2a7eb49a5a74a7cf6887f28
   yard-fence (0.9.2) sha256=9c74b9986777145b93cb3e1fcb842fffec365a1ff9d5dd2ddc6391fc95a68ac8

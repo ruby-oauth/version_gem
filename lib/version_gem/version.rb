@@ -2,7 +2,7 @@
 
 module VersionGem
   module Version
-    VERSION = "1.1.10"
+    VERSION = "1.1.11"
   end
   VERSION = Version::VERSION # Traditional Constant Location
 end

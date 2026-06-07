@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.1.11] - 2026-06-06
+
+- TAG: [v1.1.11][1.1.11t]
+- COVERAGE: 100.00% -- 58/58 lines in 2 files
+- BRANCH COVERAGE: 0.00% -- 0/0 branches in 2 files
+- 85.19% documented
+
+### Added
+
 - Added the generated `appraisal2` binstub.
 
 ### Changed
@@ -30,14 +49,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - Updated generated Appraisal2 integration to use the `appraisal2-rubocop`
   plugin DSL and raised the generated `appraisal2` / `appraisal2-rubocop`
   dependency floors.
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [1.1.10] - 2026-06-02
 
@@ -293,7 +304,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.10...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.11...HEAD
+[1.1.11]: https://github.com/ruby-oauth/version_gem/compare/v1.1.10...v1.1.11
+[1.1.11t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.11
 [1.1.10]: https://github.com/ruby-oauth/version_gem/compare/v1.1.9...v1.1.10
 [1.1.10t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.10
 [1.1.9]: https://github.com/ruby-oauth/version_gem/compare/v1.1.8...v1.1.9
