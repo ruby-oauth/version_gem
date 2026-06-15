@@ -22,6 +22,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Retemplated repository metadata, workflows, modular gemfiles, and documentation
+  scaffolding with the current `kettle-jem` template.
+
 ### Deprecated
 
 ### Removed

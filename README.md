@@ -425,7 +425,7 @@ and [Tidelift][🏙️entsup-tidelift].
 
 ### Open Collective for Individuals
 
-Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/ruby-oauth#backer)]
+Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/#backer)]
 
 NOTE: [kettle-readme-backers][kettle-readme-backers] updates this list every day, automatically.
 
@@ -435,7 +435,7 @@ No backers yet. Be the first!
 
 ### Open Collective for Organizations
 
-Become a sponsor and get your logo on our README on GitHub with a link to your site. [[Become a sponsor](https://opencollective.com/ruby-oauth#sponsor)]
+Become a sponsor and get your logo on our README on GitHub with a link to your site. [[Become a sponsor](https://opencollective.com/#sponsor)]
 
 NOTE: [kettle-readme-backers][kettle-readme-backers] updates this list every day, automatically.
 
@@ -572,7 +572,7 @@ To join the community or get help 👇️ Join the Discord.
 
 To say "thanks!" ☝️ Join the Discord or 👇️ send money.
 
-[![Sponsor ruby-oauth/version_gem on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
+[![Sponsor /version_gem on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
 
 ### Please give the project a star ⭐ ♥.
 
@@ -583,17 +583,17 @@ Thanks for RTFM. ☺️
 [⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611&style=flat
 [⛳liberapay-bottom-img]: https://img.shields.io/liberapay/goal/pboling.svg?style=for-the-badge&logo=liberapay&color=a51611
 [⛳liberapay]: https://liberapay.com/pboling/donate
-[🖇osc-all-img]: https://img.shields.io/opencollective/all/ruby-oauth
-[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/ruby-oauth
-[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/ruby-oauth
-[🖇osc-backers]: https://opencollective.com/ruby-oauth#backer
-[🖇osc-backers-i]: https://opencollective.com/ruby-oauth/backers/badge.svg?style=flat
-[🖇osc-sponsors]: https://opencollective.com/ruby-oauth#sponsor
-[🖇osc-sponsors-i]: https://opencollective.com/ruby-oauth/sponsors/badge.svg?style=flat
-[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/ruby-oauth?style=for-the-badge
-[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/ruby-oauth?style=for-the-badge
-[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/ruby-oauth?style=for-the-badge
-[🖇osc]: https://opencollective.com/ruby-oauth
+[🖇osc-all-img]: https://img.shields.io/opencollective/all/
+[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/
+[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/
+[🖇osc-backers]: https://opencollective.com/#backer
+[🖇osc-backers-i]: https://opencollective.com//backers/badge.svg?style=flat
+[🖇osc-sponsors]: https://opencollective.com/#sponsor
+[🖇osc-sponsors-i]: https://opencollective.com//sponsors/badge.svg?style=flat
+[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/?style=for-the-badge
+[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/?style=for-the-badge
+[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/?style=for-the-badge
+[🖇osc]: https://opencollective.com/
 [🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
 [🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
 [🖇sponsor]: https://github.com/sponsors/pboling
@@ -796,7 +796,7 @@ Thanks for RTFM. ☺️
 | Package | version_gem |
 | Description | 🍲 Versions are good. Versions are cool. Versions will win. |
 | Homepage | https://github.com/ruby-oauth/version_gem |
-| Source | https://github.com/ruby-oauth/version_gem/tree/v1.1.10 |
+| Source | https://github.com/ruby-oauth/version_gem/tree/v1.1.11 |
 | License | `MIT` |
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/ruby-oauth, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/version_gem, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->

@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.name = "version_gem"
   spec.version = gem_version
   spec.authors = ["Peter H. Boling", "Aboling0"]
-  spec.email = ["floss@galtzo.com", "oauth-ruby@googlegroups.com"]
+  spec.email = ["floss@galtzo.com"]
 
   spec.summary = "🍲 Enhance your VERSION! Sugar for Version modules."
   spec.description = "🍲 Versions are good. Versions are cool. Versions will win."
@@ -47,7 +47,7 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.metadata["homepage_uri"] = "https://version-gem.galtzo.com"
+  spec.metadata["homepage_uri"] = "https://structuredmerge.org"
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
@@ -128,7 +128,7 @@ Gem::Specification.new do |spec|
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 2.1", ">= 2.1.0")      # ruby >= 2.4
+  spec.add_development_dependency("kettle-dev", "~> 2.2", ">= 2.2.9")      # ruby >= 2.4
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
@@ -140,9 +140,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("require_bench", "~> 1.0", ">= 1.0.4")            # ruby >= 2.2.0
 
   # Testing
-  spec.add_development_dependency("appraisal2", "~> 3.1", ">= 3.1.1")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
-  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.3")             # ruby >= 2.4
-  spec.add_development_dependency("turbo_tests2", "~> 3.1", ">= 3.1.1")            # ruby >= 2.4.0, default kettle-test runner
+  spec.add_development_dependency("appraisal2", "~> 3.1", ">= 3.1.2")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.5")             # ruby >= 2.4
+  spec.add_development_dependency("turbo_tests2", "~> 3.1", ">= 3.1.3")            # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
@@ -158,7 +158,7 @@ Gem::Specification.new do |spec|
   # This means we have no choice but to use the erb that shipped with Ruby 2.3
   # /opt/hostedtoolcache/Ruby/2.3.8/x64/lib/ruby/gems/2.3.0/gems/erb-2.2.2/lib/erb.rb:670:in `prepare_trim_mode': undefined method `match?' for "-":String (NoMethodError)
   # spec.add_development_dependency("erb", ">= 2.2")                                  # ruby >= 2.3.0, not SemVer, old rubies get dropped in a patch.
-  spec.add_development_dependency("gitmoji-regex", "~> 2.0", ">= 2.0.1")            # ruby >= 2.4
+  spec.add_development_dependency("gitmoji-regex", "~> 2.0", ">= 2.0.2")            # ruby >= 2.4
 
   # HTTP recording for deterministic specs
   # In Ruby 3.5 (HEAD) the CGI library has been pared down, so we also need to depend on gem "cgi" for ruby@head
