@@ -22,19 +22,30 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Retemplated repository metadata, workflows, modular gemfiles, and documentation
-  scaffolding with the current `kettle-jem` template.
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+### Security
+
+## [1.1.12] - 2026-06-14
+
+- TAG: [v1.1.12][1.1.12t]
+- COVERAGE: 100.00% -- 58/58 lines in 2 files
+- BRANCH COVERAGE: 0.00% -- 0/0 branches in 2 files
+- 85.19% documented
+
+### Changed
+
+- Retemplated repository metadata, workflows, modular gemfiles, and documentation
+  scaffolding with the current `kettle-jem` template.
+
+### Fixed
+
 - Restored `docs/CNAME` so the generated documentation site keeps its custom domain.
 - Corrected misspelled contact metadata to use `galtzo.com`.
-
-### Security
 
 ## [1.1.11] - 2026-06-06
 
@@ -310,7 +321,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.11...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.12...HEAD
+[1.1.12]: https://github.com/ruby-oauth/version_gem/compare/v1.1.11...v1.1.12
+[1.1.12t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.12
 [1.1.11]: https://github.com/ruby-oauth/version_gem/compare/v1.1.10...v1.1.11
 [1.1.11t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.11
 [1.1.10]: https://github.com/ruby-oauth/version_gem/compare/v1.1.9...v1.1.10
