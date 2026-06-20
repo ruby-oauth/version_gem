@@ -1,17 +1,23 @@
 # frozen_string_literal: true
 
-# Config for development dependencies of this library
-# i.e., not configured by this library
-#
 # SimpleCov & related config (must run BEFORE any other requires)
-# NOTE: Gemfiles for non-coverage appraisals may not have kettle-soup-cover.
-#       The rescue LoadError handles that scenario.
 begin
-  require "kettle-soup-cover"
-  require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
-rescue LoadError => error
-  # check the error message and re-raise when unexpected
-  raise error unless error.message.include?("kettle")
+  # kettle-soup-cover does not require "simplecov", but
+  #   we do that next, and that has a side effect of running `.simplecov`
+  # Also, we must avoid loading "version_gem" (this gem) via "kettle-soup-cover",
+  #   so instead of the normal kettle-soup-cover, or kettle/soup/cover,
+  #   we do some proper hacking around the internals. Fortunately 2 gems, one author!
+  # require "kettle/soup/cover"
+  require "kettle/change"
+  require "kettle/soup/cover/version"
+  require "kettle/soup/cover/loaders"
+  require "kettle/soup/cover/constants"
+  if Kettle::Soup::Cover::Constants::DO_COV
+    require "simplecov"
+    SimpleCov.start unless defined?(Coverage) && Coverage.running?
+  end
+rescue LoadError
+  nil
 end
 
 # External RSpec & related config
@@ -27,23 +33,6 @@ require_relative "config/rspec/rspec_block_is_expected"
 
 # RSpec Helpers which do not depend on gem internals
 require_relative "helpers/faux"
-
-# Last thing before this gem is code coverage:
-begin
-  # kettle-soup-cover does not require "simplecov", but
-  #   we do that next, and that has a side effect of running `.simplecov`
-  # Also, we must avoid loading "version_gem" (this gem) via "kettle-soup-cover",
-  #   so instead of the normal kettle-soup-cover, or kettle/soup/cover,
-  #   we do some proper hacking around the internals. Fortunately 2 gems, one author!
-  # require "kettle/soup/cover"
-  require "kettle/change"
-  require "kettle/soup/cover/version"
-  require "kettle/soup/cover/loaders"
-  require "kettle/soup/cover/constants"
-  require "simplecov" if Kettle::Soup::Cover::Constants::DO_COV
-rescue LoadError
-  nil
-end
 
 # This gem
 require "version_gem"

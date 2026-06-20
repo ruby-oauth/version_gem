@@ -10,8 +10,6 @@ require "kettle/soup/cover/config"
 # (with optional machine-local overrides in `.env.local`).
 # If the values for minimum coverage need to change, they should be changed both there,
 #   and in 2 places in .github/workflows/coverage.yml.
-SimpleCov.start do
-  track_files "lib/**/*.rb"
-  track_files "lib/**/*.rake"
-  track_files "exe/*.rb"
+SimpleCov.configure do
+  cover "lib/**/*.rb", "lib/**/*.rake", "exe/*.rb"
 end
