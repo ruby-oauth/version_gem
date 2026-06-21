@@ -20,11 +20,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- Added support for JRuby 10.1 and TruffleRuby 34.0.
-
 ### Changed
-
-- Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
 
 ### Deprecated
 
@@ -35,11 +31,28 @@ Please file a bug if you notice a violation of semantic versioning.
 - Updated the SimpleCov bootstrap so `.simplecov` remains configuration-only
   and coverage starts before the test harness can load `version_gem`.
 
+### Security
+
+## [1.1.13] - 2026-06-20
+
+- TAG: [v1.1.13][1.1.13t]
+- COVERAGE: 100.00% -- 58/58 lines in 2 files
+- BRANCH COVERAGE: 0.00% -- 0/0 branches in 2 files
+- 85.19% documented
+
+### Added
+
+- Added support for JRuby 10.1 and TruffleRuby 34.0.
+
+### Changed
+
+- Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
+
+### Fixed
+
 - Corrected RubyGems homepage metadata to point at the gem documentation site.
 - Corrected persisted Open Collective metadata to use the `ruby-oauth`
   collective.
-
-### Security
 
 ## [1.1.12] - 2026-06-14
 
@@ -332,7 +345,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.12...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.13...HEAD
+[1.1.13]: https://github.com/ruby-oauth/version_gem/compare/v1.1.12...v1.1.13
+[1.1.13t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.13
 [1.1.12]: https://github.com/ruby-oauth/version_gem/compare/v1.1.11...v1.1.12
 [1.1.12t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.12
 [1.1.11]: https://github.com/ruby-oauth/version_gem/compare/v1.1.10...v1.1.11
