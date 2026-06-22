@@ -28,16 +28,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Updated the SimpleCov bootstrap so `.simplecov` remains configuration-only
-  and coverage starts before the test harness can load `version_gem`.
-
 ### Security
 
-## [1.1.13] - 2026-06-20
+## [1.1.13] - 2026-06-22
 
 - TAG: [v1.1.13][1.1.13t]
-- COVERAGE: 100.00% -- 58/58 lines in 2 files
-- BRANCH COVERAGE: 0.00% -- 0/0 branches in 2 files
+- COVERAGE: 48.74% -- 58/119 lines in 8 files
+- BRANCH COVERAGE: 0.00% -- 0/4 branches in 8 files
 - 85.19% documented
 
 ### Added
@@ -53,6 +50,9 @@ Please file a bug if you notice a violation of semantic versioning.
 - Corrected RubyGems homepage metadata to point at the gem documentation site.
 - Corrected persisted Open Collective metadata to use the `ruby-oauth`
   collective.
+
+- Updated the SimpleCov bootstrap so `.simplecov` remains configuration-only
+  and coverage starts before the test harness can load `version_gem`.
 
 ## [1.1.12] - 2026-06-14
 
