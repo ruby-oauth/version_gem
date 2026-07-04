@@ -9,7 +9,6 @@
 source "https://gem.coop"
 
 git_source(:codeberg) { |repo_name| "https://codeberg.org/#{repo_name}" }
-
 git_source(:gitlab) { |repo_name| "https://gitlab.com/#{repo_name}" }
 
 #### IMPORTANT #######################################################
@@ -23,8 +22,11 @@ gemspec
 nomono_requirements = ["~> 1.0", ">= 1.0.7"]
 gem "nomono", *nomono_requirements, require: false # ruby >= 2.2
 
-platform :mri do
-end
+# Templating (env-switched: SMORG_RB_DEV=/path/to/structuredmerge/ruby/gems for local paths)
+eval_gemfile "gemfiles/modular/templating.gemfile" if ENV.fetch("K_JEM_TEMPLATING", "false").casecmp("true").zero?
+
+# Debugging
+eval_gemfile "gemfiles/modular/debug.gemfile"
 
 # Code Coverage (env-switched: KETTLE_RB_DEV=true for local paths)
 eval_gemfile "gemfiles/modular/coverage.gemfile"
@@ -43,9 +45,3 @@ eval_gemfile "gemfiles/modular/x_std_libs.gemfile"
 
 # See unlocked_deps appraisal for more details on irb inclusion
 gem "irb", "~> 1.17" # ruby >= 2.7
-
-# Templating (env-switched: SMORG_RB_DEV=/path/to/structuredmerge/ruby/gems for local paths)
-eval_gemfile "gemfiles/modular/templating.gemfile" if ENV.fetch("K_JEM_TEMPLATING", "false").casecmp("true").zero?
-
-# Debugging
-eval_gemfile "gemfiles/modular/debug.gemfile"
