@@ -28,9 +28,18 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Package configured license files in gem release file lists.
-
 ### Security
+
+## [1.1.14] - 2026-07-13
+
+- TAG: [v1.1.14][1.1.14t]
+- COVERAGE: 100.00% -- 119/119 lines in 8 files
+- BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
+- 85.19% documented
+
+### Fixed
+
+- Package configured license files in gem release file lists.
 
 ## [1.1.13] - 2026-06-22
 
@@ -347,7 +356,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.13...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.14...HEAD
+[1.1.14]: https://github.com/ruby-oauth/version_gem/compare/v1.1.13...v1.1.14
+[1.1.14t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.14
 [1.1.13]: https://github.com/ruby-oauth/version_gem/compare/v1.1.12...v1.1.13
 [1.1.13t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.13
 [1.1.12]: https://github.com/ruby-oauth/version_gem/compare/v1.1.11...v1.1.12
