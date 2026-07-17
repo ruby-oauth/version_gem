@@ -129,7 +129,7 @@ Please file a bug if you notice a violation of semantic versioning.
   bootstrap from `spec/spec_helper.rb`.
 - Templating dependencies now load only when `K_JEM_TEMPLATING=true`, with
   local StructuredMerge and Kettle workspace dependencies wired through
-  `SMORG_RB_DEV`, `KETTLE_RB_DEV`, and `nomono`.
+  `SMORG_RB_DEV`, `KETTLE_DEV_DEV`, and `nomono`.
 - Gem metadata and packaging inventory were refreshed by the template,
   including homepage, wiki, license-file, and packaged file handling.
 
