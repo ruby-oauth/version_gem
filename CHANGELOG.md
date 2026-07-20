@@ -22,11 +22,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- kettle-jem-template-20260716-001 - Shim gemspec manifests now include
-  `LICENSE.md` instead of nonexistent `LICENSE.txt`.
-- kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
-  repository-only files by default to reduce downstream distro packaging churn.
-
 ### Deprecated
 
 ### Removed
@@ -34,6 +29,20 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [1.1.15] - 2026-07-19
+
+- TAG: [v1.1.15][1.1.15t]
+- COVERAGE: 100.00% -- 119/119 lines in 8 files
+- BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
+- 85.19% documented
+
+### Changed
+
+- kettle-jem-template-20260716-001 - Shim gemspec manifests now include
+  `LICENSE.md` instead of nonexistent `LICENSE.txt`.
+- kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
+  repository-only files by default to reduce downstream distro packaging churn.
 
 ## [1.1.14] - 2026-07-13
 
@@ -361,7 +370,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.14...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.15...HEAD
+[1.1.15]: https://github.com/ruby-oauth/version_gem/compare/v1.1.14...v1.1.15
+[1.1.15t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.15
 [1.1.14]: https://github.com/ruby-oauth/version_gem/compare/v1.1.13...v1.1.14
 [1.1.14t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.14
 [1.1.13]: https://github.com/ruby-oauth/version_gem/compare/v1.1.12...v1.1.13
