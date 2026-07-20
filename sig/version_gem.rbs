@@ -1,2 +1,74 @@
 module VersionGem
+  module Api
+    # Internal memoized version string segments
+    @_to_a: Array[String]
+
+    # Memoized components
+    @major: Integer
+    @minor: Integer
+    @patch: Integer
+    @pre: String?
+    @to_a: Array[Integer | String | nil]
+    @to_h: Hash[Symbol, (Integer | String | nil)]
+
+    # Public API
+    def to_s: () -> String
+    def major: () -> Integer
+    def minor: () -> Integer
+    def patch: () -> Integer
+    def pre: () -> String?
+    def to_a: () -> Array[Integer | String | nil]
+    def to_h: () -> Hash[Symbol, (Integer | String | nil)]
+
+    private
+
+    def _to_a: () -> Array[String]
+  end
+
+  module Basic
+    def self.extended: () -> void
+  end
+
+  module Epoch
+    EPOCH_SIZE: Integer
+
+    # Hook used when this module is extended
+    def self.extended: (untyped) -> void
+
+    module OverloadApiForEpoch
+      # The epoch component (derived)
+      def epoch: () -> Integer
+
+      # Override of Api#major returning the derived major component
+      def major: () -> Integer
+
+      # Hash representation including epoch
+      def to_h: () -> Hash[Symbol, (Integer | String | nil)]
+
+      # Array of components [epoch, major, minor, patch, pre]
+      def to_a: () -> Array[Integer | String | nil]
+
+      private
+
+      def _major: () -> Integer
+    end
+  end
+
+  class Error < ::RuntimeError
+  end
+
+  module Ruby
+    RUBY_VER: ::Gem::Version
+
+    # Check if the current Ruby version is >= given version for the engine
+    def self.gte_minimum_version?: (String, ?String) -> bool
+
+    # Check if the current Ruby MAJOR.MINOR equals the given values for the engine
+    def self.actual_minor_version?: ((Integer | String), (Integer | String), ?String) -> bool
+  end
+
+  module Version
+    VERSION: String
+  end
+  VERSION: String
 end

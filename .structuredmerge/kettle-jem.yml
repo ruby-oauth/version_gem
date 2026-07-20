@@ -435,7 +435,7 @@ files:
 #     add_template_only_nodes: false
 
 kettle-jem:
-  version: "7.0.0"
+  version: "7.1.0"
   checksums:
     ".aiignore.example": "48a5dfdd93afd1a15fdce39cc28ca9920263f00018b0968ab031fa744521e5ce"
     ".config/mise/env.sh": "aeea5a2ab489ba6e5467ae8de6e386ec8c8fe4ff31a044e69d0cd6a092dd6654"
