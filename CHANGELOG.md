@@ -20,6 +20,41 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.1.15] - 2026-08-01
+
+- TAG: [v1.1.15][1.1.15t]
+- COVERAGE: 100.00% -- 119/119 lines in 8 files
+- BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
+- 92.59% documented
+
+### Changed
+
+- kettle-jem-template-20260716-001 - Shim gemspec manifests now include
+  `LICENSE.md` instead of nonexistent `LICENSE.txt`.
+- kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
+  repository-only files by default to reduce downstream distro packaging churn.
+
+- kettle-jem-template-20260720-002 - Development Gemfiles now use the released
+  `tree_sitter_language_pack` gem 1.13.3 or newer by default.
+- kettle-jem-template-20260725-002 - Version specs now use `anonymous_loader` to
+  cover `version.rb` without redefining constants, or are removed when version
+  specs are not managed for the project.
+- kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer
+  setup-ruby-flash planning and can prepare appraisal-only jobs without
+  installing the main Gemfile bundle.
+
+### Added
+
 - kettle-jem-template-20260720-001 - READMEs can now display configured
   corporate sponsor logos.
 - kettle-jem-template-20260720-005 - README Support & Community links now
@@ -32,21 +67,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
   project's RubyForum tag as `mailing_list_uri`, and support docs link to the
   tagged RubyForum community alongside Discord.
-
-### Changed
-
-- kettle-jem-template-20260720-002 - Development Gemfiles now use the released
-  `tree_sitter_language_pack` gem 1.13.3 or newer by default.
-- kettle-jem-template-20260725-002 - Version specs now use `anonymous_loader` to
-  cover `version.rb` without redefining constants, or are removed when version
-  specs are not managed for the project.
-- kettle-jem-template-20260728-001 - Generated Ruby workflows now use clearer
-  setup-ruby-flash planning and can prepare appraisal-only jobs without
-  installing the main Gemfile bundle.
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -86,22 +106,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
   relative to the gemspec directory, so release package contents stay correct
   even when the gemspec is loaded from another working directory.
-
-### Security
-
-## [1.1.15] - 2026-07-19
-
-- TAG: [v1.1.15][1.1.15t]
-- COVERAGE: 100.00% -- 119/119 lines in 8 files
-- BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
-- 85.19% documented
-
-### Changed
-
-- kettle-jem-template-20260716-001 - Shim gemspec manifests now include
-  `LICENSE.md` instead of nonexistent `LICENSE.txt`.
-- kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
-  repository-only files by default to reduce downstream distro packaging churn.
 
 ## [1.1.14] - 2026-07-13
 
