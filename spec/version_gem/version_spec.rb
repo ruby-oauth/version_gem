@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "anonymous_loader"
+require "version_gem"
 RSpec.describe VersionGem::Version do
   it_behaves_like "a Version module", described_class
 
