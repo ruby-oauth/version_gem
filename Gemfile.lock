@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/pboling/rubocop-packaging.git
+  revision: 3539ba858d379740d638566faee9e56b2b854145
+  ref: 3539ba858d379740d638566faee9e56b2b854145
+  specs:
+    rubocop-packaging (0.6.0)
+      lint_roller (~> 1.1.0)
+      rubocop (>= 1.72.1, < 2.0)
+
 PATH
   remote: .
   specs:
@@ -11,14 +20,14 @@ GEM
     anonymous_loader (0.1.3)
       version_gem (~> 1.1, >= 1.1.14)
     ansi (1.6.0)
-    appraisal2 (3.2.0)
+    appraisal2 (3.2.2)
       bundler (>= 1.17.3)
       rake (>= 10)
       thor (>= 0.14)
-    appraisal2-rubocop (1.0.0)
-      appraisal2 (>= 3.1.4)
+    appraisal2-rubocop (1.0.1)
+      appraisal2 (>= 3.2.1)
       rubocop (>= 1.0)
-      version_gem (~> 1.1, >= 1.1.14)
+      version_gem (~> 1.1, >= 1.1.15)
     ast (2.4.3)
     backports (3.25.3)
     benchmark (0.5.0)
@@ -95,7 +104,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.21.2)
-    kettle-dev (2.5.18)
+    kettle-dev (2.5.26)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.5)
       kettle-ndjson (~> 0.1, >= 0.1.10)
@@ -103,13 +112,14 @@ GEM
       kettle-test (~> 2.0, >= 2.0.18)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
-    kettle-family (1.2.23)
+    kettle-family (1.2.43)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
-      kettle-dev (~> 2.3, >= 2.5.16)
+      kettle-dev (~> 2.3, >= 2.5.26)
       kettle-test (~> 2.0, >= 2.0.18)
       tsort (~> 0.2)
-      tty-progressbar (~> 0.18)
+      tty-screen (~> 0.8)
+      unicode-display_width (~> 2.6)
     kettle-gha-pins (0.3.6)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
@@ -158,8 +168,6 @@ GEM
     nokogiri (1.19.4-arm-linux-musl)
       racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.19.4-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
@@ -280,9 +288,6 @@ GEM
       rbs (~> 4.0)
       rubocop (>= 1.72.1, < 2.0)
       zlib
-    rubocop-packaging (0.6.0)
-      lint_roller (~> 1.1.0)
-      rubocop (>= 1.72.1, < 2.0)
     rubocop-performance (1.26.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
@@ -413,7 +418,7 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
-  x86_64-darwin
+  x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
 
@@ -421,7 +426,7 @@ DEPENDENCIES
   addressable (>= 2.8, < 3)
   anonymous_loader (~> 0.1, >= 0.1.3)
   appraisal2 (~> 3.2, >= 3.2.0)
-  appraisal2-rubocop (~> 1.0, >= 1.0.0)
+  appraisal2-rubocop (~> 1.0, >= 1.0.1)
   benchmark (~> 0.5, >= 0.5.0)
   bundler-audit (~> 0.9.3)
   cgi (~> 0.5)
@@ -431,7 +436,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.11)
   irb (~> 1.17)
   kettle-dev (~> 2.5, >= 2.5.17)
-  kettle-family (~> 1.2, >= 1.2.23)
+  kettle-family (~> 1.2, >= 1.2.43)
   kettle-soup-cover (~> 3.0, >= 3.0.9)
   kettle-test (~> 2.0, >= 2.0.19)
   kramdown (~> 2.5, >= 2.5.2)
@@ -447,7 +452,7 @@ DEPENDENCIES
   rubocop-lts-rspec (~> 1.0, >= 1.0.5)
   rubocop-minitest (~> 0.40, >= 0.40.0)
   rubocop-on-rbs (~> 2.0, >= 2.0.0)
-  rubocop-packaging (~> 0.6, >= 0.6.0)
+  rubocop-packaging!
   rubocop-ruby2_2 (~> 3.0, >= 3.0.5)
   ruby-progressbar (~> 1.13)
   standard (~> 1.56, >= 1.56.0)
@@ -469,8 +474,8 @@ CHECKSUMS
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
   anonymous_loader (0.1.3) sha256=084a18e2439144d955447dc11dfc982f41fcd1583ad32d4d55151325dc44cb55
   ansi (1.6.0) sha256=ac9ea0c0ea8d32fb4e271348e609963ac78882f34b73836c2a02b3622e666658
-  appraisal2 (3.2.0) sha256=ccd0b767ac4060cd7af6d16747459b6990f49c39c7b4fb1f7d1146b1e97c492f
-  appraisal2-rubocop (1.0.0) sha256=b71410fbb014befda5340605a605b7f6f3f012739baf0acc5b4351b592c3258d
+  appraisal2 (3.2.2) sha256=80b5ad0f1b6cfe47c44237f01f48aa02c2264ca0abc1e47d216a6e4f507cb4a9
+  appraisal2-rubocop (1.0.1) sha256=282d6b7fd9392e5f1e6af9dd6068a2866eb26be1f20a7b7a2c34efbed510d49f
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   backports (3.25.3) sha256=94298d32dc3c40ca15633b54e282780b49e2db0c045f602ea1907e4f63a17235
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
@@ -506,13 +511,13 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
-  kettle-dev (2.5.18)
-  kettle-family (1.2.23)
-  kettle-gha-pins (0.3.6)
-  kettle-ndjson (0.1.11)
-  kettle-rb (0.1.9)
-  kettle-soup-cover (3.0.9)
-  kettle-test (2.0.19)
+  kettle-dev (2.5.26) sha256=824b0e4a7a8833fdd123449874570b4885d47378ba84628b86801def168ef228
+  kettle-family (1.2.43) sha256=0d5d15d7f50f1d941f4fa37d26bdec8a2eaf0414f9217bf93a8fb8eb961c6a5a
+  kettle-gha-pins (0.3.6) sha256=6387ff31f8f665c38acc302962f18a20fe0771038795238f8ebc29c57edffbdd
+  kettle-ndjson (0.1.11) sha256=f09d3d926b0734a1b257109247b919725489b04235a871372e223f46b826a1ca
+  kettle-rb (0.1.9) sha256=6dc58a072d6389a1399288f791819ce8f9e9653cf16767a9edc3a5e8a5127936
+  kettle-soup-cover (3.0.9) sha256=32e3dbb6b15ad46d1ff7ef141597061b686bbfbfa2af71e7fe2e50d47c35f4e7
+  kettle-test (2.0.19) sha256=c3628b910100976bc021d98921489ba77e06f61e1d8a873a0ac3f9dbd5565d70
   kettle-wash (0.1.3) sha256=e9be527e42a9228548580a50f83ca874ac205bb25ffc623cb4b2d6d30b2f9f92
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
@@ -526,10 +531,9 @@ CHECKSUMS
   nokogiri (1.19.4-arm-linux-gnu) sha256=a301313e38bb065d68239e79734bcd6f56fb6efaacebde29e9abf2a4735340ca
   nokogiri (1.19.4-arm-linux-musl) sha256=588923c101bcfa78869734d247d25b598674323e7f22474fc468f6e5647311eb
   nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
-  nokogiri (1.19.4-x86_64-darwin) sha256=7fd17057d3e1f00e9954a74b3cd76595d3d4a5ef233b7ed9599047c204f70551
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
-  nomono (1.1.4)
+  nomono (1.1.4) sha256=460736cab138cea68fb03dd7887ad315d8bcd5ad77b6a7a57866f0079a2cc7ce
   openssl (4.0.2) sha256=1037ad2868ae58df9ad917891c0c0f9815a1172f6846d4bcdd508e4c2ee747c2
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.28.0) sha256=33e6de1484baf2524792d178b0913fc8eb94c628d6cfe45599ad4458c638c970
@@ -570,7 +574,7 @@ CHECKSUMS
   rubocop-md (2.0.4) sha256=0d076b6b5e99dea2ddc928c4bd702497decb9a8400da7808091e02ebcafcfb93
   rubocop-minitest (0.40.0) sha256=353c698199115f12151144cf0b5a96f69bb9d77b660cf6536df2c4250c672a9d
   rubocop-on-rbs (2.0.0) sha256=ce74d1b3d5daead19f4b611623656c185821dfc9aed9c7079bb1e5d7d7c464be
-  rubocop-packaging (0.6.0) sha256=fb92bd0fb48e6f8cdb1648d2249b0cd51c2497dcc87340132d22f01edbf558a7
+  rubocop-packaging (0.6.0)
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
   rubocop-rake (0.7.1) sha256=3797f2b6810c3e9df7376c26d5f44f3475eda59eb1adc38e6f62ecf027cbae4d
   rubocop-rspec (3.10.2) sha256=0b3e2ecc592cd10ecbf0095bb58d1e357905276e069643523cc19eb7495f65e2
