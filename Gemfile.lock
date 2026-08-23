@@ -104,7 +104,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.21.2)
-    kettle-dev (3.0.7)
+    kettle-dev (3.0.8)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.13)
       kettle-ndjson (~> 0.1, >= 0.1.12)
@@ -112,10 +112,10 @@ GEM
       kettle-test (~> 2.0, >= 2.0.20)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
-    kettle-family (1.2.55)
+    kettle-family (1.2.58)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
-      kettle-dev (>= 3.0.7, < 4.0.0)
+      kettle-dev (>= 3.0.8, < 4.0.0)
       kettle-test (~> 2.0, >= 2.0.20)
       tsort (~> 0.2)
       tty-screen (~> 0.8)
@@ -436,7 +436,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.11)
   irb (~> 1.17)
   kettle-dev (~> 3.0, >= 3.0.6)
-  kettle-family (~> 1.2, >= 1.2.55)
+  kettle-family (~> 1.2, >= 1.2.58)
   kettle-soup-cover (~> 3.0, >= 3.0.9)
   kettle-test (~> 2.0, >= 2.0.19)
   kramdown (~> 2.5, >= 2.5.2)
@@ -511,8 +511,8 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
-  kettle-dev (3.0.7) sha256=cf085b1e34dcca366cfabc70b01fe78e483f3175d78c37c7645376df826f3b09
-  kettle-family (1.2.55) sha256=909618f4ab11db6e17025ece9a3ebb654ff759a7ab5725a8e38c8c7e3da3ee4f
+  kettle-dev (3.0.8) sha256=1b6b846b92aa3c60cd888bc13a5dd0e973b90c08966b47a6e5ed1262e2cbcdb8
+  kettle-family (1.2.58) sha256=495304700d3da669ca383eadf5203b10416c6c898aa12eb5235e2b684bfc0369
   kettle-gha-pins (0.3.13) sha256=c393aa90a7c78248d42fd63b2f4abfb0ca39df94a7b0d8f53082fa3ffdaa3f80
   kettle-ndjson (0.1.12) sha256=9c506b197c1b95904227876890a5b1a55a5f435f1c425857036e7fab83d152e5
   kettle-rb (0.1.10) sha256=98fadfb0baf6a655132e651079bd4e499135b9db10e2c751212739b06b9acb01
