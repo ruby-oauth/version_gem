@@ -157,7 +157,7 @@ GEM
       ast-crispr-markdown-markly (~> 7.1, >= 7.1.1)
       kettle-dev (>= 3.0.19, < 4.0.0)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-dev (3.0.24)
+    kettle-dev (3.0.25)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.14)
       kettle-ndjson (~> 0.1, >= 0.1.14)
@@ -165,11 +165,11 @@ GEM
       kettle-test (~> 2.0, >= 2.0.21)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
-    kettle-family (1.2.74)
+    kettle-family (1.2.75)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
       kettle-changelog (~> 1.0, >= 1.0.7)
-      kettle-dev (>= 3.0.24, < 4.0.0)
+      kettle-dev (>= 3.0.25, < 4.0.0)
       kettle-gha-pins (~> 0.3, >= 0.3.14)
       kettle-jem (~> 7.0, >= 7.0.0)
       kettle-test (~> 2.0, >= 2.0.21)
@@ -594,7 +594,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.11)
   irb (~> 1.17)
   kettle-dev (~> 3.0, >= 3.0.6)
-  kettle-family (~> 1.2, >= 1.2.74)
+  kettle-family (~> 1.2, >= 1.2.75)
   kettle-soup-cover (~> 3.0, >= 3.0.9)
   kettle-test (~> 2.0, >= 2.0.19)
   kramdown (~> 2.5, >= 2.5.2)
@@ -687,8 +687,8 @@ CHECKSUMS
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   json-merge (7.1.4) sha256=70e78f84a1db0ab1145996a79be5f9951fe928aa76288f540c704e48dd431601
   kettle-changelog (1.0.7) sha256=42b9307e46e1e551434e8054ca4f467e8b13b69bd65e5dea4544b279179a50ff
-  kettle-dev (3.0.24) sha256=6bc3122a6b530e66835428527b42fc5f3e0b5eee2c720e80e35650c61b6e89ae
-  kettle-family (1.2.74) sha256=7e2142716f254ff3d5660b705e067d88d9f2ecd98790976bf8db33d12c3dd46e
+  kettle-dev (3.0.25) sha256=9b81b3dc4c832dcf7c297e91a498a3514e66d4079bb68d0629b456010ab8d177
+  kettle-family (1.2.75) sha256=35ac0a9e24d8f7fe7af6f3003f8fc300e0f858209f4957b990c317035489371c
   kettle-gha-pins (0.3.14) sha256=443a218149d3a2ab300875eb10ef55d5c4bc340bce7ba7caba026e1680dd8c21
   kettle-jem (7.1.6) sha256=937ad7e70c5cf25a47f969bddcc7427a5f99794898f0b6539dd738e0b1aed9a9
   kettle-ndjson (0.1.14) sha256=2901e8f9917637e61f9fa8bd83ccad78fd555e498b7fbe863f7e16fd1e9e412a
