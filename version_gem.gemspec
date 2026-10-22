@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling", "Annibelle Boling"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "🍲 Enhance your VERSION! Sugar for Version modules."
-  spec.description = "🍲 Versions are good. Versions are cool. Versions will win."
+  spec.summary = "🔖 Enhance your VERSION! Sugar for Version modules."
+  spec.description = "🔖 Versions are good. Versions are cool. Versions will win."
   spec.homepage = "https://github.com/ruby-oauth/version_gem"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 2.2.0"
@@ -62,7 +62,7 @@ Gem::Specification.new do |spec|
   gemspec_root = __dir__
   relative_package_path = lambda do |path|
     prefix = "#{gemspec_root}/"
-    (path[0, prefix.length] == prefix) ? path[prefix.length..-1] : path
+    path[0, prefix.length] == prefix ? path[prefix.length..-1] : path
   end
   enumerate_package_glob = lambda do |glob|
     files = []
