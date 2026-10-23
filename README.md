@@ -814,7 +814,7 @@ Thanks for RTFM. ☺️
 | Field | Value |
 |---|---|
 | Package | version_gem |
-| Description | 🍲 Versions are good. Versions are cool. Versions will win. |
+| Description | 🔖 Versions are good. Versions are cool. Versions will win. |
 | Homepage | https://github.com/ruby-oauth/version_gem |
 | Source | https://github.com/ruby-oauth/version_gem |
 | License | `MIT` |
