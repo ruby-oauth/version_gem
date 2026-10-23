@@ -27,6 +27,7 @@ template_state:
     - version_gem.gemspec
     kettle-jem/template:
     - ".git-hooks/prepare-commit-msg"
+    - ".github/workflows/auto-assign.yml"
     - ".github/workflows/coverage.yml"
     - ".github/workflows/current.yml"
     - ".github/workflows/dep-heads.yml"
