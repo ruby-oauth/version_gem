@@ -4,7 +4,7 @@ module VersionGem
   # Version namespace for this gem.
   module Version
     # Current gem version.
-    VERSION = "1.1.15"
+    VERSION = "1.1.16"
   end
   # Current gem version exposed at the traditional constant location.
   VERSION = Version::VERSION # Traditional Constant Location
