@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.1.16] - 2026-10-23
+
+- TAG: [v1.1.16][1.1.16t]
+- COVERAGE: 100.00% -- 119/119 lines in 8 files
+- BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
+- 92.59% documented
+
+### Added
+
 - kettle-jem-template-20260913-001 - Templating now also surfaces a review
   entry in `dependency_conflicts.resolve` when a direct development
   dependency doesn't support one or more of this project's declared
@@ -44,10 +63,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - other (4)
   - workflows (32)
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - kettle-jem-template-20260801-002 - Generated RSpec helpers now normalize
@@ -61,8 +76,6 @@ Please file a bug if you notice a violation of semantic versioning.
   matching Galtzo-hosted asset exists.
 - kettle-jem-template-20260802-001 - Devcontainer JSON files now merge as JSONC,
   preserving comments and trailing commas during template updates.
-
-### Security
 
 ## [1.1.15] - 2026-08-01
 
@@ -94,6 +107,7 @@ Please file a bug if you notice a violation of semantic versioning.
   before generated docs are refreshed.
 - kettle-jem-template-20260727-001 - Spec harness documentation now lists the
   RSpec helpers provided by `kettle-test`.
+
 ### Fixed
 
 - kettle-jem-template-20260720-003 - StructuredMerge Git diff driver config now
@@ -450,7 +464,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.15...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.16...HEAD
+[1.1.16]: https://github.com/ruby-oauth/version_gem/compare/v1.1.15...v1.1.16
+[1.1.16t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.16
 [1.1.15]: https://github.com/ruby-oauth/version_gem/compare/v1.1.14...v1.1.15
 [1.1.15t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.15
 [1.1.14]: https://github.com/ruby-oauth/version_gem/compare/v1.1.13...v1.1.14
