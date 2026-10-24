@@ -132,29 +132,16 @@ work in an untested environment:
 
 ### Enterprise Support
 
-[![Tidelift](https://tidelift.com/badges/package/rubygems/version_gem)](https://tidelift.com/subscription/pkg/rubygems-version_gem?utm_source=rubygems-version_gem&utm_medium=referral&utm_campaign=readme)
+[![Lifted through Tidelift](https://tidelift.com/badges/package/rubygems/version_gem)][🏙️entsup-tidelift-sonar]
 
-Available as part of the Tidelift Subscription.
+Lifted through Tidelift, part of [Sonar][🏙️entsup-tidelift-sonar].
 
-<details markdown="1">
- <summary>Need enterprise-level guarantees?</summary>
-
-The maintainers of this and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use.
-
-[![Get help from me on Tidelift][🏙️entsup-tidelift-img]][🏙️entsup-tidelift]
-
-- 💡Subscribe for support guarantees covering _all_ your FLOSS dependencies
-- 💡Tidelift is part of [Sonar][🏙️entsup-tidelift-sonar]
-- 💡Tidelift pays maintainers to maintain the software you depend on!<br/>📊`@`Pointy Haired Boss: An [enterprise support][🏙️entsup-tidelift] subscription is "[never gonna let you down][🧮kloc]", and *supports* open source maintainers
-
-Alternatively:
+Other support channels:
 
 - [![Ruby Users Forum][✉️ruby-forum-img]][✉️ruby-forum]
 - [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite]
 - [![Get help from me on Upwork][👨🏼‍🏫expsup-upwork-img]][👨🏼‍🏫expsup-upwork]
 - [![Get help from me on Codementor][👨🏼‍🏫expsup-codementor-img]][👨🏼‍🏫expsup-codementor]
-
-</details>
 
 ## ✨ Installation
 
@@ -442,19 +429,18 @@ We welcome both individual and corporate sponsors! We also offer a
 wide array of funding channels to account for your preferences.
 Currently, [Open Collective][🖇osc] is our preferred funding platform.
 
+### Corporate Sponsorship
+
 **If you're working in a company that's making significant use of ruby-oauth tools we'd
 appreciate it if you suggest to your company to become a ruby-oauth sponsor.**
+
+### Individual Support
 
 You can support the development of ruby-oauth tools via
 [GitHub Sponsors][🖇sponsor],
 [Liberapay][⛳liberapay],
-[PayPal][🖇paypal],
-[Open Collective][🖇osc]
-and [Tidelift][🏙️entsup-tidelift].
-
-| 📍 NOTE |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| If doing a sponsorship in the form of donation is problematic for your company <br/> from an accounting standpoint, we'd recommend the use of Tidelift, <br/> where you can get a support-like subscription instead. |
+[Open Collective][🖇osc],
+and [PayPal][🖇paypal].
 
 ### Open Collective for Individuals
 
@@ -670,8 +656,6 @@ Thanks for RTFM. ☺️
 [👨🏼‍🏫expsup-upwork-img]: https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&logo=Upwork&logoColor=white
 [👨🏼‍🏫expsup-codementor]: https://www.codementor.io/peterboling?utm_source=github&utm_medium=button&utm_term=peterboling&utm_campaign=github
 [👨🏼‍🏫expsup-codementor-img]: https://img.shields.io/badge/CodeMentor-Get_Help-1abc9c?style=for-the-badge&logo=CodeMentor&logoColor=white
-[🏙️entsup-tidelift]: https://tidelift.com/subscription/pkg/rubygems-version_gem?utm_source=rubygems-version_gem&utm_medium=referral&utm_campaign=readme
-[🏙️entsup-tidelift-img]: https://img.shields.io/badge/Tidelift_and_Sonar-Enterprise_Support-FD3456?style=for-the-badge&logo=sonar&logoColor=white
 [🏙️entsup-tidelift-sonar]: https://blog.tidelift.com/tidelift-joins-sonar
 [💁🏼‍♂️peterboling]: http://www.peterboling.com
 [🚂railsbling]: http://www.railsbling.com
@@ -818,5 +802,5 @@ Thanks for RTFM. ☺️
 | Homepage | https://github.com/ruby-oauth/version_gem |
 | Source | https://github.com/ruby-oauth/version_gem |
 | License | `MIT` |
-| Funding | https://github.com/sponsors/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/ruby-oauth, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/version_gem, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/ruby-oauth, https://thanks.dev/u/gh/pboling, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->

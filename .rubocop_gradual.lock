@@ -1,5 +1,5 @@
 {
-  "README.md:3533329686": [
-    [347, 1, 29, "Lint/MisplacedMagicComment: The `frozen_string_literal` magic comment is ignored after any code.", 92395550]
+  "README.md:2066557341": [
+    [334, 1, 29, "Lint/MisplacedMagicComment: The `frozen_string_literal` magic comment is ignored after any code.", 92395550]
   ]
 }
