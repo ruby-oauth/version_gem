@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.1.17] - 2026-10-25
+
+- TAG: [v1.1.17][1.1.17t]
+- COVERAGE: 100.00% -- 119/119 lines in 8 files
+- BRANCH COVERAGE: 100.00% -- 4/4 branches in 8 files
+- 92.59% documented
+
+### Added
+
 - kettle-jem-template-20260720-001 - READMEs can now display configured
   corporate sponsor logos.
 
@@ -34,14 +53,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (1)
   - other (1)
   - workflows (1)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [1.1.16] - 2026-10-23
 
@@ -477,7 +488,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release, with basic version parsing API (@pboling)
 
-[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.16...HEAD
+[Unreleased]: https://github.com/ruby-oauth/version_gem/compare/v1.1.17...HEAD
+[1.1.17]: https://github.com/ruby-oauth/version_gem/compare/v1.1.16...v1.1.17
+[1.1.17t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.17
 [1.1.16]: https://github.com/ruby-oauth/version_gem/compare/v1.1.15...v1.1.16
 [1.1.16t]: https://github.com/ruby-oauth/version_gem/releases/tag/v1.1.16
 [1.1.15]: https://github.com/ruby-oauth/version_gem/compare/v1.1.14...v1.1.15
