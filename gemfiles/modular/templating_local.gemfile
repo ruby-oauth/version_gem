@@ -76,7 +76,7 @@ structuredmerge_local_gems = %w[
 ]
 
 kettle_dev_local_gems = %w[
-  kettle-dev kettle-family kettle-rb kettle-test kettle-soup-cover kettle-changelog kettle-drift
+  kettle-deps-floor kettle-dev kettle-family kettle-rb kettle-test kettle-soup-cover kettle-changelog kettle-drift
 ]
 shared_nomono_options = {
   vendored_gems_env: "VENDORED_GEMS",
