@@ -11,7 +11,7 @@
 `if ci_badges.map(&:color).all? { it == "green"}` 👇️ send money so I can do more of this. FLOSS maintenance is now my full-time job.
 
 [![OpenCollective Backers][🖇osc-backers-i]][🖇osc-backers] [![OpenCollective Sponsors][🖇osc-sponsors-i]][🖇osc-sponsors] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Donate on PayPal][🖇paypal-img]][🖇paypal] [![Buy me a coffee][🖇buyme-small-img]][🖇buyme] [![Donate at ko-fi.com][🖇kofi-img]][🖇kofi]
-<p><sub>Corporate sponsor: <a href="https://serpapi.com"><img alt="SerpApi" src="https://serpapi.com/assets/media_kit/logo-with-wordmark.svg" height="24"/></a> <a href="#-floss-funding">Become a sponsor</a></sub></p>
+<p><sub>Corporate sponsors: <a href="https://alpha-omega.dev"><img alt="Alpha-Omega" src="https://alpha-omega.dev/wp-content/uploads/sites/22/2023/05/logo.svg" height="24"/></a> <a href="https://serpapi.com"><img alt="SerpApi" src="https://serpapi.com/assets/media_kit/logo-with-wordmark.svg" height="24"/></a> <a href="#-floss-funding">Become a sponsor</a></sub></p>
 
 <details markdown="1">
  <summary>👣 How will this project approach the September 2025 hostile takeover of RubyGems? 🚑️</summary>
@@ -412,6 +412,7 @@ Currently, [Open Collective][🖇osc] is our preferred funding platform.
 
 ### Corporate Sponsorship
 
+- <a href="https://alpha-omega.dev"><img alt="Alpha-Omega" src="https://alpha-omega.dev/wp-content/uploads/sites/22/2023/05/logo.svg" height="32"/></a> [Alpha-Omega](https://alpha-omega.dev) — backed by [Amazon Web Services](https://aws.amazon.com), [Google](https://www.google.com), [Microsoft](https://www.microsoft.com), [Anthropic](https://www.anthropic.com), [OpenAI](https://openai.com), [Citi](https://www.citigroup.com), [GitHub](https://github.com)
 - <a href="https://serpapi.com"><img alt="SerpApi" src="https://serpapi.com/assets/media_kit/logo-with-wordmark.svg" height="32"/></a> [SerpApi](https://serpapi.com)
 
 **If you're working in a company that's making significant use of ruby-oauth tools we'd
