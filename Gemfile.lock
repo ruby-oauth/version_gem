@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    version_gem (1.1.16)
+    version_gem (1.1.17)
 
 PATH
   remote: /var/home/pboling/src/my/kettle-dev/kettle-changelog
@@ -1062,7 +1062,7 @@ CHECKSUMS
   turbo_tests2 (4.0.0) sha256=a01c2e29eeca973946bcca8fed10366ffad34622b9fa85d4cb8ebf14f429aebd
   typescript-merge (7.1.16)
   unicode-display_width (2.6.0) sha256=12279874bba6d5e4d2728cef814b19197dbb10d7a7837a869bab65da943b7f5a
-  version_gem (1.1.16)
+  version_gem (1.1.17)
   webrick (1.9.2) sha256=beb4a15fc474defed24a3bda4ffd88a490d517c9e4e6118c3edce59e45864131
   yaml-converter (0.2.7) sha256=aa6cae4a9f41ab909c39e4185911c7c3b0a196ae33439ec721aa17631e6d1b3d
   yaml-merge (7.1.16)
