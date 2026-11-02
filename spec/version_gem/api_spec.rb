@@ -52,5 +52,15 @@ RSpec.describe(VersionGem::Api) do
       version_module.patch
       version_module.pre
     end
+
+    context "without a pre-release" do
+      let(:version_string) { "1.2.3".dup }
+
+      it "looks up the pre-release only once" do
+        expect(version_module).to(receive(:_to_a).once.and_call_original)
+
+        3.times { version_module.pre }
+      end
+    end
   end
 end

@@ -29,6 +29,7 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 - `_to_a` now memoizes the split version string, so `VERSION` is split once instead of on every component lookup
+- `pre` now caches a `nil` pre-release, so versions without a suffix no longer re-run the lookup on every call
 
 ### Security
 
