@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- `_to_a` now memoizes the split version string, so `VERSION` is split once instead of on every component lookup
+
 ### Security
 
 ## [1.1.17] - 2026-10-25

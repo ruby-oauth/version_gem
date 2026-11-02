@@ -63,7 +63,7 @@ module VersionGem
     #
     # @return [Array<String>]
     def _to_a
-      @_to_a = self::VERSION.split(".")
+      @_to_a ||= self::VERSION.split(".")
     end
   end
 end
