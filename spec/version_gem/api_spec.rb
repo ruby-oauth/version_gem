@@ -34,4 +34,33 @@ RSpec.describe(VersionGem::Api) do
       expect(under_test.to_a).to(eq([12, 34, 56, "pre-78"]))
     end
   end
+
+  context "when memoizing lookups" do
+    let(:version_string) { "1.2.3.pre-78".dup }
+    let(:version_module) do
+      Module.new.tap do |mod|
+        mod.const_set(:VERSION, version_string)
+        mod.extend(described_class)
+      end
+    end
+
+    it "splits the version string only once across component lookups" do
+      expect(version_string).to(receive(:split).once.and_call_original)
+
+      version_module.major
+      version_module.minor
+      version_module.patch
+      version_module.pre
+    end
+
+    context "without a pre-release" do
+      let(:version_string) { "1.2.3".dup }
+
+      it "looks up the pre-release only once" do
+        expect(version_module).to(receive(:_to_a).once.and_call_original)
+
+        3.times { version_module.pre }
+      end
+    end
+  end
 end

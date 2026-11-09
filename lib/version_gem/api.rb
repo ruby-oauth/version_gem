@@ -35,7 +35,9 @@ module VersionGem
     #
     # @return [String, NilClass]
     def pre
-      @pre ||= _to_a[3]
+      return @pre if defined?(@pre)
+
+      @pre = _to_a[3]
     end
 
     # The version number as a hash
@@ -63,7 +65,7 @@ module VersionGem
     #
     # @return [Array<String>]
     def _to_a
-      @_to_a = self::VERSION.split(".")
+      @_to_a ||= self::VERSION.split(".")
     end
   end
 end
