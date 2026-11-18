@@ -18,6 +18,7 @@ FLOSS_CFG_FUND_DEBUG = "false"
 FLOSS_CFG_FUND_LOGFILE = "tmp/log/debug.log"
 OPENCOLLECTIVE_HANDLE = "ruby-oauth"
 FUNDING_ORG = "ruby-oauth"
+K_SOUP_COV_MIN_STRICT = "false"
 _.path = ["exe", "bin"]
 _.file = { path = ".env.local", redact = true }
 _.source = ".config/mise/env.sh"
