@@ -24,7 +24,7 @@ gem_version =
 Gem::Specification.new do |spec|
   spec.name = "version_gem"
   spec.version = gem_version
-  spec.authors = ["Peter H. Boling", "Annibelle Boling"]
+  spec.authors = ["Peter H. Boling", "Annibelle Boling", "joe-sharp"]
   spec.email = ["floss@galtzo.com"]
 
   spec.summary = "🔖 Enhance your VERSION! Sugar for Version modules."
@@ -139,7 +139,7 @@ Gem::Specification.new do |spec|
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 3.1", ">= 3.1.29")             # ruby >= 2.4
+  spec.add_development_dependency("kettle-dev", "~> 3.1", ">= 3.1.33")             # ruby >= 2.4
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
